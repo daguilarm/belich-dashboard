@@ -16,31 +16,13 @@ class Billing extends Resources {
     public static $displayInNavigation = true;
 
     /** @var string */
-    public static $group = 'Facturación';
+    public static $group = 'Billing';
 
     /** @var string */
-    public static $label = 'Factura';
+    public static $label = 'Invoice';
 
     /** @var string */
-    public static $pluralLabel = 'Facturas';
-
-    /**
-     * List of emails from users
-     *
-     * @var array
-     */
-    protected $selectNames;
-
-    /**
-     * Generate constructor for the resource
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //Getting data from storage to populate the field
-        $this->selectNames = \App\Models\User::pluck('name', 'name')->toArray();
-    }
+    public static $pluralLabel = 'Invoices';
 
     /**
      * Build the query for the given resource.
@@ -59,46 +41,24 @@ class Billing extends Resources {
      */
     public function fields(Request $request) {
         return [
-            Text::make('Facturación', 'name')
-                ->withRelationship('billing')
-                ->sortable()
-                ->help('this is a help text')
-                ->rules('required'),
             Text::make('id', 'id')
-                ->addClass('text-blue')
                 ->sortable()
-                ->dusk('dusk-example')
-                ->id('id-example')
-                ->rules('required')
-                ->data('value', 1)
-                ->data('text', 'text'),
-            Select::make('Tipo', 'parent_id')
-                ->addClass('text-blue')
-                ->options([1 => 1, 2 => 2]),
-            Text::make('Nombre', 'name')
-                ->disabled()
-                ->sortable()
-                ->help('this is a help text')
                 ->rules('required'),
-            Text::make('email', 'email')
-                ->rules('required', 'email')
-                ->defaultValue('damian@damian.com')
-                ->help('this is a help text'),
-            Text::make('Idioma', 'locale')
-                ->rules('required')
-                ->defaultValue('esT'),
+            Text::make('Billing name', 'billing_name')
+                ->sortable()
+                ->rules('required'),
+            Text::make('N.I.F.', 'billing_nif')
+                ->sortable()
+                ->rules('required'),
+            Text::make('Address', 'billing_address')
+                ->sortable()
+                ->rules('required'),
+            Text::make('Telephone', 'billing_telephone')
+                ->sortable()
+                ->rules('required'),
         ];
     }
 
-    // /**
-    //  * Rewriting the default action buttons
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return Illuminate\Support\Collection
-    //  */
-    // public static function actions(Request $request) {
-    //     return;
-    // }
     /**
      * Set the custom metric cards
      *

@@ -22,13 +22,10 @@ class User extends Resources {
     public static $group = 'Personal';
 
     /** @var string */
-    public static $label = 'Usuario';
+    public static $label = 'User';
 
     /** @var string */
-    public static $pluralLabel = 'Usuarios';
-
-    /** @var string */
-    public static $actions = 'default';
+    public static $pluralLabel = 'Users';
 
     /**
      * List of emails from users
@@ -65,39 +62,20 @@ class User extends Resources {
      */
     public function fields(Request $request) {
         return [
-            Text::make('Facturación', 'billing_name')
-                ->withRelationship('billing')
-                ->help('this is a help text')
-                ->rules('required')
-                ->displayUsing(function($value) {
-                    return strtolower($value);
-                }),
             Text::make('id', 'id')
-                ->addClass('text-blue')
-                ->dusk('dusk-example')
-                ->id('my_example')
-                ->rules('required')
-                ->data('value', 1)
-                ->data('text', 'text')
-                ->resolveUsing(function($model) {
-                    return $model->id . ' - ' . $model->name;
-                }),
-            Select::make('Tipo', 'parent_id')
-                ->addClass('text-blue')
-                ->options([1 => 1, 2 => 2]),
-            Text::make('Nombre', 'name')
-                ->disabled()
-                ->sortable()
-                ->help('this is a help text')
                 ->rules('required'),
+            Text::make('Name', 'name')
+                ->sortable()
+                ->rules('required'),
+            Text::make('Billing name', 'billing_name')
+                ->withRelationship('billing'),
             Text::make('email', 'email')
                 ->rules('required', 'email')
-                ->defaultValue('damian@damian.com')
-                ->sortable()
-                ->help('this is a help text'),
-            Text::make('Idioma', 'locale')
-                ->rules('required')
-                ->defaultValue('esT'),
+                ->sortable(),
+            Text::make('Telephone', 'billing_telephone')
+                ->withRelationship('billing'),
+            Text::make('Address', 'billing_address')
+                ->withRelationship('billing'),
         ];
     }
 
