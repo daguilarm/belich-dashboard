@@ -168,6 +168,19 @@ a {
 .btn-danger:hover {
   background-color: #cc1f1a;
 }
+
+.btn-secondary {
+  background-color: #fff;
+  color: #3490dc;
+  border-width: 1px;
+  border-color: #bcdefa;
+}
+
+.btn-secondary:hover {
+  color: #2779bd;
+  border-width: 1px;
+  border-color: #6cb2eb;
+}
 .form-container {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
@@ -449,8 +462,8 @@ li.logout a:before {
 
 .pagination li.page-item {
   display: block;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   font-size: 1.125rem;
@@ -548,7 +561,7 @@ li.logout a:before {
   content: "\F002";
   font-family: 'Font Awesome 5 Free';
   position: absolute;
-  margin-left: .5rem;
+  margin-left: 1rem;
   margin-top: 1rem;
   font-weight: 700;
   font-size: 1.25rem;

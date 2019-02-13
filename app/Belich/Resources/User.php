@@ -4,8 +4,11 @@ namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
+use Daguilarm\Belich\Fields\Types\Password;
+use Daguilarm\Belich\Fields\Types\PasswordConfirmation;
 use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Resources {
 
@@ -27,11 +30,7 @@ class User extends Resources {
     /** @var string */
     public static $pluralLabel = 'Users';
 
-    /**
-     * List of emails from users
-     *
-     * @var array
-     */
+    /** @var array */
     protected $selectNames;
 
     /**
@@ -63,31 +62,31 @@ class User extends Resources {
     public function fields(Request $request) {
         return [
             Text::make('id', 'id')
-                ->rules('required'),
+                ->rules('required')
+                ->exceptOnForms()
+                ->sortable()
+                ->canSee(function($request) {
+                    return true;
+                }),
             Text::make('Name', 'name')
                 ->sortable()
                 ->rules('required'),
             Text::make('Billing name', 'billing_name')
                 ->withRelationship('billing'),
-            Text::make('email', 'email')
-                ->rules('required', 'email')
+            Text::make('Email', 'email')
+                ->rules('required', 'email', 'unique:users,email')
                 ->sortable(),
+            Password::make('Password', 'password')
+                ->creationRules('required', 'required_with:password_confirmation', 'confirmed', 'min:6')
+                ->updateRules('nullable', 'required_with:password_confirmation', 'same:password_confirmation', 'min:6')
+                ->onlyOnForms(),
+            PasswordConfirmation::make('Password confirmation'),
             Text::make('Telephone', 'billing_telephone')
                 ->withRelationship('billing'),
             Text::make('Address', 'billing_address')
                 ->withRelationship('billing'),
         ];
     }
-
-    // /**
-    //  * Rewriting the default action buttons
-    //  *
-    //  * @param  \Illuminate\Http\Request  $request
-    //  * @return Illuminate\Support\Collection
-    //  */
-    // public static function actions(Request $request) {
-    //     return;
-    // }
 
     /**
      * Set the custom metric cards

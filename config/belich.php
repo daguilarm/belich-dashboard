@@ -34,23 +34,24 @@ return [
     |--------------------------------------------------------------------------
     |
     | These middleware will be assigned to every dashboard route by default.
+    | You can add your own middleware to the list.
+    | Remember that Laravel need the 'web' and 'auth' middleware...
     |
     */
     'middleware' => [
+        'https',
         'web',
         'auth',
-        'https',
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | Belich Authentication Guard
+    | Url allowed parameters
     |--------------------------------------------------------------------------
     |
-    | This configuration option defines the authentication guard that will
-    | be used to protect your Belich routes. This option should match one
-    | of the authentication guards defined in the "auth" config file.
+    | Belich only allows a list of predetermined parameters. If you need your own url
+    | parameters, please, add this to this variable...
     |
     */
-    'guard' => env('BELICH_GUARD', null),
+    'allowedUrlParameters' => [],
 ];

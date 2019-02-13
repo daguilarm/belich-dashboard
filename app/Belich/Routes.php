@@ -8,7 +8,7 @@
 
 /** Belich Routes */
 Route::group([
-        'as' => Utils::basePath() . '.',
+        'as' => Belich::pathName() . '.',
         'middleware' => Belich::middleware(),
     ], function () {
 
@@ -16,6 +16,6 @@ Route::group([
         //Maybe, you can create your own controller or view and start the magic!
         Route::get(Belich::path(), function() {
             return view('belich::pages.dashboard');
-        });
+        })->name('dashboard');
 
 });
