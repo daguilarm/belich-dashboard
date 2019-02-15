@@ -2,13 +2,9 @@
 
 namespace App\Belich;
 
-use Daguilarm\Belich\Components\Navigation;
-use Illuminate\Support\Collection;
-use Spatie\Menu\Html;
-use Spatie\Menu\Link;
-use Spatie\Menu\Menu;
+use Daguilarm\Belich\Components\Navigation\Navbar as BaseNavbar;
 
-class Navbar extends Navigation {
+class Navbar extends BaseNavbar {
 
     /**
      * Generate the navbar
@@ -16,9 +12,17 @@ class Navbar extends Navigation {
      * @param Illuminate\Support\Collection $resources
      * @return void
      */
-    public static function make(Collection $resources)
+    public function get()
     {
-        //Generate the default navbar from the resources
-        return Parent::resourcesForNavigation($resources);
+        //Generate the navbar without resources
+        if(config('belich.navbar') === 'sidebar') {
+            return Parent::navbarWithoutResources()
+                ->menu
+                ->render();
+        }
+
+        return Parent::navbarWithResources()
+            ->menu
+            ->render();
     }
 }

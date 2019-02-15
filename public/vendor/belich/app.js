@@ -10510,34 +10510,7 @@ $.ajaxSetup({
  * It is a great starting point when
  * building robust, powerful web applications using Jquery and Laravel.
  */
-__webpack_require__("./resources/js/components/jquery/defaults.js");
-
-/***/ }),
-
-/***/ "./resources/js/components/jquery/defaults.js":
-/***/ (function(module, exports) {
-
-// import flatpickr from "flatpickr"
-// import Spanish from "flatpickr/dist/l10n/es.js";
-
-/**
- * Default values
- */
-window._path = window.location.origin;
-
-$(function () {
-    "use strict";
-
-    /**
-    * Configure the date
-    */
-
-    if ($.jMaskGlobals) {
-        if ($('.mask-date')) {
-            $('.mask-date').mask('00/00/0000', { placeholder: '__/__/____' });
-        }
-    }
-});
+//require('./components/jquery/defaults.js')
 
 /***/ }),
 

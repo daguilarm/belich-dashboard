@@ -17,5 +17,4 @@ Route::group([
         Route::get(Belich::path(), function() {
             return view('belich::pages.dashboard');
         })->name('dashboard');
-
 });

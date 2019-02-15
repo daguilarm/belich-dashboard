@@ -16,7 +16,7 @@ class Billing extends Resources {
     public static $displayInNavigation = true;
 
     /** @var string */
-    public static $group = 'Billing';
+    public static $icon = 'file-alt';
 
     /** @var string */
     public static $label = 'Invoice';

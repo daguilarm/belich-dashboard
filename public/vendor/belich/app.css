@@ -1,5 +1,6 @@
 :root {
   /*Colors*/
+  --body: rgb(238, 241, 244);
   --black: rgb(34, 41, 47);
   --white: rgb(255, 255, 255);
   --grey: rgb(135, 149, 161);
@@ -30,15 +31,7 @@
   --warning-30: rgba(255, 235, 59, .3);
   --warning: rgb(255, 235, 59);
   /*Html*/
-  --body-bg: var(--10);
-  /*Navbar*/
-  --navbar-bg: var(--primary);
-  --navbar-bg-hover: var(--primary-dark);
-  --navbar-link: var(--white);
-  --navbar-brand-bg: var(--info);
-  --navbar-brand-link-hover: var(--warning);
-  --navbar-logout-bg: var(--danger);
-  --navbar-logout-bg-hover: var(--danger-dark);
+  --body-bg: var(--body);
   /*Breadcrumbs*/
   --breadcrumbs-bg: var(--white);
   --breadcrumbs-current: var(--70);
@@ -59,11 +52,11 @@
   /*Table*/
   --table-bg: var(--white);
   --table-color: var(--80);
-  --table-head-bg: var(--grey);
-  --table-search-bg: var(--info-20);
-  --table-head-color: var(--white);
-  --table-head-link: var(--white);
-  --table-body-tr-hover: var(--info-20);
+  --table-head-bg: var(--info-20);
+  --table-search-bg: var(--white);
+  --table-head-color: var(--grey-dark);
+  --table-head-link: var(--grey);
+  --table-body-tr-hover: var(--5);
   --table-footer-bg: var(--info-20);
   /*Pagination*/
   --pagination-disabled: var(--30);
@@ -90,18 +83,12 @@ body {
 a {
   text-decoration: none;
 }
-
-/* Base container */
-
-.wrap-container {
-  margin: 2rem;
-}
 .nav-breadcrumbs {
   width: 100%;
   margin-bottom: 2rem;
   border-radius: .25rem;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
   background-color: var(--breadcrumbs-bg);
 }
 
@@ -180,6 +167,13 @@ a {
   color: #2779bd;
   border-width: 1px;
   border-color: #6cb2eb;
+}
+.icon {
+  opacity: .5;
+}
+
+.icon-light {
+  opacity: .35;
 }
 .form-container {
   -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
@@ -331,66 +325,35 @@ form.form-container > .form-group option:disabled {
 
 /* Navbar */
 
-nav#navbar {
-  height: 3rem;
-  background-color: var(--navbar-bg);
-}
-
 nav#navbar ul {
   padding: 0;
   margin: 0;
   list-style: none;
   padding: 0;
-  position: relative;
-}
-
-nav#navbar li.brand {
-  display: inline-block;
-  font-weight: 600;
-  margin-right: -4px;
-  background-color: var(--navbar-brand-bg);
-}
-
-nav#navbar li.brand:hover {
-  background-color: var(--navbar-brand-bg);
-}
-
-nav#navbar li.brand a:hover {
-  color: var(--navbar-brand-link-hover);
-}
-
-nav#navbar li.brand .collapse {
-  display: none;
+  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  z-index: 10;
 }
 
 nav#navbar ul li {
   display: inline-block;
-  background-color: var(--navbar-bg);
-}
-
-nav#navbar ul li:hover {
-  background-color: var(--navbar-bg-hover);
-}
-
-nav#navbar ul li.logout {
-  background-color: var(--navbar-logout-bg);
-}
-
-nav#navbar ul li.logout:hover {
-  background-color: var(--navbar-logout-bg-hover);
 }
 
 nav#navbar a {
   display: block;
-  height: 3rem;
+  height: 4rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   font-size: 1rem;
-  line-height: 1.25;
+  line-height: 1;
   text-decoration: none;
-  color: var(--navbar-link);
+}
+
+nav#navbar ul li.sidebar-parent,
+nav#navbar ul li.sidebar-child {
+  font-weight: 500;
 }
 
 /* Hide Dropdowns by Default */
@@ -398,8 +361,14 @@ nav#navbar a {
 nav#navbar ul ul {
   display: none;
   position: absolute;
-  width: 12rem;
-  height: 3rem;
+}
+
+nav#navbar ul ul li {
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
+  width: auto;
+  border-top: 1px solid transparent;
+  min-width: 150px;
 }
 
 /* Display Dropdowns on Hover */
@@ -415,33 +384,20 @@ nav#navbar ul ul li {
   display: block;
 }
 
+/* Fisrt Tier Dropdown */
+
+nav#navbar ul ul li a {
+  height: 3rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 /* Second, Third and more Tiers */
 
 nav#navbar ul ul ul li {
   position: relative;
   top: -3rem;
   left: 12rem;
-}
-
-/* Change this in order to change the Dropdown symbol */
-
-li > a:after {
-  content: ' \F0D7';
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 700;
-}
-
-li > a:only-child:after {
-  content: '';
-}
-
-/* Change this in order to change the logout symbol */
-
-li.logout a:before {
-  content: ' \F2F5';
-  font-family: 'Font Awesome 5 Free';
-  font-weight: 700;
-  margin-right: .25rem;
 }
 /*Pagination*/
 
@@ -476,6 +432,30 @@ li.logout a:before {
 
 .pagination li.page-item a.page-link:hover {
   color: var(--pagination-link-hover);
+}
+nav#sidebar ul {
+  list-style: none;
+  padding: 0;
+  background-color: transparent;
+}
+
+nav#sidebar ul li {
+  margin-left: 1.5rem;
+  font-size: 1.125rem;
+}
+
+nav#sidebar ul li a {
+  background-color: transparent;
+}
+
+nav#sidebar ul li.sidebar-parent {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+nav#sidebar ul li.sidebar-child {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 .table {
   width: 100%;
@@ -542,6 +522,7 @@ li.logout a:before {
           box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
   width: 100%;
   background-color: var(--table-search-bg);
+  margin-bottom: 1px;
 }
 
 .table-search input {

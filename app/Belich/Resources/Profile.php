@@ -4,18 +4,13 @@ namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
-use Daguilarm\Belich\Fields\Types\Password;
-use Daguilarm\Belich\Fields\Types\PasswordConfirmation;
 use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
-class User extends Resources {
+class Profile extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Models\User';
-
-    /** @var array */
-    public static $relationships = ['billing'];
+    public static $model = '\App\Models\Profile';
 
     /** @var bool */
     public static $displayInNavigation = true;
@@ -24,13 +19,13 @@ class User extends Resources {
     public static $group = 'Personal';
 
     /** @var string */
-    public static $icon = 'user-friends';
+    public static $icon = 'cogs';
 
     /** @var string */
-    public static $label = 'User';
+    public static $label = 'Profile';
 
     /** @var string */
-    public static $pluralLabel = 'Users';
+    public static $pluralLabel = 'Profiles';
 
     /** @var array */
     protected $selectNames;
