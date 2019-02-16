@@ -40,12 +40,12 @@
   --breadcrumbs-separator: var(--20);
   /*Forms*/
   --form-bg: var(--white);
-  --form-color: var(--80);
+  --form-color: var(--60);
   --form-help: var(--50);
   --form-input-bg: var(--white);
-  --form-input-border: var(--30);
+  --form-input-border: var(--20);
   --form-input-focus-bg: var(--warning-30);
-  --form-input-focus-border: var(--80);
+  --form-input-focus-border: var(--20);
   --form-input-focus-color: var(--black);
   --form-select-dropdown-icon: var(--80);
   --form-disabled-bg: var(--20);
@@ -93,11 +93,11 @@ a {
 }
 
 .nav-breadcrumbs > ul {
-  list-style: none;
-  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  list-style: none;
+  padding: 0;
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding: 1rem;
@@ -127,15 +127,18 @@ a {
   width: 100%;
   text-align: right;
   padding: 1.5rem;
+  border-top: 1px solid var(--10);
 }
 
 .btn {
   font-weight: 700;
-  padding-top: .5rem;
-  padding-bottom: .5rem;
+  padding-top: .75rem;
+  padding-bottom: .75rem;
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: .25rem;
+  text-align: center;
+  min-width: 120px;
 }
 
 .btn-primary {
@@ -157,16 +160,21 @@ a {
 }
 
 .btn-secondary {
-  background-color: #fff;
-  color: #3490dc;
-  border-width: 1px;
-  border-color: #bcdefa;
-}
-
-.btn-secondary:hover {
+  background-color: #eff8ff;
   color: #2779bd;
   border-width: 1px;
   border-color: #6cb2eb;
+}
+
+.btn-secondary:hover {
+  background-color: #6cb2eb;
+  color: #fff;
+}
+/* Gradients */
+
+.sidebar-gradient {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#3d4852), to(#606f7b));
+  background-image: linear-gradient(#3d4852, #606f7b);
 }
 .icon {
   opacity: .5;
@@ -191,7 +199,7 @@ a {
       -ms-flex-align: center;
           align-items: center;
   padding-top: 2rem;
-  padding-bottom: 1.5rem;
+  padding-bottom: 2rem;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   border-bottom-width: 1px;
@@ -240,10 +248,9 @@ form.form-container > .form-group select {
      -moz-appearance: none;
           appearance: none;
   border-width: 1px;
-  line-height: 1.25;
+  line-height: 2;
   border-radius: .25rem;
-  -webkit-box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
-          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .1);
+  color: #606f7b;
   border-color: var(--form-input-border);
   background-color: var(--form-input-bg);
 }
@@ -514,31 +521,12 @@ nav#sidebar ul li.sidebar-child {
 .table-footer {
   background-color: var(--table-footer-bg);
 }
-.table-search {
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
-  padding: 1rem;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-  width: 100%;
+#table-search {
   background-color: var(--table-search-bg);
-  margin-bottom: 1px;
+  border-bottom: 1px solid var(--10);
 }
 
-.table-search input {
-  padding: .5rem;
-  padding-left: 2rem;
-  margin-top: .5rem;
-  margin-bottom: .5rem;
-  border-radius: .25rem;
-  border-width: 1px;
-  border-color: #dae1e7;
-  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .12), 0 2px 4px 0 rgba(0, 0, 0, .08);
-  width: 16rem;
-}
-
-.table-search .icon-search:before {
+#table-search .icon-search:before {
   content: "\F002";
   font-family: 'Font Awesome 5 Free';
   position: absolute;
@@ -546,7 +534,7 @@ nav#sidebar ul li.sidebar-child {
   margin-top: 1rem;
   font-weight: 700;
   font-size: 1.25rem;
-  color: #b8c2cc;
+  color: #8795a1;
 }
 /**
  * This injects Tailwind's base styles, which is a combination of

@@ -12,6 +12,9 @@ class Profile extends Resources {
     /** @var string [Model path] */
     public static $model = '\App\Models\Profile';
 
+    /** @var array */
+    public static $relationships = ['user'];
+
     /** @var bool */
     public static $displayInNavigation = true;
 
@@ -58,30 +61,16 @@ class Profile extends Resources {
      */
     public function fields(Request $request) {
         return [
-            Text::make('id', 'id')
-                ->rules('required')
-                ->exceptOnForms()
-                ->sortable()
-                ->canSee(function($request) {
-                    return true;
-                }),
-            Text::make('Name', 'name')
-                ->sortable()
-                ->rules('required'),
-            Text::make('Billing name', 'billing_name')
-                ->withRelationship('billing'),
-            Text::make('Email', 'email')
-                ->rules('required', 'email', 'unique:users,email')
+            Text::make('id', 'id'),
+            Text::make('User', 'name')
+                ->withRelationship('user'),
+            Text::make('Nick', 'profile_nick')
                 ->sortable(),
-            Password::make('Password', 'password')
-                ->creationRules('required', 'required_with:password_confirmation', 'confirmed', 'min:6')
-                ->updateRules('nullable', 'required_with:password_confirmation', 'same:password_confirmation', 'min:6')
-                ->onlyOnForms(),
-            PasswordConfirmation::make('Password confirmation'),
-            Text::make('Telephone', 'billing_telephone')
-                ->withRelationship('billing'),
-            Text::make('Address', 'billing_address')
-                ->withRelationship('billing'),
+            Text::make('Avatar', 'profile_avatar'),
+            Text::make('Age', 'profile_age')
+                ->sortable(),
+            Text::make('Locale', 'profile_locale')
+                ->sortable(),
         ];
     }
 

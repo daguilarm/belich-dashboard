@@ -13,16 +13,23 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->delete();
         DB::table('billings')->delete();
+        DB::table('profiles')->delete();
 
         //Create the admin
         $admin = factory(\App\Models\User::class, 'admin')->create();
         $adminBilling = factory(\App\Models\Billing::class)->create([
             'user_id' => $admin->id
         ]);
+        $adminProfile = factory(\App\Models\Profile::class)->create([
+            'user_id' => $admin->id
+        ]);
 
         for($x = 1; $x <= 49; $x++) {
             $user = factory(\App\Models\User::class)->create();
             $userBilling = factory(\App\Models\Billing::class)->create([
+                'user_id' => $user->id
+            ]);
+            $userProfile = factory(\App\Models\Profile::class)->create([
                 'user_id' => $user->id
             ]);
         }

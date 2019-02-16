@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Billing extends Model
+class Profile extends Model
 {
     use SoftDeletes;
 
@@ -23,9 +23,19 @@ class Billing extends Model
      */
     protected $fillable = [
         'user_id',
-        'billing_address',
-        'billing_name',
-        'billing_nif',
-        'billing_telephone'
+        'profile_nick',
+        'profile_avatar',
+        'profile_age',
+        'profile_locale'
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relationships
+    |--------------------------------------------------------------------------
+    */
+    public function user()
+    {
+        return $this->BelongsTo(\App\Models\User::class);
+    }
 }
