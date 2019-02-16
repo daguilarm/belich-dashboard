@@ -2,6 +2,7 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Resources;
@@ -41,9 +42,7 @@ class Billing extends Resources {
      */
     public function fields(Request $request) {
         return [
-            Text::make('id', 'id')
-                ->sortable()
-                ->rules('required'),
+            ID::make('Id'),
             Text::make('Billing name', 'billing_name')
                 ->sortable()
                 ->rules('required'),

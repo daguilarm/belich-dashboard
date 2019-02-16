@@ -2,6 +2,7 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Fields\Types\Password;
@@ -63,13 +64,7 @@ class User extends Resources {
      */
     public function fields(Request $request) {
         return [
-            Text::make('id', 'id')
-                ->rules('required')
-                ->exceptOnForms()
-                ->sortable()
-                ->canSee(function($request) {
-                    return true;
-                }),
+            ID::make('Id'),
             Text::make('Name', 'name')
                 ->sortable()
                 ->rules('required'),

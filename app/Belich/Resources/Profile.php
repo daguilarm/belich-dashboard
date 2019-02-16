@@ -2,6 +2,7 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Resources;
@@ -61,7 +62,7 @@ class Profile extends Resources {
      */
     public function fields(Request $request) {
         return [
-            Text::make('id', 'id'),
+            ID::make('Id'),
             Text::make('User', 'name')
                 ->withRelationship('user'),
             Text::make('Nick', 'profile_nick')
