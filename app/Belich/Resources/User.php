@@ -2,11 +2,12 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Fields\Types\Hidden;
 use Daguilarm\Belich\Fields\Types\ID;
-use Daguilarm\Belich\Fields\Types\Select;
-use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Fields\Types\Password;
 use Daguilarm\Belich\Fields\Types\PasswordConfirmation;
+use Daguilarm\Belich\Fields\Types\Select;
+use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
@@ -68,6 +69,8 @@ class User extends Resources {
             Text::make('Name', 'name')
                 ->sortable()
                 ->rules('required'),
+            Hidden::make('HiddenFieldExample', 'name_hidden')
+                ->defaultValue(10),
             Text::make('Billing name', 'billing_name')
                 ->withRelationship('billing'),
             Text::make('Email', 'email')
