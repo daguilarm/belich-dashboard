@@ -30,7 +30,7 @@ class ProfilePolicy
      */
     public function delete(User $user, Profile $profile)
     {
-        return true;
+        return $user->id === $profile->user_id;
     }
 
     /**
@@ -66,22 +66,23 @@ class ProfilePolicy
      */
     public function update(User $user, Profile $profile)
     {
-        return true;
+        return $user->id === $profile->user_id;
     }
 
     /**
-     * Determine whether the User can view a Profile.
+     * Determine whether the User can view a Profile (show action).
      *
      * @param  \App\Models\User  $user
+     * @param  \App\Models\Profile  $profile
      * @return mixed
      */
-    public function view(User $user)
+    public function view(User $user, Profile $profile)
     {
-       return true;
+       return $user->id === $profile->user_id;
     }
 
     /**
-     * Determine whether the User can view a Profile.
+     * Determine whether the User can view a Profile (index action).
      *
      * @param  \App\Models\User  $user
      * @return mixed
@@ -95,11 +96,10 @@ class ProfilePolicy
      * Determine whether the User can see the trashed Profiles.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Profile  $profile
      * @return mixed
      */
-    public function withTrashed(User $user, Profile $profile)
+    public function withTrashed(User $user)
     {
-        return true;
+        return $user->id === 1;
     }
 }

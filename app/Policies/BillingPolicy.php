@@ -37,10 +37,9 @@ class BillingPolicy
      * Determine whether the User can force delete a Billing.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Billing  $billing
      * @return mixed
      */
-    public function forceDelete(User $user, Billing $model)
+    public function forceDelete(User $user)
     {
         return true;
     }
@@ -49,10 +48,9 @@ class BillingPolicy
      * Determine whether the User can restore a Billing.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Billing  $billing
      * @return mixed
      */
-    public function restore(User $user, Billing $model)
+    public function restore(User $user)
     {
         return true;
     }
@@ -92,13 +90,12 @@ class BillingPolicy
     }
 
     /**
-     * Determine whether the User can see the trashed Billings.
+     * Determine whether the User can see the trashed Profiles.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Billing  $billing
      * @return mixed
      */
-    public function withTrashed(User $user, Billing $model)
+    public function withTrashed(User $user)
     {
         return true;
     }

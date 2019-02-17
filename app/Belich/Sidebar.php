@@ -2,22 +2,19 @@
 
 namespace App\Belich;
 
-use Daguilarm\Belich\Components\Navigation\NavBuilder;
-use Illuminate\Support\Collection;
-use Spatie\Menu\Html;
-use Spatie\Menu\Link;
-use Spatie\Menu\Menu;
+use Daguilarm\Belich\Components\Navigation\Navbar as BaseNavbar;
 
-class Sidebar extends NavBuilder {
+class Sidebar extends BaseNavbar {
 
     /**
      * Generate the navbar
      *
-     * @param Illuminate\Support\Collection $resources
      * @return void
      */
-    public static function make(Collection $resources)
+    public function get()
     {
-
+        return Parent::sidebarWithResources()
+            ->menu
+            ->render();
     }
 }

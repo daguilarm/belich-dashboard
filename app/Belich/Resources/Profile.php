@@ -51,7 +51,8 @@ class Profile extends Resources {
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function indexQuery() {
-        return $this->model();
+        return $this->model()
+            ->whereId(request()->user()->id);
     }
 
     /**
@@ -64,10 +65,17 @@ class Profile extends Resources {
         return [
             ID::make('Id'),
             Text::make('User', 'name')
-                ->withRelationship('user'),
+                ->withRelationship('user')
+                ->data('link', 'http://my.link.com'),
             Text::make('Nick', 'profile_nick')
+                ->displayUsing(function($value) {
+                    return strtoupper($value);
+                })
                 ->sortable(),
-            Text::make('Avatar', 'profile_avatar'),
+            Text::make('Avatar', 'profile_avatar')
+                ->resolveUsing(function($model) {
+                    return $model->id . '-' . $model->profile_avatar;
+                }),
             Text::make('Age', 'profile_age')
                 ->sortable(),
             Text::make('Locale', 'profile_locale')
