@@ -27,6 +27,9 @@ return [
         'not-account'           => "Don't have an account?",
         'password_confirmation' => 'Password confirmation',
     ],
+    'reset' => [
+        'password' => 'Reset Password',
+    ],
     'verify' => [
         'check'   => 'Before proceeding, please check your email for a verification link.',
         'email'   => 'Verify Your Email Address',

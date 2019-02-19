@@ -9,7 +9,7 @@ return [
     */
 
     //Application name
-    'name' => 'Belich Dashboard',
+    'name' => 'Dashboard',
 
     //This is the URI path where application will be accessible from
     'path' => '/dashboard',

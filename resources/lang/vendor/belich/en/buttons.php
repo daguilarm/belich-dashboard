@@ -2,7 +2,9 @@
 
 return [
     'base' => [
-        'logout'  => 'Desconectar',
+        'configure' => 'Configure',
+        'download'  => 'Download',
+        'logout'    => 'Desconectar',
     ],
     'crud' => [
         'create'  => 'New',
