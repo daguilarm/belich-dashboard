@@ -16,6 +16,9 @@ return [
     ],
     'options' => [
         'success' => 'Your setting configuration has been stored!',
+        'fail' => [
+            'class' => 'The Class :value does not exist',
+        ],
     ],
     'resources' => [
         'no_results' => 'No results found for the resource' . ': ' . ':resource.',
