@@ -3,6 +3,7 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Fields\Types\ID;
+use Daguilarm\Belich\Fields\Types\RedirectToAction;
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Resources;
@@ -11,10 +12,16 @@ use Illuminate\Http\Request;
 class Billing extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Models\Billing';
+    public static $model = '\App\Billing';
+
+    /** @var bool */
+    public static $accessToResource = true;
 
     /** @var bool */
     public static $displayInNavigation = true;
+
+    /** @var bool */
+    public static $downloable = true;
 
     /** @var string */
     public static $icon = 'file-alt';
@@ -24,6 +31,9 @@ class Billing extends Resources {
 
     /** @var string */
     public static $pluralLabel = 'Invoices';
+
+    /** @var string */
+    public static $redirectTo = 'index';
 
     /**
      * Build the query for the given resource.

@@ -14,7 +14,7 @@ use Illuminate\Http\Request;
 class User extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Models\User';
+    public static $model = '\App\User';
 
     /** @var array */
     public static $relationships = ['billing'];
@@ -45,7 +45,7 @@ class User extends Resources {
     public function __construct()
     {
         //Getting data from storage to populate the field
-        $this->selectNames = \App\Models\User::pluck('name', 'name')->toArray();
+        $this->selectNames = \App\User::pluck('name', 'name')->toArray();
     }
 
     /**
