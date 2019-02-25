@@ -35,6 +35,9 @@ class User extends Resources {
     public static $pluralLabel = 'Users';
 
     /** @var array */
+    public static $hideMetricsForScreens = ['sm', 'md', 'lg'];
+
+    /** @var array */
     protected $selectNames;
 
     /**
@@ -89,22 +92,26 @@ class User extends Resources {
     }
 
     /**
-     * Set the custom metric cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
-     */
-    public function metrics(Request $request) {
-        return;
-    }
-
-    /**
      * Set the custom cards
      *
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public function cards(Request $request) {
+    public static function cards(Request $request) {
         return;
+    }
+
+    /**
+     * Set the custom metrics cards
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return Illuminate\Support\Collection
+     */
+    public static function metrics(Request $request) {
+        return [
+            new \App\Belich\Metrics\UsersPerMonth($request),
+            new \App\Belich\Metrics\UsersPerDay($request),
+            new \App\Belich\Metrics\UsersPerHour($request),
+        ];
     }
 }

@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(\App\Models\Profile::class, function (Faker $faker) {
+$factory->define(\App\Profile::class, function (Faker $faker) {
     return [
         'profile_nick'             => $faker->word(),
         'profile_avatar'           => $faker->imageUrl(200, 200, 'people') ,

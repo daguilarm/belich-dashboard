@@ -13,7 +13,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(\App\Models\Billing::class, function (Faker $faker) {
+$factory->define(\App\Billing::class, function (Faker $faker) {
     return [
         'billing_address'          => $faker->address,
         'billing_name'             => $faker->name(),

@@ -43,6 +43,26 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Export file (xls, xlsx, csv) from supported drivers
+    |--------------------------------------------------------------------------
+    |
+    | Belich has support for:
+    |
+    | @Driver: Fast Excel
+    | @Github: https://github.com/rap2hpoutre/fast-excel
+    | @value: 'fast-excel'
+    |
+    | @Driver: Laravel Maatwebsite excel (comming soon...)
+    | @Github: https://laravel-excel.maatwebsite.nl/
+    | @value: 'maatwebsite'
+    |
+    */
+    'export' => [
+        'driver' => 'fast-excel',
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
     | Url allowed parameters
     |--------------------------------------------------------------------------
     |
@@ -51,4 +71,33 @@ return [
     |
     */
     'allowedUrlParameters' => [],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Minify html
+    |--------------------------------------------------------------------------
+    |
+    | Belich will minify the html before blade create the cache for the views
+    | The allowed actions for the except are: dashboard, index, edit, create, show,...
+    | For the paths, use only the $request->path().
+    | For example, if the current url is: https://url.com/dashboard/2/users/ the correct path for this url will be: dashboard/2/users
+    | Don't worry about slashes... there is no different between dashboard/2/users or /dashboard/2/users/ for Belich!
+    */
+    'minifyHtml' => [
+        'enable'    => true,
+        'except'  => [
+            'actions' => [],
+            'paths'   => [],
+        ],
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Hide metrics for a different screen sizes
+    |--------------------------------------------------------------------------
+    |
+    | Belich will allow you to hide metrics base on the device and its screen-size: mobile, tables, etc.
+    | The allowed values are: 'sm', 'md', 'lg' and  'xl'
+    */
+    'hideMetricsForScreens' => [],
 ];

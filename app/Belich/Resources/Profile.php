@@ -89,7 +89,7 @@ class Profile extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public function metrics(Request $request) {
+    public static function metrics(Request $request) {
         return;
     }
 
@@ -99,7 +99,7 @@ class Profile extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public function cards(Request $request) {
+    public static function cards(Request $request) {
         return;
     }
 }
