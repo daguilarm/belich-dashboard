@@ -35,9 +35,6 @@ class User extends Resources {
     public static $pluralLabel = 'Users';
 
     /** @var array */
-    public static $hideMetricsForScreens = ['sm', 'md', 'lg'];
-
-    /** @var array */
     protected $selectNames;
 
     /**
@@ -98,7 +95,9 @@ class User extends Resources {
      * @return Illuminate\Support\Collection
      */
     public static function cards(Request $request) {
-        return;
+        return [
+            new \App\Belich\Cards\UserCard($request),
+        ];
     }
 
     /**

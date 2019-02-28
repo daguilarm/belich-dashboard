@@ -9,7 +9,7 @@ return [
     */
 
     //Application name
-    'name' => 'Dashboard',
+    'name' => 'Belich Dashboard',
 
     //This is the URI path where application will be accessible from
     'path' => '/dashboard',
@@ -31,8 +31,6 @@ return [
     |--------------------------------------------------------------------------
     |
     | These middleware will be assigned to every dashboard route by default.
-    | You can add your own middleware to the list.
-    | Remember that Laravel need the 'web' and 'auth' middleware...
     |
     */
     'middleware' => [
@@ -63,6 +61,26 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Hide metrics for a different screen sizes
+    |--------------------------------------------------------------------------
+    |
+    | Belich will allow you to hide metrics base on the device and its screen-size: mobile, tables, etc.
+    | The allowed values are: 'sm', 'md', 'lg' and  'xl'
+    */
+    'hideMetricsForScreens' => [],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Hide cards for a different screen sizes
+    |--------------------------------------------------------------------------
+    |
+    | Belich will allow you to hide cards base on the device and its screen-size: mobile, tables, etc.
+    | The allowed values are: 'sm', 'md', 'lg' and  'xl'
+    */
+    'hideCardsForScreens' => [],
+
+    /*
+    |--------------------------------------------------------------------------
     | Url allowed parameters
     |--------------------------------------------------------------------------
     |
@@ -86,18 +104,8 @@ return [
     'minifyHtml' => [
         'enable'    => true,
         'except'  => [
-            'actions' => [],
-            'paths'   => [],
+            'actions' => [], //['index', 'show']
+            'paths'   => [], //['dashboard/', 'dashboard/users/create']
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Hide metrics for a different screen sizes
-    |--------------------------------------------------------------------------
-    |
-    | Belich will allow you to hide metrics base on the device and its screen-size: mobile, tables, etc.
-    | The allowed values are: 'sm', 'md', 'lg' and  'xl'
-    */
-    'hideMetricsForScreens' => [],
 ];

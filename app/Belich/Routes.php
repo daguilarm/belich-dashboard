@@ -13,8 +13,9 @@ Route::group([
     ], function () {
 
         //Dashboard route
-        //Maybe, you can create your own controller or view and start the magic!
         Route::get(Belich::path(), function() {
             return view('belich::pages.dashboard');
         })->name('dashboard');
+
+        //Maybe, you can create your own controller or view and start the magic!
 });

@@ -14,6 +14,12 @@ return [
             ],
         ],
     ],
+    'delete' => [
+        'selected' => [
+            'title'    => 'Delete selection',
+            'confirm'  => 'Are you sure you want to delete all the selected fields?',
+        ],
+    ],
     'options' => [
         'success' => 'Your setting configuration has been stored!',
         'fail' => [
