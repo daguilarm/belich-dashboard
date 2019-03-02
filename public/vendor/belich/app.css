@@ -408,25 +408,25 @@ input.itoggle.red:checked+label:after {
 
 /*Default form fields*/
 
-form.form-container > .form-group input,
-form.form-container > .form-group select,
-form.form-container > .form-group textarea {
+.form-container > .form-group input,
+.form-container > .form-group select,
+.form-container > .form-group textarea {
   width: 100%;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  line-height: 1.5;
   border-width: 1px;
-  line-height: 2;
   border-radius: .25rem;
-  font-size: 1.125rem;
-  color: #606f7b;
+  color: #8795a1;
+  padding: .75rem;
   border-color: var(--form-input-border);
   background-color: var(--form-input-bg);
 }
 
-form.form-container > .form-group input:focus,
-form.form-container > .form-group select:focus,
-form.form-container > .form-group textarea:focus,
+.form-container > .form-group input:focus,
+.form-container > .form-group select:focus,
+.form-container > .form-group textarea:focus,
 input:focus,
 select:focus,
 textarea:focus {
@@ -439,7 +439,7 @@ textarea:focus {
 
 /*Input fields*/
 
-form.form-container > .form-group input {
+.form-container > .form-group input {
   padding-top: .5rem;
   padding-bottom: .5rem;
   padding-left: 1rem;
@@ -448,7 +448,7 @@ form.form-container > .form-group input {
 
 /*Select fields*/
 
-form.form-container > .form-group select {
+.form-container > .form-group select {
   display: block;
   padding-left: 1rem;
   padding-right: 1rem;
@@ -457,13 +457,13 @@ form.form-container > .form-group select {
   padding-right: 2rem;
 }
 
-form.form-container > .form-group .select-container {
+.form-container > .form-group .select-container {
   display: inline-block;
   position: relative;
   width: 100%;
 }
 
-form.form-container > .form-group .select-container .icon {
+.form-container > .form-group .select-container .icon {
   pointer-events: none;
   position: absolute;
   top: 0;
@@ -480,18 +480,18 @@ form.form-container > .form-group .select-container .icon {
   color: var(--form-select-dropdown-icon);
 }
 
-form.form-container > .form-group p.validation-error {
+.form-container > .form-group p.validation-error {
   color: #e3342f;
   font-weight: 400;
   font-style: italic;
   margin-top: .5rem;
 }
 
-form.form-container > .form-group .disabled,
-form.form-container > .form-group input:disabled,
-form.form-container > .form-group textarea:disabled,
-form.form-container > .form-group select:disabled,
-form.form-container > .form-group option:disabled {
+.form-container > .form-group .disabled,
+.form-container > .form-group input:disabled,
+.form-container > .form-group textarea:disabled,
+.form-container > .form-group select:disabled,
+.form-container > .form-group option:disabled {
   opacity: .5;
   cursor: not-allowed;
   background-color: var(--form-disabled-bg);

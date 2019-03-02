@@ -6,6 +6,7 @@ use Daguilarm\Belich\Fields\Types\Boolean;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\RedirectToAction;
 use Daguilarm\Belich\Fields\Types\Select;
+use Daguilarm\Belich\Fields\Types\Panels;
 use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Fields\Types\TextArea;
 use Daguilarm\Belich\Resources;
@@ -54,25 +55,33 @@ class Billing extends Resources {
      */
     public function fields(Request $request) {
         return [
-            ID::make('Id'),
-            Text::make('Billing name', 'billing_name')
-                ->sortable()
-                ->rules('required'),
-            Boolean::make('Status', 'billing_status')
-                ->sortable(),
-            Text::make('N.I.F.', 'billing_nif')
-                ->sortable()
-                ->rules('required'),
-            Text::make('Telephone', 'billing_telephone')
-                ->sortable()
-                ->rules('required'),
-            Text::make('Address', 'billing_address')
-                ->sortable()
-                ->rules('required'),
-            TextArea::make('Telephone2', 'billing_telephone')
-                ->count(200)
-                ->rules('required')
-                ->addClass('testing-class')
+            Panels::create('Billing Info', function() {
+                return [
+                    ID::make('Id'),
+                    Text::make('Billing name', 'billing_name')
+                        ->sortable()
+                        ->rules('required'),
+                    Boolean::make('Status', 'billing_status')
+                        ->sortable(),
+                    Text::make('N.I.F.', 'billing_nif')
+                        ->sortable()
+                        ->rules('required'),
+                ];
+            }),
+            Panels::create('Personal info', function() {
+                return [
+                    Text::make('Telephone', 'billing_telephone')
+                        ->sortable()
+                        ->rules('required'),
+                    Text::make('Address', 'billing_address')
+                        ->sortable()
+                        ->rules('required'),
+                    TextArea::make('Telephone2', 'billing_telephone')
+                        ->count(200)
+                        ->rules('required')
+                        ->addClass('testing-class')
+                ];
+            }),
         ];
     }
 
