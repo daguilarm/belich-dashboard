@@ -30,7 +30,7 @@ class BillingPolicy
     */
     public function delete(User $user, Billing $billing)
     {
-        return true;
+        return false;
     }
 
     /**

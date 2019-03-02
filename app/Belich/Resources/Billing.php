@@ -2,10 +2,12 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Fields\Types\Boolean;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\RedirectToAction;
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
+use Daguilarm\Belich\Fields\Types\TextArea;
 use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
@@ -56,15 +58,21 @@ class Billing extends Resources {
             Text::make('Billing name', 'billing_name')
                 ->sortable()
                 ->rules('required'),
+            Boolean::make('Status', 'billing_status')
+                ->sortable(),
             Text::make('N.I.F.', 'billing_nif')
-                ->sortable()
-                ->rules('required'),
-            Text::make('Address', 'billing_address')
                 ->sortable()
                 ->rules('required'),
             Text::make('Telephone', 'billing_telephone')
                 ->sortable()
                 ->rules('required'),
+            Text::make('Address', 'billing_address')
+                ->sortable()
+                ->rules('required'),
+            TextArea::make('Telephone2', 'billing_telephone')
+                ->count(200)
+                ->rules('required')
+                ->addClass('testing-class')
         ];
     }
 

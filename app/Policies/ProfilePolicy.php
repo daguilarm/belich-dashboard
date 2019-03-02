@@ -18,7 +18,7 @@ class ProfilePolicy
     */
     public function create(User $user)
     {
-        return true;
+        return false;
     }
 
     /**
@@ -30,7 +30,7 @@ class ProfilePolicy
     */
     public function delete(User $user, Profile $profile)
     {
-        return true;
+        return false;
     }
 
     /**

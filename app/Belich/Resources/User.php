@@ -10,6 +10,7 @@ use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 
 class User extends Resources {
 
@@ -74,7 +75,8 @@ class User extends Resources {
             Text::make('Billing name', 'billing_name')
                 ->withRelationship('billing'),
             Text::make('Email', 'email')
-                ->rules('required', 'email', 'unique:users,email')
+                ->autofocus()
+                ->rules('required', 'email', Rule::unique('users')->ignore($request->user()->id))
                 ->sortable(),
             Password::make('Password', 'password')
                 ->creationRules('required', 'required_with:password_confirmation', 'confirmed', 'min:6')

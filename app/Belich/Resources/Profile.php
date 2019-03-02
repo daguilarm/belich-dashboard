@@ -2,6 +2,7 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Fields\Types\Avatar;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
@@ -72,10 +73,7 @@ class Profile extends Resources {
                     return strtoupper($value);
                 })
                 ->sortable(),
-            Text::make('Avatar', 'profile_avatar')
-                ->resolveUsing(function($model) {
-                    return $model->id . '-' . $model->profile_avatar;
-                }),
+            Avatar::make('Avatar', 'profile_avatar'),
             Text::make('Age', 'profile_age')
                 ->sortable(),
             Text::make('Locale', 'profile_locale')

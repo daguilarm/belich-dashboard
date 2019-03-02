@@ -66,8 +66,7 @@ class UsersPerDay extends Graph {
     public function calculate(Request $request) : array
     {
         return Connection::make(User::class)
-            ->cacheInMinutes(10, $this->urikey())
-            ->thisMonth()
+            ->lastMonth()
             ->totalByDay();
     }
 

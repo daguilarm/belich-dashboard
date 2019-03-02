@@ -1,9 +1,10 @@
 <belich::card width="w-full">
     <slot name="content">
-        <h1>List of users</h1>
-        <div>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        <h1 class="mb-6">List of users</h1>
+        <div class="flex flex-wrap justify-center">
+            @foreach($users as $user)
+                <div class="w-24 m-2 p-2 shadow text-center text-blue bg-grey-ligthest">{{ $user->name }}</div>
+            @endforeach
         </div>
-        <div>{{ $resource }}</div>
     </slot>
 </belich::card>

@@ -69,7 +69,7 @@ class UsersPerHour extends Graph {
     public function calculate(Request $request) : array
     {
         return Connection::make(User::class)
-            ->thisMonth()
+            ->lastMonth()
             ->totalByHour();
     }
 
