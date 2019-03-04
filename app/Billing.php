@@ -28,5 +28,7 @@ class Billing extends Model
         'billing_nif',
         'billing_telephone',
         'billing_status',
+        'billing_date',
+        'billing_year',
     ];
 }

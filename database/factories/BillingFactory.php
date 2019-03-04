@@ -16,10 +16,12 @@ use Illuminate\Support\Arr;
 
 $factory->define(\App\Billing::class, function (Faker $faker) {
     return [
-        'billing_address'          => $faker->address,
-        'billing_name'             => $faker->name(),
-        'billing_nif'              => $faker->swiftBicNumber,
-        'billing_status'           => rand(0, 1),
-        'billing_telephone'        =>  $faker->tollFreePhoneNumber,
+        'billing_address'   => $faker->address,
+        'billing_name'      => $faker->name(),
+        'billing_nif'       => $faker->swiftBicNumber,
+        'billing_status'    => rand(0, 1),
+        'billing_year'      => rand(2000, 2019),
+        'billing_date'      => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'yesterday', $timezone =  config('app.timezone')),
+        'billing_telephone' => $faker->tollFreePhoneNumber,
     ];
 });

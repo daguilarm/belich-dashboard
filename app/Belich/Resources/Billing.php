@@ -4,6 +4,7 @@ namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Fields\Types\Boolean;
 use Daguilarm\Belich\Fields\Types\Coordenates;
+use Daguilarm\Belich\Fields\Types\Date;
 use Daguilarm\Belich\Fields\Types\Decimal;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Number;
@@ -12,6 +13,7 @@ use Daguilarm\Belich\Fields\Types\RedirectToAction;
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Fields\Types\TextArea;
+use Daguilarm\Belich\Fields\Types\Year;
 use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
@@ -78,9 +80,11 @@ class Billing extends Resources {
                         ->toString(),
                 ];
             }),
-            Panels::create('Billing Info 3', function() {
+            Panels::create('Dates', function() {
                 return [
-                    Coordenates::make('Position', 'position')
+                    Date::make('Date', 'billing_date')
+                        ->sortable(),
+                    Year::make('Year', 'billing_year')
                         ->sortable(),
                 ];
             }),

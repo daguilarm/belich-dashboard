@@ -21,6 +21,8 @@ class CreateBillingsTable extends Migration
             $table->string('billing_name');
             $table->string('billing_nif');
             $table->string('billing_telephone');
+            $table->date('billing_date');
+            $table->year('billing_year');
             $table->softDeletes();
             $table->timestamps();
         });
