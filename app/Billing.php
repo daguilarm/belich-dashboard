@@ -26,6 +26,7 @@ class Billing extends Model
         'billing_address',
         'billing_name',
         'billing_nif',
-        'billing_telephone'
+        'billing_telephone',
+        'billing_status',
     ];
 }

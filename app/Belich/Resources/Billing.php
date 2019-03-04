@@ -3,10 +3,13 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Fields\Types\Boolean;
+use Daguilarm\Belich\Fields\Types\Coordenates;
+use Daguilarm\Belich\Fields\Types\Decimal;
 use Daguilarm\Belich\Fields\Types\ID;
+use Daguilarm\Belich\Fields\Types\Number;
+use Daguilarm\Belich\Fields\Types\Panels;
 use Daguilarm\Belich\Fields\Types\RedirectToAction;
 use Daguilarm\Belich\Fields\Types\Select;
-use Daguilarm\Belich\Fields\Types\Panels;
 use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Fields\Types\TextArea;
 use Daguilarm\Belich\Resources;
@@ -38,6 +41,9 @@ class Billing extends Resources {
     /** @var string */
     public static $redirectTo = 'index';
 
+    /** @var bool */
+    public static $tabs = true;
+
     /**
      * Build the query for the given resource.
      *
@@ -61,25 +67,21 @@ class Billing extends Resources {
                     Text::make('Billing name', 'billing_name')
                         ->sortable()
                         ->rules('required'),
-                    Boolean::make('Status', 'billing_status')
-                        ->sortable(),
-                    Text::make('N.I.F.', 'billing_nif')
-                        ->sortable()
-                        ->rules('required'),
                 ];
             }),
-            Panels::create('Personal info', function() {
+            Panels::create('Billing Info 2', function() {
                 return [
-                    Text::make('Telephone', 'billing_telephone')
+                    Boolean::make('Status 2', 'billing_status')
+                        ->sortable(),
+                    Number::make('N.I.F. 2', 'billing_nif')
                         ->sortable()
-                        ->rules('required'),
-                    Text::make('Address', 'billing_address')
-                        ->sortable()
-                        ->rules('required'),
-                    TextArea::make('Telephone2', 'billing_telephone')
-                        ->count(200)
-                        ->rules('required')
-                        ->addClass('testing-class')
+                        ->toString(),
+                ];
+            }),
+            Panels::create('Billing Info 3', function() {
+                return [
+                    Coordenates::make('Position', 'position')
+                        ->sortable(),
                 ];
             }),
         ];

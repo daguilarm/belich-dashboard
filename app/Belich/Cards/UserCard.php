@@ -35,7 +35,7 @@ class UserCard extends Card {
     public function withMeta() : array
     {
         return [
-            'users' => \App\User::take(20)->get(),
+            //
         ];
     }
 

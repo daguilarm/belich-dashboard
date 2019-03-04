@@ -19,7 +19,7 @@ $factory->define(\App\Billing::class, function (Faker $faker) {
         'billing_address'          => $faker->address,
         'billing_name'             => $faker->name(),
         'billing_nif'              => $faker->swiftBicNumber,
-        'billing_status'           => (string) rand(0, 1),
+        'billing_status'           => rand(0, 1),
         'billing_telephone'        =>  $faker->tollFreePhoneNumber,
     ];
 });
