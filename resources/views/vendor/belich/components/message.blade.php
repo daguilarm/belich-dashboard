@@ -18,17 +18,3 @@
     </a>
 
 </div>
-
-@prepend('javascript')
-    <script>
-        //Close alert with fadeOut
-        function closeMenssage(container) {
-            //Set container
-            var container = document.getElementById('menssage-alert');
-            //Set the opacity to 0
-            container.style.opacity = '0';
-            //Hide the div after 500ms
-            setTimeout(function() {container.style.display = 'none';}, 500);
-        }
-    </script>
-@endprepend

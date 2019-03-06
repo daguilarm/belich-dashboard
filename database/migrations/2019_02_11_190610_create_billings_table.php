@@ -23,6 +23,9 @@ class CreateBillingsTable extends Migration
             $table->string('billing_telephone');
             $table->date('billing_date');
             $table->year('billing_year');
+            $table->float('billing_price', 6, 2);
+            $table->string('billing_country')->default('ES');
+            $table->string('billing_user')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

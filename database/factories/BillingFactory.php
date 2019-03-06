@@ -23,5 +23,7 @@ $factory->define(\App\Billing::class, function (Faker $faker) {
         'billing_year'      => rand(2000, 2019),
         'billing_date'      => $faker->dateTimeBetween($startDate = '-1 years', $endDate = 'yesterday', $timezone =  config('app.timezone')),
         'billing_telephone' => $faker->tollFreePhoneNumber,
+        'billing_price'     => mt_rand(100 * 10, 10000 * 10) / 10,
+        'billing_user'      => $faker->userName(),
     ];
 });

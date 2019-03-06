@@ -30,5 +30,8 @@ class Billing extends Model
         'billing_status',
         'billing_date',
         'billing_year',
+        'billing_price',
+        'billing_country',
+        'billing_user',
     ];
 }
