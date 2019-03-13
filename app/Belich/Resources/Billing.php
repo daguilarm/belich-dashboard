@@ -6,16 +6,22 @@ use Daguilarm\Belich\Fields\Types\Autocomplete;
 use Daguilarm\Belich\Fields\Types\Boolean;
 use Daguilarm\Belich\Fields\Types\Countries;
 use Daguilarm\Belich\Fields\Types\Date;
+use Daguilarm\Belich\Fields\Types\File;
 use Daguilarm\Belich\Fields\Types\Header;
 use Daguilarm\Belich\Fields\Types\ID;
+use Daguilarm\Belich\Fields\Types\Image;
 use Daguilarm\Belich\Fields\Types\Panels;
 use Daguilarm\Belich\Fields\Types\RedirectToAction;
+use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
+use Daguilarm\Belich\Fields\Types\TextArea;
 use Daguilarm\Belich\Fields\Types\Year;
 use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
 class Billing extends Resources {
+
+    private $coutriesOfTheWorld;
 
     /** @var string [Model path] */
     public static $model = '\App\Billing';
@@ -44,6 +50,15 @@ class Billing extends Resources {
     /** @var bool */
     public static $tabs = true;
 
+    public function __construct()
+    {
+        $this->coutriesOfTheWorld = collect(trans('belich::metrics.countriesOfTheWorldWithCodes'))
+            ->flatMap(function($country) {
+                return [$country['code'] => $country['name']];
+            })
+            ->all();;
+    }
+
     /**
      * Build the query for the given resource.
      *
@@ -61,48 +76,62 @@ class Billing extends Resources {
      */
     public function fields(Request $request) {
         return [
-            Panels::create('Billing Info', function() {
+            Panels::create('Files', function() {
                 return [
-                    ID::make('Id')
-                        ->prefix('nº', $space = true),
-                    Text::make('Billing name', 'billing_name')
+                    Image::make('Invoice file', 'billing_file')
                         ->sortable()
                         ->rules('required'),
-                ];
-            }),
-            Panels::create('Billing Info 2', function() {
-                return [
-                    Boolean::make('Status 2', 'billing_status')
-                        ->sortable(),
-                    Text::make('N.I.F. 2', 'billing_nif')
+                    Select::make('Country', 'billing_country')
+                        ->options($this->coutriesOfTheWorld)
                         ->sortable()
-                        ->prefix('nº', $space = true)
-                        ->suffix('€', $space = true),
+                        ->displayUsingLabels(),
+                    TextArea::make('TextArea', 'text_area')
+                        ->count(100),
                 ];
             }),
-            Panels::create('Dates', function() {
-                return [
-                    Date::make('Date', 'billing_date')
-                        ->sortable(),
-                    Header::make('Hellow world')
-                        ->background('bg-blue')
-                        ->color('text-white')
-                        ->size('text-lg')
-                        ->icon('edit'),
-                    Year::make('Year', 'billing_year')
-                        ->sortable(),
-                ];
-            }),
-            Panels::create('Country', function() {
-                return [
-                    Countries::make('Country', 'billing_country')
-                        ->sortable(),
-                    Autocomplete::make('User name', 'billing_user')
-                        ->dataFrom(route('dashboard.ajax.example'))
-                        ->addVars(['id' => 2093], ['name' => 'MyName'])
-                        ->minChars(3),
-                ];
-            }),
+            // Panels::create('Billing Info', function() {
+            //     return [
+            //         ID::make('Id')
+            //             ->prefix('nº', $space = true),
+            //         Text::make('Billing name', 'billing_name')
+            //             ->sortable()
+            //             ->data('hellow', 2)
+            //             ->rules('required'),
+            //     ];
+            // }),
+            // Panels::create('Billing Info 2', function() {
+            //     return [
+            //         Boolean::make('Status 2', 'billing_status')
+            //             ->sortable(),
+            //         Text::make('N.I.F. 2', 'billing_nif')
+            //             ->sortable()
+            //             ->prefix('nº', $space = true)
+            //             ->suffix('€', $space = true),
+            //     ];
+            // }),
+            // Panels::create('Dates', function() {
+            //     return [
+            //         Date::make('Date', 'billing_date')
+            //             ->sortable(),
+            //         Header::make('Hellow world')
+            //             ->background('bg-blue')
+            //             ->color('text-white')
+            //             ->size('text-lg')
+            //             ->icon('edit'),
+            //         Year::make('Year', 'billing_year')
+            //             ->sortable(),
+            //     ];
+            // }),
+            // Panels::create('Country', function() {
+            //     return [
+            //         Countries::make('Country', 'billing_country')
+            //             ->sortable(),
+            //         Autocomplete::make('User name', 'billing_user')
+            //             ->dataFrom(route('dashboard.ajax.example'))
+            //             ->addVars(['id' => 2093], ['name' => 'MyName'])
+            //             ->minChars(3),
+            //     ];
+            // }),
         ];
     }
 

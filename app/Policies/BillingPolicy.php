@@ -30,7 +30,19 @@ class BillingPolicy
     */
     public function delete(User $user, Billing $billing)
     {
-        return false;
+        return true;
+    }
+
+    /**
+    * Determine if the user can access or download files
+    *
+    * @param  \App\User  $user
+    * @param  \App\Billing  $billing
+    * @return mixed
+    */
+    public function file(User $user, Billing $billing)
+    {
+        return true;
     }
 
     /**

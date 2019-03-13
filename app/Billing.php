@@ -33,5 +33,6 @@ class Billing extends Model
         'billing_price',
         'billing_country',
         'billing_user',
+        'billing_file',
     ];
 }

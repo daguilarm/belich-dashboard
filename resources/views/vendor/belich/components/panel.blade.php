@@ -26,8 +26,8 @@
 
             {{-- Only if there is results --}}
             @if(!empty($field->label))
-                <belich::fields :label="$field->label" :toField="$toField ?? null">
-                    <slot name="field">
+                <belich::fields :field="$field" :toField="$toField ?? null">
+                    <slot name="input">
 
                         {{-- Enable or disable html scape --}}
                         @if($field->asHtml)

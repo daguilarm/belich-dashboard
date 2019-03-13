@@ -26,6 +26,7 @@ class CreateBillingsTable extends Migration
             $table->float('billing_price', 6, 2);
             $table->string('billing_country')->default('ES');
             $table->string('billing_user')->nullable();
+            $table->string('billing_file')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

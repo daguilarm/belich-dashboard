@@ -1,7 +1,6 @@
 <div class="tabs">
     {{-- Create tabs links --}}
     <ul class="list-reset bg-grey-lightest py-4 shadow-md">
-
         {{-- List the tab links --}}
         @foreach($tabs as $label => $panel)
             <li class="inline m-0">
