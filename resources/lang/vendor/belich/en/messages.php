@@ -15,6 +15,10 @@ return [
         ],
     ],
     'delete' => [
+        'item' => [
+            'title'    => 'Delete item',
+            'confirm'  => 'Are you sure you want to delete the selected item?',
+        ],
         'selected' => [
             'title'    => 'Delete selection',
             'confirm'  => 'Are you sure you want to delete all the selected fields?',

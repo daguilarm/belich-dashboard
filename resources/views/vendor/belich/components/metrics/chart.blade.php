@@ -1,9 +1,9 @@
-<div class="{{ $metric->width }} h-80 p-2 overflow-hidden shadow bg-white border border-grey-lighter">
+<div class="{{ $metric->width }} h-80 p-2 overflow-hidden shadow bg-white border border-gray-200">
     {{-- Legends --}}
     @includeWhen(hasMetricsLegends($metric), 'belich::components.metrics.legend')
 
     {{-- Header --}}
-    <h4 class="text-{{ setColor($metric, 'title-color') }}-dark mt-2 px-4 ml-2">{{ $metric->name }}</h4>
+    <h4 class="text-{{ setColor($metric, 'title-color') }}-600 mt-2 px-4 ml-2">{{ $metric->name }}</h4>
 
     {{-- Graph --}}
     <div class="h-full py-4 pr-4">

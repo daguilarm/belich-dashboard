@@ -79,59 +79,60 @@ class Billing extends Resources {
             Panels::create('Files', function() {
                 return [
                     Image::make('Invoice file', 'billing_file')
-                        ->sortable()
-                        ->rules('required'),
+                        ->sortable(),
                     Select::make('Country', 'billing_country')
                         ->options($this->coutriesOfTheWorld)
+                        ->rules('required')
                         ->sortable()
                         ->displayUsingLabels(),
                     TextArea::make('TextArea', 'text_area')
+                        ->rules('required')
                         ->count(100),
                 ];
             }),
-            // Panels::create('Billing Info', function() {
-            //     return [
-            //         ID::make('Id')
-            //             ->prefix('nº', $space = true),
-            //         Text::make('Billing name', 'billing_name')
-            //             ->sortable()
-            //             ->data('hellow', 2)
-            //             ->rules('required'),
-            //     ];
-            // }),
-            // Panels::create('Billing Info 2', function() {
-            //     return [
-            //         Boolean::make('Status 2', 'billing_status')
-            //             ->sortable(),
-            //         Text::make('N.I.F. 2', 'billing_nif')
-            //             ->sortable()
-            //             ->prefix('nº', $space = true)
-            //             ->suffix('€', $space = true),
-            //     ];
-            // }),
-            // Panels::create('Dates', function() {
-            //     return [
-            //         Date::make('Date', 'billing_date')
-            //             ->sortable(),
-            //         Header::make('Hellow world')
-            //             ->background('bg-blue')
-            //             ->color('text-white')
-            //             ->size('text-lg')
-            //             ->icon('edit'),
-            //         Year::make('Year', 'billing_year')
-            //             ->sortable(),
-            //     ];
-            // }),
-            // Panels::create('Country', function() {
-            //     return [
-            //         Countries::make('Country', 'billing_country')
-            //             ->sortable(),
-            //         Autocomplete::make('User name', 'billing_user')
-            //             ->dataFrom(route('dashboard.ajax.example'))
-            //             ->addVars(['id' => 2093], ['name' => 'MyName'])
-            //             ->minChars(3),
-            //     ];
-            // }),
+            Panels::create('Billing Info', function() {
+                return [
+                    ID::make('Id')
+                        ->prefix('nº', $space = true),
+                    Text::make('Billing name', 'billing_name')
+                        ->sortable()
+                        ->data('hellow', 2)
+                        ->rules('required'),
+                ];
+            }),
+            Panels::create('Billing Info 2', function() {
+                return [
+                    Boolean::make('Status 2', 'billing_status')
+                        ->sortable(),
+                    Text::make('N.I.F. 2', 'billing_nif')
+                        ->sortable()
+                        ->prefix('nº', $space = true)
+                        ->suffix('€', $space = true),
+                ];
+            }),
+            Panels::create('Dates', function() {
+                return [
+                    Date::make('Date', 'billing_date')
+                        ->sortable(),
+                    Header::make('Hellow world')
+                        ->background('bg-blue-400')
+                        ->color('text-white')
+                        ->size('text-lg')
+                        ->icon('edit'),
+                    Year::make('Year', 'billing_year')
+                        ->sortable(),
+                ];
+            }),
+            Panels::create('Country', function() {
+                return [
+                    Countries::make('Country', 'billing_country')
+                        ->sortable(),
+                    Autocomplete::make('User name', 'billing_user')
+                        ->dataFrom(route('dashboard.ajax.example'))
+                        ->addVars(['id' => 2093], ['name' => 'MyName'])
+                        ->minChars(3),
+                ];
+            }),
         ];
     }
 

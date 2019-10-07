@@ -9,7 +9,7 @@
 
     {{-- Label --}}
     @if(!empty($label) && !Belich::tabs())
-        <h4 class="p-6 text-blue-dark uppercase border-b border-grey-lighter bg-blue-lightest shadow-md">{{ $label }}</h4>
+        <h4 class="p-6 text-blue-600 uppercase border-b border-gray-200 bg-blue-100 shadow-md">{{ $label }}</h4>
     @endif
 
     {{-- Get all the fields --}}

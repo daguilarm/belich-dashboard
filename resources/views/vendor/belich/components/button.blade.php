@@ -5,6 +5,7 @@
         class="btn btn-{{ $color ?? 'secondary' }} {{ $class ?? '' }} ml-2"
         data-title="{{ $title }}"
         {!! isset($loading) ? 'onclick="loading(this);"' : '' !!}
+        {!! isset($onclick) ? 'onclick="' . $onclick . '"' : '' !!}
     >
         {!! $title !!}
     </a>
@@ -15,6 +16,7 @@
         class="btn btn-{{ $color ?? 'secondary' }} mx-2 {{ $class ?? '' }} ml-4"
         data-title="{{ $title }}"
         {!! isset($loading) ? 'onclick="loading(this);"' : '' !!}
+        {!! isset($onclick) ? 'onclick="' . $onclick . '"' : '' !!}
     >
         {!! $title !!}
     </button>
