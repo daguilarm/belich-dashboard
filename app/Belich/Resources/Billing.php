@@ -6,6 +6,7 @@ use Daguilarm\Belich\Fields\Types\Autocomplete;
 use Daguilarm\Belich\Fields\Types\Boolean;
 use Daguilarm\Belich\Fields\Types\Countries;
 use Daguilarm\Belich\Fields\Types\Date;
+use Daguilarm\Belich\Fields\Types\Decimal;
 use Daguilarm\Belich\Fields\Types\File;
 use Daguilarm\Belich\Fields\Types\Header;
 use Daguilarm\Belich\Fields\Types\ID;
@@ -108,6 +109,8 @@ class Billing extends Resources {
                         ->sortable()
                         ->prefix('nº', $space = true)
                         ->suffix('€', $space = true),
+                    Decimal::make('Price', 'price')
+                        ->decimals(4),
                 ];
             }),
             Panels::create('Dates', function() {

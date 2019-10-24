@@ -117,4 +117,13 @@ return [
     | Define the default date format. This format will be use in the Controller actions: index and show.
     */
     'dateFormat' => 'd/m/Y',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Live search
+    |--------------------------------------------------------------------------
+    |
+    | Define the minimum number of characters for start a live search
+    */
+    'minSearch' => 2,
 ];

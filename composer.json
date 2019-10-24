@@ -25,6 +25,7 @@
         "laravel/tinker": "^1.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
         "facade/ignition": "^1.9",
         "fzaninotto/faker": "^1.4",
         "laravel/ui": "^1.0",
