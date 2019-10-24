@@ -15,10 +15,10 @@ use Illuminate\Support\Str;
 */
 $factory->defineAs(App\User::class, 'admin', function ($faker) {
     return [
-        'name'              => 'user',
-        'email'             => 'user@user.com',
+        'name'              => 'admin',
+        'email'             => 'admin@email.com',
         'email_verified_at' => now(),
-        'password'          => bcrypt('user'),
+        'password'          => bcrypt('admin'),
         'remember_token'    => Str::random(10),
     ];
 });
