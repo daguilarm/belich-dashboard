@@ -12,7 +12,7 @@ class LoginTest extends DuskTestCase
     use DatabaseMigrations;
 
     /**
-     * A basic browser test example.
+     * Login test
      *
      * @return void
      */
@@ -26,7 +26,9 @@ class LoginTest extends DuskTestCase
                 ->type('email', 'admin@email.com')
                 ->type('password', 'admin')
                 ->press('Login')
-                ->assertAuthenticatedAs($user);
+                ->assertAuthenticatedAs($user)
+                ->logout()
+                ->assertGuest();
         });
     }
 }
