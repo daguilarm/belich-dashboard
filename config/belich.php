@@ -123,7 +123,10 @@ return [
     | Live search
     |--------------------------------------------------------------------------
     |
-    | Define the minimum number of characters for start a live search
+    | Activate live search and define the minimum number of characters for start: live search
     */
-    'minSearch' => 2,
+    'liveSearch' => [
+        'enable' => true,
+        'minChars' => 2,
+    ],
 ];

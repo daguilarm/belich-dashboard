@@ -103,4 +103,15 @@ class ProfilePolicy
     {
         return true;
     }
+
+    /**
+    * Determine whether the User can see the files from the Profiles.
+    *
+    * @param  \App\User  $user
+    * @return mixed
+    */
+    public function file(User $user)
+    {
+        return true;
+    }
 }

@@ -128,11 +128,9 @@ class Billing extends Resources {
             }),
             Panels::create('Country', function() {
                 return [
-                    Countries::make('Country', 'billing_country')
-                        ->sortable(),
+                    Countries::make('Country', 'billing_country'),
                     Autocomplete::make('User name', 'billing_user')
                         ->dataFrom(route('dashboard.ajax.example'))
-                        ->addVars(['id' => 2093], ['name' => 'MyName'])
                         ->minChars(3),
                 ];
             }),

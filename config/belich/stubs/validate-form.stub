@@ -1,33 +1,74 @@
-<script type="text/javascript">
-     $( document ).ready(function() {
-        $( '#form-:resource-:action #button-form-:action' ).on( 'click', function( event ) {
+<script>
+    //Validate the form fields and show error messages
+    function validateFields(form, button, url, request) {
+        var ajaxResponse = window.responseAjaxRequest(request);
+        //Ajax response
+        fetch(url, ajaxResponse).then(response => {
+                return response.json()
+              }).then(data => {
+                //Clear default errors
+                validationClearDefaultErrors();
+                //Errors from validation
+                if(typeof data.errors === 'object') {
+                    var validationErrors = Object.entries(data.errors);
+                } else {
+                    var validationErrors;
+                }
+                //Set the errors
+                if(validationErrors) {
+                    window.validationErrorMessage(form, button, validationErrors);
+                //Submit form
+                } else {
+                    form.submit();
+                }
+            });
+    }
+
+    //Clear all the remained error messages
+    function validationClearDefaultErrors() {
+        //Get default error messages
+        let defaultErrors = document.querySelectorAll('.validation-error');
+        //Reset all the error messages
+        if(defaultErrors) {
+            defaultErrors.innerHTML = '';
+        }
+    }
+
+    //Show all the error messages
+    function validationErrorMessage(form, button, errors) {
+        //Restore button title
+        button.innerHTML = button.getAttribute('data-title');
+        //Show errors if...
+        errors.forEach( function(value) {
+            document.querySelector( '#error-' + value[0] ).innerHTML = value[1];
+        });
+    }
+
+    //The validation event
+    document.addEventListener('DOMContentLoaded', function(event) {
+        //Define container
+        var belichForm = document.getElementById('form-:resource-:action');
+        var belichButton = document.getElementById('button-form-:action');
+        //Handle click event
+        belichButton.addEventListener('click', function(event) {
             //Stop propagation
             event.preventDefault();
-            //Define button
-            var button = $( '#form-:resource-:action #button-form-:action' );
             //Start loading...
-            loading(this, event);
-
-            $.ajax({
-                url: ':validationRuoute',
-                method: 'post',
-                data: {
-                    :values, validationRules::validationRules, validationAttributes::validationAttributes
-                },
-                success: function(data) {
-                    $( ".validation-error" ).html( '' );
-                    if(data.errors) {
-                        //Restore button title
-                        button.html(button.data('title'));
-                        //Send errors
-                        $.each(data.errors, function( key, value ) {
-                            $( '#error-' + key ).html( value );
-                        });
-                    } else {
-                        $( '#form-:resource-:action' ).submit();
-                    }
-                },
+            window.loading(this, event);
+            //Set the request validation values
+            var validationResquest = JSON.stringify({
+                requestValues:{:values},
+                requestRules::validationRules,
+                requestAttributes::validationAttributes
             });
+            //Get the url
+            var validationUrl = ':validationRuoute';
+            //Check for browser support
+            if(browserSupportsFetch()) {
+                validateFields(belichForm, belichButton, validationUrl, validationResquest)
+            } else {
+                loadScript('/vendor/belich/fetch.min.js', validateFields(belichForm, belichButton, validationUrl, validationResquest));
+            }
         });
     });
 </script>

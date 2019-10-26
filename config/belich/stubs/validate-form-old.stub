@@ -1,0 +1,33 @@
+<script type="text/javascript">
+    $( document ).ready(function() {
+        $( '#form-:resource-:action #button-form-:action' ).on( 'click', function( event ) {
+            //Stop propagation
+            event.preventDefault();
+            //Define button
+            var button = $( '#form-:resource-:action #button-form-:action' );
+            //Start loading...
+            loading(this, event);
+
+            $.ajax({
+                url: ':validationRuoute',
+                method: 'post',
+                data: {
+                    :values, validationRules::validationRules, validationAttributes::validationAttributes
+                },
+                success: function(data) {
+                    $( ".validation-error" ).html( '' );
+                    if(data.errors) {
+                        //Restore button title
+                        button.html(button.data('title'));
+                        //Send errors
+                        $.each(data.errors, function( key, value ) {
+                            $( '#error-' + key ).html( value );
+                        });
+                    } else {
+                        $( '#form-:resource-:action' ).submit();
+                    }
+                },
+            });
+        });
+    });
+</script>
