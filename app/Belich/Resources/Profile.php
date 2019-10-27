@@ -17,9 +17,6 @@ class Profile extends Resources {
     /** @var array */
     public static $relationships = ['user'];
 
-    /** @var bool */
-    public static $displayInNavigation = true;
-
     /** @var string */
     public static $group = 'Personal';
 
@@ -31,20 +28,6 @@ class Profile extends Resources {
 
     /** @var string */
     public static $pluralLabel = 'Profiles';
-
-    /** @var array */
-    protected $selectNames;
-
-    /**
-     * Generate constructor for the resource
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //Getting data from storage to populate the field
-        $this->selectNames = \App\User::pluck('name', 'name')->toArray();
-    }
 
     /**
      * Build the query for the given resource.

@@ -18,6 +18,14 @@ return [
     'url'  => env('APP_URL', '/'),
 
     /*
+    Application with profile as resource
+    ------------------------------------
+    If you decide to remove this feature, don't forget to remove the file \App\Belich\Resources\Profile.php
+    or disable the static property for display the resource in the navigation bar in \App\Belich\Resources\Profile.php: $displayInNavigation = false;
+    */
+    'profile' => true,
+
+    /*
     |--------------------------------------------------------------------------
     | Navbar options
     | Options: 'top' or 'sidebar'

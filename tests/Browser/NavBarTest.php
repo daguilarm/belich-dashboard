@@ -34,7 +34,13 @@ class NavBarTest extends DuskTestCase
                 ->assertPathIs('/dashboard')
                 ->click('@logout')
                 ->click('@logout-profile')
-                ->pause(2000);
+                ->assertPathIs('/dashboard/profiles/' . $this->user->id)
+                ->assertSee($this->user->id)
+                ->assertSee($this->user->name)
+                ->assertSee($this->user->profile->profile_nick)
+                ->assertSee($this->user->profile->profile_avatar)
+                ->assertSee($this->user->profile->profile_age)
+                ->assertSee($this->user->profile->profile_locale);
         });
     }
 }

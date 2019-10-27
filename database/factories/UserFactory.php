@@ -25,9 +25,6 @@ $factory->defineAs(App\User::class, 'admin',  function ($faker) {
 });
 
 $factory->afterCreatingState(App\User::class, 'admin', function ($user, $faker) {
-    factory(\App\Billing::class)->create([
-        'user_id' => $user->id
-    ]);
     factory(\App\Profile::class)->create([
         'user_id' => $user->id
     ]);
@@ -45,10 +42,6 @@ $factory->define(App\User::class, function (Faker $faker) {
 });
 
 $factory->afterCreating(App\User::class, function ($user, $faker) {
-    factory(\App\Billing::class)->create([
-        'user_id' => $user->id,
-        'created_at' => $faker->dateTimeBetween($startDate = 'last year', $endDate = 'now')
-    ]);
     factory(\App\Profile::class)->create([
         'user_id' => $user->id
     ]);
