@@ -73,7 +73,8 @@ class Profile extends Resources {
                     return strtoupper($value);
                 })
                 ->sortable(),
-            Image::make('Avatar', 'profile_avatar'),
+            Image::make('Avatar', 'profile_avatar')
+                ->alt('Testing alt'),
             Text::make('Age', 'profile_age')
                 ->sortable(),
             Text::make('Locale', 'profile_locale')
