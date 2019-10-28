@@ -7,7 +7,7 @@ use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
-class Profile extends Resources {
+class _FieldText extends Resources {
 
     /** @var string [Model path] */
     public static $model = '\App\Test';
@@ -45,7 +45,7 @@ class Profile extends Resources {
     public function fields(Request $request) {
         return [
             ID::make('Id'),
-            Text::make('User', 'name'),
+            Text::make('Name', 'test_name'),
         ];
     }
 
