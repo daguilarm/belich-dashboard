@@ -44,8 +44,28 @@ class _FieldText extends Resources {
      */
     public function fields(Request $request) {
         return [
-            ID::make('Id'),
-            Text::make('Name', 'test_name'),
+            // Testing for visibility
+            Text::make('Hide from index', 'test_name')
+                ->hideFromIndex(),
+            Text::make('Hide from show', 'test_name')
+                ->hideFromShow(),
+            Text::make('Hide when creating', 'test_name')
+                ->hideWhenCreating(),
+            Text::make('Hide when editing', 'test_name')
+                ->hideWhenEditing(),
+            Text::make('Only on index', 'test_name')
+                ->onlyOnIndex(),
+            Text::make('Only on show', 'test_name')
+                ->onlyOnShow(),
+            Text::make('Only on forms', 'test_name')
+                ->onlyOnForms(),
+            Text::make('Except on forms', 'test_name')
+                ->exceptOnForms(),
+            Text::make('visible-On index', 'test_name')
+                ->visibleOn('index'),
+            Text::make('hide-From index', 'test_name')
+                ->hideFrom('index'),
+            // Testing for attributes
         ];
     }
 
