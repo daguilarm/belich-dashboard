@@ -17,9 +17,6 @@ class User extends Resources {
     /** @var string [Model path] */
     public static $model = '\App\User';
 
-    /** @var array */
-    public static $relationships = ['billing'];
-
     /** @var bool */
     public static $displayInNavigation = true;
 
@@ -75,8 +72,6 @@ class User extends Resources {
                 ->rules('required'),
             Hidden::make('HiddenFieldExample', 'name_hidden')
                 ->defaultValue(10),
-            Text::make('Billing name', 'billing_name')
-                ->withRelationship('billing'),
             Text::make('Email', 'email')
                 ->autofocus()
                 ->rules('required', 'email', Rule::unique('users')->ignore($request->user()->id))
@@ -86,10 +81,6 @@ class User extends Resources {
                 ->updateRules('nullable', 'required_with:password_confirmation', 'same:password_confirmation', 'min:6')
                 ->onlyOnForms(),
             PasswordConfirmation::make('Password confirmation'),
-            Text::make('Telephone', 'billing_telephone')
-                ->withRelationship('billing'),
-            Text::make('Address', 'billing_address')
-                ->withRelationship('billing'),
         ];
     }
 
