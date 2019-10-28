@@ -49,19 +49,11 @@ class Profile extends Resources {
         return [
             ID::make('Id'),
             Text::make('User', 'name')
-                ->withRelationship('user')
-                ->data('link', 'http://my.link.com'),
-            Text::make('Nick', 'profile_nick')
-                ->displayUsing(function($value) {
-                    return strtoupper($value);
-                })
-                ->sortable(),
+                ->withRelationship('user'),
+            Text::make('Email', 'email')
+                ->withRelationship('user'),
             Image::make('Avatar', 'profile_avatar')
                 ->alt('Testing alt'),
-            Text::make('Age', 'profile_age')
-                ->sortable(),
-            Text::make('Locale', 'profile_locale')
-                ->sortable(),
         ];
     }
 
