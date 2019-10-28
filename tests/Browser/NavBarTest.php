@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
+// dusk --filter NavBarTest
 class NavBarTest extends DuskTestCase
 {
     use DatabaseMigrations;
@@ -22,6 +23,7 @@ class NavBarTest extends DuskTestCase
     /**
      * Login test
      *
+     * dusk --filter test_navbar_user
      * @return void
      */
     public function test_navbar_user()
@@ -37,10 +39,8 @@ class NavBarTest extends DuskTestCase
                 ->assertPathIs('/dashboard/profiles/' . $this->user->id)
                 ->assertSee($this->user->id)
                 ->assertSee($this->user->name)
-                ->assertSee($this->user->profile->profile_nick)
-                ->assertSee($this->user->profile->profile_avatar)
-                ->assertSee($this->user->profile->profile_age)
-                ->assertSee($this->user->profile->profile_locale);
+                ->assertSee($this->user->email)
+                ->assertSourceHas($this->user->profile->profile_avatar);
         });
     }
 }

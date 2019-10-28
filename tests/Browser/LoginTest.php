@@ -7,6 +7,7 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
+// dusk --filter LoginTest
 class LoginTest extends DuskTestCase
 {
     use DatabaseMigrations;
@@ -14,6 +15,7 @@ class LoginTest extends DuskTestCase
     /**
      * Login test
      *
+     * dusk --filter test_login
      * @return void
      */
     public function test_login()
