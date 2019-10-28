@@ -2,16 +2,16 @@
 
 namespace App\Policies;
 
-use App\Billing;
+use App\Test;
 use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class BillingPolicy
+class TestPolicy
 {
     use HandlesAuthorization;
 
     /**
-    * Determine whether the User can create the a Billing.
+    * Determine whether the User can create the a Test.
     *
     * @param  \App\User  $user
     * @return mixed
@@ -22,13 +22,13 @@ class BillingPolicy
     }
 
     /**
-    * Determine whether the User can delete a Billing.
+    * Determine whether the User can delete a Test.
     *
     * @param  \App\User  $user
-    * @param  \App\Billing  $billing
+    * @param  \App\Test  $test
     * @return mixed
     */
-    public function delete(User $user, Billing $billing)
+    public function delete(User $user, Test $test)
     {
         return true;
     }
@@ -37,52 +37,52 @@ class BillingPolicy
     * Determine if the user can access or download files
     *
     * @param  \App\User  $user
-    * @param  \App\Billing  $billing
+    * @param  \App\Test  $test
     * @return mixed
     */
-    public function file(User $user, Billing $billing)
+    public function file(User $user, Test $test)
     {
         return true;
     }
 
     /**
-    * Determine whether the User can force delete a Billing.
+    * Determine whether the User can force delete a Test.
     *
     * @param  \App\User  $user
-    * @param  \App\Billing  $billing
+    * @param  \App\Test  $test
     * @return mixed
     */
-    public function forceDelete(User $user, Billing $billing)
+    public function forceDelete(User $user, Test $test)
     {
         return true;
     }
 
     /**
-    * Determine whether the User can restore a Billing.
+    * Determine whether the User can restore a Test.
     *
     * @param  \App\User  $user
-    * @param  \App\Billing  $billing
+    * @param  \App\Test  $test
     * @return mixed
     */
-    public function restore(User $user, Billing $billing)
+    public function restore(User $user, Test $test)
     {
         return true;
     }
 
     /**
-    * Determine whether the User can update a Billing.
+    * Determine whether the User can update a Test.
     *
     * @param  \App\User  $user
-    * @param  \App\Billing  $billing
+    * @param  \App\Test  $test
     * @return mixed
     */
-    public function update(User $user, Billing $billing)
+    public function update(User $user, Test $test)
     {
         return true;
     }
 
     /**
-    * Determine whether the User can view a Billing.
+    * Determine whether the User can view a Test.
     * This method will affect the controller 'show' action
     *
     * @param  \App\User  $user
@@ -94,7 +94,7 @@ class BillingPolicy
     }
 
     /**
-    * Determine whether the User can view a Billing.
+    * Determine whether the User can view a Test.
     * This method will affect the controller 'index' action
     *
     * @param  \App\User  $user
