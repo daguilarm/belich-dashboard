@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Billing extends Model
+class Test extends Model
 {
     use SoftDeletes;
 
@@ -22,9 +22,9 @@ class Billing extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'billing_address',
-        'billing_name',
+        'id',
+        'test_text',
+        'text_bool',
         'billing_nif',
         'billing_telephone',
         'billing_status',
@@ -35,4 +35,14 @@ class Billing extends Model
         'billing_user',
         'billing_file',
     ];
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relationships
+    |--------------------------------------------------------------------------
+    */
+    public function user()
+    {
+        return $this->BelongsTo(\App\User::class);
+    }
 }

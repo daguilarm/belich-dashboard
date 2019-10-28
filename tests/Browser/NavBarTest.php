@@ -40,7 +40,9 @@ class NavBarTest extends DuskTestCase
                 ->assertSee($this->user->id)
                 ->assertSee($this->user->name)
                 ->assertSee($this->user->email)
-                ->assertSourceHas($this->user->profile->profile_avatar);
+                ->assertSourceHas($this->user->profile->profile_avatar)
+                ->click('@button-action-edit')
+                ->assertPathIs('/dashboard/profiles/' . $this->user->id . '/edit');
         });
     }
 }
