@@ -13,9 +13,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->delete();
-        DB::table('profiles')->delete();
-
         //Create the admin
         $admin = factory(User::class, 'admin')->create();
 
