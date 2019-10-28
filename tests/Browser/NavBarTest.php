@@ -23,12 +23,13 @@ class NavBarTest extends DuskTestCase
     /**
      * Login test
      *
-     * dusk --filter test_navbar_user
+     * dusk --filter test_navbar
      * @return void
      */
-    public function test_navbar_user()
+    public function test_navbar()
     {
         $this->browse(function (Browser $browser) {
+            //Test navigation
             $browser
                 ->loginAs($this->user)
                 ->assertAuthenticatedAs($this->user)
@@ -43,6 +44,14 @@ class NavBarTest extends DuskTestCase
                 ->assertSourceHas($this->user->profile->profile_avatar)
                 ->click('@button-action-edit')
                 ->assertPathIs('/dashboard/profiles/' . $this->user->id . '/edit');
+            //Test logout
+            $browser
+                ->click('@logout')
+                ->click('@logout-session')
+                ->assertPathIs('/dashboard/login')
+                ->visit('/dashboard/profiles/' . $this->user->id . '/edit')
+                ->assertDontSee($this->user->id)
+                ->assertPathIs('/dashboard/login');
         });
     }
 }
