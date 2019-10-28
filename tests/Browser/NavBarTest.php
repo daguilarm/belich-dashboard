@@ -51,7 +51,8 @@ class NavBarTest extends DuskTestCase
                 ->assertPathIs('/dashboard/login')
                 ->visit('/dashboard/profiles/' . $this->user->id . '/edit')
                 ->assertDontSee($this->user->id)
-                ->assertPathIs('/dashboard/login');
+                ->assertPathIs('/dashboard/login')
+                ->assertGuest();
         });
     }
 }
