@@ -74,8 +74,38 @@ class BooleanTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertPresent('input#boolean_color_red.red')
-                ->assertPresent('input#boolean_color_blue.blue');
+                ->assertPresent('input.itoggle.red')
+                ->assertPresent('input#boolean_color_red.itoggle.red')
+                ->assertPresent('input#boolean_color_blue.itoggle.blue');
+        });
+    }
+
+    /**
+     * Boolean toggle test
+     *
+     * dusk --filter test_boolean_toggle
+     * @return void
+     */
+    public function test_boolean_toggle()
+    {
+        $this->browse(function (Browser $browser) {
+            // Testing on forms
+            $browser
+                ->loginAs($this->user)
+                ->visit('dashboard/' . $this->field . '/create');
+
+            //Default value
+            $status = $browser->attribute('@dusk-test_boolean', 'value');
+
+            if($status === '0') {
+                $browser
+                    ->click('@label-test_boolean')
+                    ->assertInputValue('@dusk-test_boolean', 1);
+            } else {
+                $browser
+                    ->click('@label-test_boolean')
+                    ->assertInputValue('@dusk-test_boolean', 0);
+            }
         });
     }
 
