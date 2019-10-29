@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use App\Test;
 use App\User;
+use Facebook\WebDriver\WebDriverBy;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Dusk\Browser;
 
@@ -109,13 +110,15 @@ class DuskServiceProvider extends ServiceProvider
                 //displayUsing()
                 ->assertSee(strtoupper($test->test_name))
             ->visit('dashboard/' . $page . '/' . $user->id . '/edit')
-                ->assertVisible('#testing-id.testing-class')
-                ->assertVisible('#testing-id')
+                ->assertVisible('.testing-class')
+                //
+                ->assertPresent('#testing_id')
+                ->assertPresent('[dusk="testing-dusk"]')
+                //
                 ->assertVisible('[name="testing-name"]')
                 ->assertVisible('[data-test="testing-data"]')
                 ->assertVisible('[disabled]')
                 ->assertVisible('[readonly]')
-                ->assertVisible('[dusk="testing-dusk"]')
                 //asHtml() don't see in edit view
                 ->assertSourceMissing($html)
             ->visit('dashboard/' . $page . '/create')
@@ -123,8 +126,6 @@ class DuskServiceProvider extends ServiceProvider
                 ->assertSourceHas('<div class="font-normal lowercase italic mt-2 uppercase-first-letter">testing help</div>')
                 // defaultValue()
                 ->assertVisible('[value="testing-value"]')
-                // autofocus()
-                ->assertFocused('#testing-focus')
                 //asHtml() don't see in create view
                 ->assertSourceMissing($html);
     }
