@@ -29,7 +29,7 @@ class TextTest extends DuskTestCase
     }
 
     /**
-     * Login test
+     * Visibility test
      *
      * dusk --filter test_text_visibility
      * @return void
@@ -40,14 +40,13 @@ class TextTest extends DuskTestCase
             // Index visibility
             $browser
                 ->loginAs($this->user)
-                ->visit('dashboard/' . $this->field)
                 //App\Providers\DuskServiceProvider
                 ->assertVisibility($this->user, $this->field);
         });
     }
 
     /**
-     * Login test
+     * Attributes test
      *
      * dusk --filter test_text_attributes
      * @return void
@@ -60,6 +59,23 @@ class TextTest extends DuskTestCase
                 ->loginAs($this->user)
                 //App\Providers\DuskServiceProvider
                 ->assertAttributes($this->user, $this->test, $this->field, $this->asHtml);
+        });
+    }
+
+    /**
+     * Authorization test
+     *
+     * dusk --filter test_text_authorization
+     * @return void
+     */
+    public function test_text_authorization()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->loginAs($this->user)
+                ->visit('dashboard/' . $this->field . '/create')
+                ->assertVisible('#testing-can-see')
+                ->assertMissing('#testing-cannot-see');
         });
     }
 }

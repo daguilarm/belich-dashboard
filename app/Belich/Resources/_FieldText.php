@@ -81,21 +81,32 @@ class _FieldText extends Resources {
                 ->defaultValue('testing-value')
                 ->help('testing help'),
             //Testing prefix and focus
-                Text::make('Testing prefix', 'test_name')
-                    ->id('testing-focus')
-                    ->prefix('***')
-                    ->suffix('***')
-                    ->autofocus(),
+            Text::make('Testing prefix', 'test_name')
+                ->id('testing-focus')
+                ->prefix('***')
+                ->suffix('***')
+                ->autofocus(),
             //Testing model manipulation
-                Text::make('Testing model manipulation', 'test_name')
-                    ->resolveUsing(function($model) {
-                        return 'resolved ' . $model->test_email;
-                    }),
+            Text::make('Testing model manipulation', 'test_name')
+                ->resolveUsing(function($model) {
+                    return 'resolved ' . $model->test_email;
+                }),
             //Testing result manipulation
-                Text::make('Testing result manipulation', 'test_name')
-                    ->displayUsing(function($value) {
-                        return strtoupper($value);
-                    }),
+            Text::make('Testing result manipulation', 'test_name')
+                ->displayUsing(function($value) {
+                    return strtoupper($value);
+                }),
+            //Testing authorization
+            Text::make('Testing authorization', 'test_name')
+                ->id('testing-can-see')
+                ->canSee(function($request) {
+                    return true;
+                }),
+            Text::make('Testing authorization', 'test_name')
+                ->id('testing-cannot-see')
+                ->canSee(function($request) {
+                    return false;
+                }),
         ];
     }
 
