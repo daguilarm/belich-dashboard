@@ -62,6 +62,26 @@ class BooleanTest extends DuskTestCase
     }
 
     /**
+     * Boolean color test
+     *
+     * dusk --filter test_boolean_colors
+     * @return void
+     */
+    // public function test_boolean_colors()
+    // {
+    //     $this->browse(function (Browser $browser) {
+    //         // Testing index
+    //         $browser
+    //             ->loginAs($this->user)
+    //             ->visit('dashboard/' . $this->field);
+
+    //         // Testing forms
+    //         $browser
+    //             ->visit('dashboard/' . $this->field . '/create');
+    //     });
+    // }
+
+    /**
      * Authorization test
      *
      * dusk --filter test_boolean_authorization

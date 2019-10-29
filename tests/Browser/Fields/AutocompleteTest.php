@@ -63,7 +63,7 @@ class AutocompleteTest extends DuskTestCase
     }
 
     /**
-     * Autofocus test
+     * Custom attributes test
      *
      * dusk --filter test_text_custom_attributes
      * @return void
