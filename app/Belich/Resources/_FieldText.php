@@ -27,6 +27,9 @@ class _FieldText extends Resources {
     /** @var string */
     public static $pluralLabel = 'Fields Text';
 
+    /** @var string */
+    public static $textAlign = 'center';
+
     /**
      * Build the query for the given resource.
      *
