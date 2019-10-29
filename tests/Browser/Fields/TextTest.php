@@ -28,10 +28,10 @@ class TextTest extends DuskTestCase
     /**
      * Login test
      *
-     * dusk --filter test_visibility
+     * dusk --filter test_text_visibility
      * @return void
      */
-    public function test_visibility()
+    public function test_text_visibility()
     {
         $this->browse(function (Browser $browser) {
             // Index visibility
@@ -40,6 +40,24 @@ class TextTest extends DuskTestCase
                 ->visit('dashboard/' . $this->field)
                 //App\Providers\DuskServiceProvider
                 ->assertVisibility($this->field, $this->user);
+        });
+    }
+
+    /**
+     * Login test
+     *
+     * dusk --filter test_text_attributes
+     * @return void
+     */
+    public function test_text_attributes()
+    {
+        $this->browse(function (Browser $browser) {
+            // Index visibility
+            $browser
+                ->loginAs($this->user)
+                ->visit('dashboard/' . $this->field)
+                //$field->asHtml()
+                ->assertSee('<h1 class="text-red-500">Hello world</h1>');
         });
     }
 }

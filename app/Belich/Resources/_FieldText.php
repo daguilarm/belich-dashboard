@@ -61,11 +61,13 @@ class _FieldText extends Resources {
                 ->onlyOnForms(),
             Text::make('Except on forms', 'test_name')
                 ->exceptOnForms(),
-            Text::make('visible-On index', 'test_name')
+            Text::make('Visible-on index', 'test_name')
                 ->visibleOn('index'),
-            Text::make('hide-From index', 'test_name')
+            Text::make('Hide-From index', 'test_name')
                 ->hideFrom('index'),
             // Testing for attributes
+            Text::make('Testing attributes: html', 'test_html')
+                ->asHtml(),
         ];
     }
 

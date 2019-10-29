@@ -23,6 +23,7 @@ class CreateTestsTable extends Migration
             $table->string('test_zip');
             $table->string('test_file');
             $table->string('test_mask');
+            $table->string('test_html');
             $table->string('test_creditcard_type');
             $table->string('test_creditcard');
             $table->string('test_creditcard_expiration');

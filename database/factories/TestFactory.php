@@ -25,6 +25,7 @@ $factory->define(App\Test::class, function ($faker) {
         'test_zip' => $faker->numberBetween($min = 100000000, $max = 999999999),
         'test_file' => $faker->imageUrl($width = 640, $height = 480),
         'test_mask' => $faker->tollFreePhoneNumber(),
+        'test_html' => '<h1 class="text-red-500">Hello world</h1>',
         'test_creditcard_type' => $faker->creditCardType(),
         'test_creditcard' => $faker->creditCardNumber(),
         'test_creditcard_expiration' => $faker->creditCardExpirationDateString(),

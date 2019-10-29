@@ -7,11 +7,10 @@ use Tests\TestCase;
 class ResourcesTest extends TestCase
 {
     /** Test */
-    public function test_namespace_path()
+    public function test_all_the_resources()
     {
-        $actual = getAllTheResourcesFromFolder()->values();
+        $actual = getAllTheResourcesFromFolder()->values()->take(2);
         $expected = collect([
-            'billings',
             'profiles',
             'users',
         ]);
