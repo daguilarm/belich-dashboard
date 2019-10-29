@@ -8,8 +8,8 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-// dusk --filter TextTest
-class TextTest extends DuskTestCase
+// dusk --filter AutocompleteTest
+class AutocompleteTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
@@ -24,17 +24,17 @@ class TextTest extends DuskTestCase
 
         $this->user = factory(User::class)->create();
         $this->test = factory(Test::class)->create();
-        $this->field = '_fieldtexts';
+        $this->field = '_fieldautocompletes';
         $this->asHtml = '<h1 class="text-red-500">Hello world</h1>';
     }
 
     /**
      * Visibility test
      *
-     * dusk --filter test_text_visibility
+     * dusk --filter test_autocomplete_visibility
      * @return void
      */
-    public function test_text_visibility()
+    public function test_autocomplete_visibility()
     {
         $this->browse(function (Browser $browser) {
             // Index visibility
@@ -48,10 +48,10 @@ class TextTest extends DuskTestCase
     /**
      * Attributes test
      *
-     * dusk --filter test_text_attributes
+     * dusk --filter test_autocomplete_attributes
      * @return void
      */
-    public function test_text_attributes()
+    public function test_autocomplete_attributes()
     {
         $this->browse(function (Browser $browser) {
             // Index visibility
@@ -65,33 +65,33 @@ class TextTest extends DuskTestCase
     /**
      * Autofocus test
      *
-     * dusk --filter test_text_autofocus
+     * dusk --filter test_autocomplete_autofocus
      * @return void
      */
-    public function test_text_autofocus()
+    public function test_autocomplete_autofocus()
     {
         $this->browse(function (Browser $browser) {
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertFocused('#test_autofocus');
+                ->assertFocused('@dusk-autocomplete-test_autofocus');
         });
     }
 
     /**
      * Authorization test
      *
-     * dusk --filter test_text_authorization
+     * dusk --filter test_autocomplete_authorization
      * @return void
      */
-    public function test_text_authorization()
+    public function test_autocomplete_authorization()
     {
         $this->browse(function (Browser $browser) {
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertVisible('#testing_can_see')
-                ->assertMissing('#testing_cannot_see');
+                ->assertVisible('[name="testing_can_see"]')
+                ->assertMissing('[name="testing_cannot_see"]');
         });
     }
 }
