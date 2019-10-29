@@ -13,6 +13,8 @@ class TextTest extends DuskTestCase
 {
     use DatabaseMigrations;
 
+    protected $asHtml;
+    protected $field;
     protected $test;
     protected $user;
 
@@ -23,6 +25,7 @@ class TextTest extends DuskTestCase
         $this->user = factory(User::class)->create();
         $this->test = factory(Test::class)->create();
         $this->field = '_fieldtexts';
+        $this->asHtml = '<h1 class="text-red-500">Hello world</h1>';
     }
 
     /**
@@ -56,8 +59,33 @@ class TextTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field)
-                //$field->asHtml()
-                ->assertSee('<h1 class="text-red-500">Hello world</h1>');
+                    // asHtml()
+                    ->assertSourceHas($this->asHtml)
+                    // prefix() and suffix()
+                    ->assertSee('***' . $this->test->test_name . '***')
+                    //resolveUsing()
+                    ->assertSee('resolved ' . $this->test->test_email)
+                    //displayUsing()
+                    ->assertSee(strtoupper($this->test->test_name))
+                ->visit('dashboard/' . $this->field . '/' . $this->user->id . '/edit')
+                    ->assertVisible('#testing-id.testing-class')
+                    ->assertVisible('#testing-id')
+                    ->assertVisible('[name="testing-name"]')
+                    ->assertVisible('[data-test="testing-data"]')
+                    ->assertVisible('[disabled]')
+                    ->assertVisible('[readonly]')
+                    ->assertVisible('[dusk="testing-dusk"]')
+                    //asHtml() don't see in edit view
+                    ->assertSourceMissing($this->asHtml)
+                ->visit('dashboard/' . $this->field . '/create')
+                    // help()
+                    ->assertSourceHas('<div class="font-normal lowercase italic mt-2 uppercase-first-letter">testing help</div>')
+                    // defaultValue()
+                    ->assertVisible('[value="testing-value"]')
+                    // autofocus()
+                    ->assertFocused('#testing-focus')
+                    //asHtml() don't see in create view
+                    ->assertSourceMissing($this->asHtml);
         });
     }
 }

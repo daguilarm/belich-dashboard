@@ -65,9 +65,37 @@ class _FieldText extends Resources {
                 ->visibleOn('index'),
             Text::make('Hide-From index', 'test_name')
                 ->hideFrom('index'),
-            // Testing for attributes
+            //Testing for html render
             Text::make('Testing attributes: html', 'test_html')
+                ->id('testing-asHtml')
                 ->asHtml(),
+            //Testing for attributes
+            Text::make('Testing attributes', 'test_name')
+                ->addClass('testing-class')
+                ->id('testing-id')
+                ->name('testing-name')
+                ->data('test', 'testing-data')
+                ->disabled()
+                ->readonly()
+                ->dusk('testing-dusk')
+                ->defaultValue('testing-value')
+                ->help('testing help'),
+            //Testing prefix and focus
+                Text::make('Testing prefix', 'test_name')
+                    ->id('testing-focus')
+                    ->prefix('***')
+                    ->suffix('***')
+                    ->autofocus(),
+            //Testing model manipulation
+                Text::make('Testing model manipulation', 'test_name')
+                    ->resolveUsing(function($model) {
+                        return 'resolved ' . $model->test_email;
+                    }),
+            //Testing result manipulation
+                Text::make('Testing result manipulation', 'test_name')
+                    ->displayUsing(function($value) {
+                        return strtoupper($value);
+                    }),
         ];
     }
 
