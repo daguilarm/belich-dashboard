@@ -84,6 +84,12 @@ class _FieldBoolean extends Resources {
                 ->canSee(function($request) {
                     return false;
                 }),
+            Boolean::make('Test boolean red', 'test_name')
+                ->id('boolean-color-red')
+                ->color('red'),
+            Boolean::make('Test boolean blue', 'test_name')
+                ->id('boolean-color-blue')
+                ->color('blue'),
         ];
     }
 
