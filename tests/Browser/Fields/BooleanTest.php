@@ -25,7 +25,6 @@ class BooleanTest extends DuskTestCase
         $this->user = factory(User::class)->create();
         $this->test = factory(Test::class)->create();
         $this->field = '_fieldbooleans';
-        $this->asHtml = '<h1 class="text-red-500">Hello world</h1>';
     }
 
     /**
@@ -58,23 +57,7 @@ class BooleanTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 //App\Providers\DuskServiceProvider
-                ->assertAttributes($this->user, $this->test, $this->field, $this->asHtml);
-        });
-    }
-
-    /**
-     * Autofocus test
-     *
-     * dusk --filter test_boolean_autofocus
-     * @return void
-     */
-    public function test_boolean_autofocus()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser
-                ->loginAs($this->user)
-                ->visit('dashboard/' . $this->field . '/create')
-                ->assertFocused('#test_autofocus');
+                ->assertAttributes($this->user, $this->test, $this->field, null);
         });
     }
 
