@@ -57,7 +57,7 @@ class BooleanTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 //App\Providers\DuskServiceProvider
-                ->assertAttributes($this->user, $this->test, $this->field, null);
+                ->assertAttributes($this->user, $this->test, $this->field, '');
         });
     }
 
@@ -73,7 +73,7 @@ class BooleanTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertVisible('#testing_can_see')
+                ->assertPresent('#testing_can_see')
                 ->assertMissing('#testing_cannot_see');
         });
     }

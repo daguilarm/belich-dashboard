@@ -100,21 +100,9 @@ class DuskServiceProvider extends ServiceProvider
     public static function assertAttributes(Browser $browser, User $user, Test $test, string $page, string $html) : Browser
     {
         return $browser
-            ->visit('dashboard/' . $page)
-                // asHtml()
-                ->assertSourceHas($html)
-                // prefix() and suffix()
-                ->assertSee('***' . $test->test_name . '***')
-                //resolveUsing()
-                ->assertSee('resolved ' . $test->test_email)
-                //displayUsing()
-                ->assertSee(strtoupper($test->test_name))
             ->visit('dashboard/' . $page . '/' . $user->id . '/edit')
-                ->assertVisible('.testing-class')
-                //
                 ->assertPresent('#testing_id')
                 ->assertPresent('[dusk="testing-dusk"]')
-                //
                 ->assertVisible('[name="testing-name"]')
                 ->assertVisible('[data-test="testing-data"]')
                 ->assertVisible('[disabled]')

@@ -65,7 +65,6 @@ class _FieldBoolean extends Resources {
             //Testing for attributes
             Boolean::make('Test boolean', 'test_boolean'),
             Boolean::make('Testing attributes', 'test_name')
-                ->addClass('testing-class')
                 ->id('testing_id')
                 ->name('testing-name')
                 ->data('test', 'testing-data')

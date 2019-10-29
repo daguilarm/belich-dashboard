@@ -65,16 +65,30 @@ class AutocompleteTest extends DuskTestCase
     /**
      * Autofocus test
      *
-     * dusk --filter test_autocomplete_autofocus
+     * dusk --filter test_text_custom_attributes
      * @return void
      */
-    public function test_autocomplete_autofocus()
+    public function test_autocomplete_custom_attributes()
     {
         $this->browse(function (Browser $browser) {
+            // Testing forms
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
+                // addClass
+                ->assertVisible('.testing-class')
+                // Test autofocus
                 ->assertFocused('@dusk-autocomplete-test_autofocus');
+
+            // Testing not forms
+            $browser
+                ->visit('dashboard/' . $this->field)
+                // prefix() and suffix()
+                ->assertSee('***' . $this->test->test_name . '***')
+                //resolveUsing()
+                ->assertSee('resolved ' . $this->test->test_email)
+                //displayUsing()
+                ->assertSee(strtoupper($this->test->test_name));
         });
     }
 
