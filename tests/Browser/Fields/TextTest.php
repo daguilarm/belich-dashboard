@@ -77,6 +77,7 @@ class TextTest extends DuskTestCase
                 ->visit('dashboard/' . $this->field . '/create')
                 // addClass
                 ->assertVisible('.testing-class')
+                ->assertVisible('.text-center')
                 // Test autofocus
                 ->assertFocused('#test_autofocus');
 

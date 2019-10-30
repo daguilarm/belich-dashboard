@@ -98,6 +98,7 @@ class _FieldAutocomplete extends Resources {
             //Testing authorization
             Autocomplete::make('Testing authorization', 'test_name')
                 ->name('testing_can_see')
+                ->textAlign('center')
                 ->canSee(function($request) {
                     return true;
                 }),

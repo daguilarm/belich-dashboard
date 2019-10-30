@@ -77,6 +77,7 @@ class AutocompleteTest extends DuskTestCase
                 ->visit('dashboard/' . $this->field . '/create')
                 // addClass
                 ->assertVisible('.testing-class')
+                ->assertVisible('.text-center')
                 // Test autofocus
                 ->assertFocused('@dusk-autocomplete-test_autofocus');
 

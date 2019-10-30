@@ -101,6 +101,8 @@ class _FieldText extends Resources {
             //Testing authorization
             Text::make('Testing authorization', 'test_name')
                 ->id('testing_can_see')
+                ->addClass('class1', 'class2')
+                ->textAlign('center')
                 ->canSee(function($request) {
                     return true;
                 }),
