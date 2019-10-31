@@ -114,6 +114,7 @@ class _FieldAutocomplete extends Resources {
             //Testing autocomplete
             Autocomplete::make('Testing autofocus', 'test_string')
                 ->dataFrom(route('dashboard.ajax.example'))
+                ->storeId()
                 ->minChars(2),
         ];
     }
