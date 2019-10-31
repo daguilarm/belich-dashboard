@@ -109,4 +109,19 @@ class AutocompleteTest extends DuskTestCase
                 ->assertMissing('[name="testing_cannot_see"]');
         });
     }
+
+    /**
+     * Authorization test
+     *
+     * dusk --filter test_autocomplete_in_action
+     * @return void
+     */
+    public function test_autocomplete_in_action()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->loginAs($this->user)
+                ->visit('dashboard/' . $this->field);
+        });
+    }
 }

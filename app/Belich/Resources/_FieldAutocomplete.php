@@ -107,13 +107,14 @@ class _FieldAutocomplete extends Resources {
                 ->canSee(function($request) {
                     return false;
                 }),
-            //Testing autocomplete
-            Autocomplete::make('Testing autocomplete', 'test_string')
-                ->dataFrom(route('dashboard.ajax.example')),
             //Testing autofocus
             Autocomplete::make('Testing autofocus', 'test_autofocus')
                 ->dusk('test_autofocus')
                 ->autofocus(),
+            //Testing autocomplete
+            Autocomplete::make('Testing autofocus', 'test_string')
+                ->dataFrom(route('dashboard.ajax.example'))
+                ->minChars(2),
         ];
     }
 
