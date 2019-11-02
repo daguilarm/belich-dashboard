@@ -111,11 +111,6 @@ class _FieldAutocomplete extends Resources {
             Autocomplete::make('Testing autofocus', 'test_autofocus')
                 ->dusk('test_autofocus')
                 ->autofocus(),
-            //Testing autocomplete
-            Autocomplete::make('Testing autofocus', 'test_string')
-                ->dataFrom(route('dashboard.ajax.example'))
-                ->storeId()
-                ->minChars(2),
         ];
     }
 
