@@ -44,21 +44,21 @@ class _FieldAutocompleteAction extends Resources {
      */
     public function fields(Request $request) {
         return [
-            //Testing autocomplete with ID
+            //Testing autocomplete with data store as value
             Autocomplete::make('Testing from ajax', 'test_name')
-                ->dataFrom(route('dashboard.ajax.example'))
+                ->dataFrom(route('dashboard.ajax.test.name'))
                 ->minChars(2),
-            //Testing autocomplete with ID
-            Autocomplete::make('Testing from ajax ID', 'test_lastname')
-                ->dataFrom(route('dashboard.ajax.example'))
+            //Testing autocomplete with data store as id
+            Autocomplete::make('Testing from ajax ID', 'test_string')
+                ->dataFrom(route('dashboard.ajax.test.string'))
                 ->storeId()
                 ->minChars(2),
             //Testing autocomplete
-            Autocomplete::make('Testing from array', 'test_string')
+            Autocomplete::make('Testing from array', 'test_language')
                 ->dataFrom([
                     'c++' => 'C++',
                     'cobol' => 'Cobol',
-                    'jave' => 'Java',
+                    'java' => 'Java',
                     'js' => 'Javascript',
                     'php' => 'Php',
                     'python' => 'Python',
