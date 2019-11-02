@@ -49,9 +49,6 @@ class NavBarTest extends DuskTestCase
                 ->click('@logout')
                 ->click('@logout-session')
                 ->assertPathIs('/dashboard/login')
-                ->visit('/dashboard/profiles/' . $this->user->id . '/edit')
-                ->assertDontSee($this->user->id)
-                ->assertPathIs('/dashboard/login')
                 ->assertGuest();
         });
     }
