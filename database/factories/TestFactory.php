@@ -18,6 +18,7 @@ use Illuminate\Support\Str;
 $factory->define(App\Test::class, function ($faker) {
     return [
         'test_string' => $faker->sentence($nbWords = 5, $variableNbWords = true),
+        'test_language' => Arr::random(['php', 'python', 'c++', 'cobol', 'js']),
         'test_name' => $faker->firstName(),
         'test_lastname' => $faker->lastName(),
         'test_email' => $faker->safeEmail(),
