@@ -10,6 +10,8 @@ use Laravel\Dusk\Browser;
 
 class DuskServiceProvider extends ServiceProvider
 {
+    public static $except = [];
+
     /**
      * Register the Dusk's browser macros.
      *
@@ -23,6 +25,10 @@ class DuskServiceProvider extends ServiceProvider
 
         Browser::macro('assertAttributes', function ($user, $test, $page, $html) {
             return DuskServiceProvider::assertAttributes($this, $user, $test, $page, $html);
+        });
+
+        Browser::macro('exceptAttributes', function ($except) {
+            return DuskServiceProvider::exceptAttributes($this, $except);
         });
     }
 
@@ -99,22 +105,79 @@ class DuskServiceProvider extends ServiceProvider
      */
     public static function assertAttributes(Browser $browser, User $user, Test $test, string $page, string $html) : Browser
     {
-        return $browser
-            ->visit('dashboard/' . $page . '/' . $user->id . '/edit')
-                ->assertPresent('#testing_id')
-                ->assertPresent('[dusk="testing-dusk"]')
-                ->assertVisible('[name="testing-name"]')
-                ->assertVisible('[data-test="testing-data"]')
-                ->assertVisible('[disabled]')
-                ->assertVisible('[readonly]')
-                //asHtml() don't see in edit view
-                ->assertSourceMissing($html)
-            ->visit('dashboard/' . $page . '/create')
-                // help()
-                ->assertSourceHas('<div class="font-normal lowercase italic mt-2 uppercase-first-letter">testing help</div>')
-                // defaultValue()
-                ->assertVisible('[value="testing-value"]')
+        $browser->visit('dashboard/' . $page . '/' . $user->id . '/edit');
+            if(!in_array('id', static::$except)) {
+                $browser->assertPresent('#testing_id');
+            }
+            if(!in_array('dusk', static::$except)) {
+                $browser->assertPresent('[dusk="testing-dusk"]');
+            }
+            if(!in_array('name', static::$except)) {
+                $browser->assertVisible('[name="testing-name"]');
+            }
+            if(!in_array('data-test', static::$except)) {
+                $browser->assertVisible('[data-test="testing-data"]');
+            }
+            if(!in_array('disabled', static::$except)) {
+                $browser->assertVisible('[disabled]');
+            }
+            if(!in_array('readonly', static::$except)) {
+                $browser->assertVisible('[readonly]');
+            }
+            if(!in_array('asHtml', static::$except)) {
+                //$field->asHtml() don't see in edit view
+                $browser->assertSourceMissing($html);
+            }
+            if(!in_array('addClass', static::$except)) {
+                $browser
+                    ->assertVisible('.testing-class')
+                    ->assertVisible('.text-center');
+            }
+            if(!in_array('autofocus', static::$except)) {
+                $browser->assertFocused('@dusk-test_autofocus');
+            }
+
+        $browser->visit('dashboard/' . $page . '/create');
+            if(!in_array('help', static::$except)) {
+                $browser->assertSourceHas('<div class="font-normal lowercase italic mt-2 uppercase-first-letter">testing help</div>');
+            }
+            if(!in_array('defaultValue', static::$except)) {
+                $browser->assertVisible('[value="testing-value"]');
+            }
+            if(!in_array('asHtml', static::$except)) {
                 //asHtml() don't see in create view
-                ->assertSourceMissing($html);
+                $browser->assertSourceMissing($html);
+            }
+        //Index
+        if(!in_array('index', static::$except)) {
+            $browser->visit('dashboard/' . $page);
+                if(!in_array('prefix', static::$except)) {
+                    // For prefix and sufix
+                    $browser->assertSee('***' . $test->test_name . '***');
+                }
+                if(!in_array('resolve', static::$except)) {
+                    //$field->resolveUsing()
+                    $browser->assertSee('resolved ' . $test->test_email);
+                }
+                if(!in_array('display', static::$except)) {
+                    //$field->displayUsing()
+                    $browser->assertSee(strtoupper($test->test_name));
+                }
+        }
+
+        return $browser;
+    }
+
+    /**
+     * Attributes test
+     *
+     * @param Laravel\Dusk\Browser $browser
+     * @param array $except
+     * @return Browser
+     */
+    public static function exceptAttributes(Browser $browser, array $except) {
+        static::$except = $except;
+
+        return $browser;
     }
 }
