@@ -54,15 +54,16 @@ class _FieldAutocompleteAction extends Resources {
                 ->storeId()
                 ->minChars(2),
             //Testing autocomplete
-            Autocomplete::make('Testing from array', 'test_language')
-                ->dataFrom([
-                    'c++' => 'C++',
-                    'cobol' => 'Cobol',
-                    'java' => 'Java',
-                    'js' => 'Javascript',
-                    'php' => 'Php',
-                    'python' => 'Python',
-                ]),
+            // Not possible to deal with datalist > option
+            // Autocomplete::make('Testing from array', 'test_language')
+            //     ->dataFrom([
+            //         'c++' => 'C++',
+            //         'cobol' => 'Cobol',
+            //         'java' => 'Java',
+            //         'js' => 'Javascript',
+            //         'php' => 'Php',
+            //         'python' => 'Python',
+            //     ]),
         ];
     }
 

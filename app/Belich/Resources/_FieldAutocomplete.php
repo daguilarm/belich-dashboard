@@ -77,7 +77,6 @@ class _FieldAutocomplete extends Resources {
                 ->data('test', 'testing-data')
                 ->readonly()
                 ->disabled()
-                ->dusk('testing-dusk')
                 ->defaultValue('testing-value')
                 ->help('testing help'),
             //Testing prefix
@@ -109,7 +108,6 @@ class _FieldAutocomplete extends Resources {
                 }),
             //Testing autofocus
             Autocomplete::make('Testing autofocus', 'test_autofocus')
-                ->dusk('test_autofocus')
                 ->autofocus(),
         ];
     }

@@ -26,6 +26,7 @@ class AutocompleteTest extends DuskTestCase
         $this->test = factory(Test::class)->create();
         $this->field = '_fieldautocompletes';
         $this->asHtml = '<h1 class="text-red-500">Hello world</h1>';
+        $this->except = ['dusk'];
     }
 
     /**
@@ -58,14 +59,20 @@ class AutocompleteTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 //App\Providers\DuskServiceProvider
-                ->assertAttributes($this->user, $this->test, $this->field, $this->asHtml);
+                ->exceptAttributes(['dusk', 'autofocus'])
+                ->assertAttributes(
+                    $this->user,
+                    $this->test,
+                    $this->field,
+                    $this->asHtml
+                );
         });
     }
 
     /**
      * Custom attributes test
      *
-     * dusk --filter test_text_custom_attributes
+     * dusk --filter test_autocomplete_custom_attributes
      * @return void
      */
     public function test_autocomplete_custom_attributes()
@@ -75,21 +82,8 @@ class AutocompleteTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                // addClass
-                ->assertVisible('.testing-class')
-                ->assertVisible('.text-center')
                 // Test autofocus
-                ->assertFocused('@dusk-autocomplete-test_autofocus');
-
-            // Testing not forms
-            $browser
-                ->visit('dashboard/' . $this->field)
-                // prefix() and suffix()
-                ->assertSee('***' . $this->test->test_name . '***')
-                //resolveUsing()
-                ->assertSee('resolved ' . $this->test->test_email)
-                //displayUsing()
-                ->assertSee(strtoupper($this->test->test_name));
+                ->assertFocused('@datalist-input-test_autofocus');
         });
     }
 

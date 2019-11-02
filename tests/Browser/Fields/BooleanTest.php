@@ -57,6 +57,7 @@ class BooleanTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 //App\Providers\DuskServiceProvider
+                ->exceptAttributes(['addClass', 'autofocus', 'prefix', 'resolve', 'display'])
                 ->assertAttributes($this->user, $this->test, $this->field, '');
         });
     }
