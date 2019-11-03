@@ -34,7 +34,8 @@ class CreateTestsTable extends Migration
             $table->text('test_description');
             $table->enum('test_enum', ['yes', 'no']);
             $table->decimal('test_decimal', 10, 2)->default(0);
-            $table->float('test_coordenates', 10, 6)->default(0);
+            $table->float('lat_test_coordenate', 10, 6)->default(0);
+            $table->float('lng_test_coordenate', 10, 6)->default(0);
             $table->integer('test_integer')->unsigned()->index();
             $table->integer('test_number');
             $table->ipAddress('test_ip');
