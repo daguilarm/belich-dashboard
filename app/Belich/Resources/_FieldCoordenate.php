@@ -47,10 +47,12 @@ class _FieldCoordenate extends Resources {
         return [
             //Testing for latitude
             Coordenates::make('Testing latitude', 'lat_test_coordenate')
-                ->addClass('testing-latitude'),
+                ->addClass('testing-latitude')
+                ->toDegrees('lat'),
             //Testing for longitude
             Coordenates::make('Testing longitude', 'lng_test_coordenate')
-                ->addClass('testing-longitude'),
+                ->addClass('testing-longitude')
+                ->toDegrees('lng'),
         ];
     }
 
