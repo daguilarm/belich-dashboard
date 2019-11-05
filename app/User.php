@@ -2,13 +2,14 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -33,11 +34,6 @@ class User extends Authenticatable
     | Relationships
     |--------------------------------------------------------------------------
     */
-    public function billing()
-    {
-        return $this->hasOne(\App\Billing::class);
-    }
-
     public function profile()
     {
         return $this->hasOne(\App\Profile::class);
