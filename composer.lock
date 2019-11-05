@@ -80,13 +80,16 @@
             "dist": {
                 "type": "path",
                 "url": "../../../../../../../../../.././Users/daguilarm/Sites/Packages/belich",
-                "reference": "b7020a488c596ad0a6a392d21249b65e29b905cf"
+                "reference": "ee1b51f5c1b54f038cedae7f999b808d9636ee77"
             },
             "require": {
                 "matthiasmullie/minify": "dev-master",
                 "php": "^7.2",
                 "rap2hpoutre/fast-excel": "dev-master",
                 "spatie/laravel-blade-x": "^2.0.0"
+            },
+            "require-dev": {
+                "nunomaduro/phpinsights": "dev-master"
             },
             "type": "project",
             "extra": {
