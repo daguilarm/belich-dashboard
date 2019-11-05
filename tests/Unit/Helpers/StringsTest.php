@@ -2,46 +2,53 @@
 
 namespace Tests\Unit;
 
+use Daguilarm\Belich\Facades\Helper;
 use Tests\TestCase;
 
+//test --filter ResourcesTest
 class StringsTest extends TestCase
 {
     /** Test */
+    //test --filter test_string_plural_lower
     public function test_string_plural_lower()
     {
-        $actual = stringPluralLower('USER');
+        $actual = Helper::stringPluralLower('USER');
         $expected = 'users';
         $this->assertEquals($expected, $actual);
     }
 
     /** Test */
+    //test --filter test_string_plural_upper
     public function test_string_plural_upper()
     {
-        $actual = stringPluralUpper('user');
+        $actual = Helper::stringPluralUpper('user');
         $expected = 'Users';
         $this->assertEquals($expected, $actual);
     }
 
     /** Test */
+    //test --filter test_string_singular_upper
     public function test_string_singular_upper()
     {
-        $actual = stringSingularUpper('users');
+        $actual = Helper::stringSingularUpper('users');
         $expected = 'User';
         $this->assertEquals($expected, $actual);
     }
 
     /** Test */
+    //test --filter test_string_to_kebab
     public function test_string_to_kebab()
     {
-        $actual = stringTokebab('user stats');
+        $actual = Helper::stringTokebab('user stats');
         $expected = 'user-stats';
         $this->assertEquals($expected, $actual);
     }
 
     /** Test */
+    //test --filter test_empty_results
     public function test_empty_results()
     {
-        $actual = emptyResults();
+        $actual = Helper::emptyResults();
         $expected = '—';
         $this->assertEquals($expected, $actual);
     }
