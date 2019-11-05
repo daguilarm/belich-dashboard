@@ -45,9 +45,12 @@ class _FieldCoordenate extends Resources {
     public function fields(Request $request): array
     {
         return [
-            //Testing for attributes
-            Coordenates::make('Testing attributes', 'test_coordenate')
-                ->addClass('hellow'),
+            //Testing for latitude
+            Coordenates::make('Testing latitude', 'lat_test_coordenate')
+                ->addClass('testing-latitude'),
+            //Testing for longitude
+            Coordenates::make('Testing longitude', 'lng_test_coordenate')
+                ->addClass('testing-longitude'),
         ];
     }
 

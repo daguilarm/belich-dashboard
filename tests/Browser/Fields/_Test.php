@@ -38,9 +38,9 @@ class _Test extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<input class="testing-class1 testing-class2" type="text" value="testing-value" dusk="testing-dusk" id="testing_id" name="testing-name" data-test="testing-data">')
-                ->assertSourceHas('<input class="testing-class" type="text" value="" dusk="dusk-test_string" id="testing_id" name="testing-name" disabled="">')
-                ->assertSourceHas('<input class="testing-class" type="text" value="" dusk="dusk-test_lastname" id="testing_id" name="testing-name" readonly="">');
+                ->assertSourceHas('<input class="testing-class1 testing-class2 mr-3" type="text" value="testing-value" dusk="testing-dusk" id="testing_id" name="testing-name" data-test="testing-data">')
+                ->assertSourceHas('<input class="testing-class mr-3" type="text" value="" dusk="dusk-test_string" id="testing_id" name="testing-name" disabled="">')
+                ->assertSourceHas('<input class="testing-class mr-3" type="text" value="" dusk="dusk-test_lastname" id="testing_id" name="testing-name" readonly="">');
         });
     }
 }
