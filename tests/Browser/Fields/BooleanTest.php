@@ -78,6 +78,33 @@ class BooleanTest extends DuskTestCase
                 ->assertPresent('input.itoggle.red')
                 ->assertPresent('input#boolean_color_red.itoggle.red')
                 ->assertPresent('input#boolean_color_blue.itoggle.blue');
+            //Testing on index
+            $browser
+                ->visit('dashboard/' . $this->field)
+                ->assertSourceHas('<i class="fas fa-circle text-red-500"></i>')
+                ->assertSourceHas('<i class="fas fa-circle text-blue-500"></i>');
+        });
+    }
+
+    /**
+     * Boolean color labels
+     *
+     * dusk --filter test_boolean_labels
+     * @return void
+     */
+    public function test_boolean_labels()
+    {
+        $this->browse(function (Browser $browser) {
+            //Current label
+            $label = $this->test->test_boolean
+                ? 'yes'
+                : 'no';
+
+            //Testing on index
+            $browser
+                ->loginAs($this->user)
+                ->visit('dashboard/' . $this->field)
+                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(11)', $label);
         });
     }
 
@@ -95,9 +122,11 @@ class BooleanTest extends DuskTestCase
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create');
 
-            //Default value
+            //Default value and current state
             $status = $browser->attribute('@dusk-test_boolean', 'value');
+            $browser->assertInputValue('@dusk-test_boolean', $status);
 
+            // Assert status change
             if($status === '0') {
                 $browser
                     ->click('@label-test_boolean')
