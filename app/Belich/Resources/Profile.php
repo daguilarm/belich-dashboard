@@ -2,11 +2,11 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Image;
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
-use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
 class Profile extends Resources {
@@ -45,13 +45,16 @@ class Profile extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public function fields(Request $request) {
+    public function fields(Request $request): array
+    {
         return [
             ID::make('Id'),
             Text::make('User', 'name')
                 ->withRelationship('user'),
             Text::make('Email', 'email')
                 ->withRelationship('user'),
+            Text::make('Address', 'profile_address')
+                ->rules('required'),
             Image::make('Avatar', 'profile_avatar')
                 ->alt('Testing alt'),
         ];
@@ -63,8 +66,9 @@ class Profile extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function metrics(Request $request) {
-        return;
+    public static function metrics(Request $request): array
+    {
+        return [];
     }
 
     /**
@@ -73,7 +77,8 @@ class Profile extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function cards(Request $request) {
-        return;
+    public static function cards(Request $request): array
+    {
+        return [];
     }
 }

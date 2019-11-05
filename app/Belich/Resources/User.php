@@ -2,20 +2,24 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\Hidden;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Password;
 use Daguilarm\Belich\Fields\Types\PasswordConfirmation;
 use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
-use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
+use Illuminate\Support\Collection;
 use Illuminate\Validation\Rule;
 
 class User extends Resources {
 
     /** @var string [Model path] */
     public static $model = '\App\User';
+
+    /** @var array */
+    public static $relationships = ['profile'];
 
     /** @var bool */
     public static $displayInNavigation = true;
@@ -64,7 +68,8 @@ class User extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public function fields(Request $request) {
+    public function fields(Request $request): array
+    {
         return [
             ID::make('Id'),
             Text::make('Name', 'name')
@@ -76,6 +81,8 @@ class User extends Resources {
                 ->autofocus()
                 ->rules('required', 'email', Rule::unique('users')->ignore($request->user()->id))
                 ->sortable(),
+            Text::make('Avatar', 'profile_avatar')
+                ->withRelationship('profile'),
             Password::make('Password', 'password')
                 ->creationRules('required', 'required_with:password_confirmation', 'confirmed', 'min:6')
                 ->updateRules('nullable', 'required_with:password_confirmation', 'same:password_confirmation', 'min:6')
@@ -90,7 +97,8 @@ class User extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function cards(Request $request) {
+    public static function cards(Request $request): array
+    {
         return [
             new \App\Belich\Cards\UserCard($request),
         ];
@@ -102,7 +110,8 @@ class User extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function metrics(Request $request) {
+    public static function metrics(Request $request): array
+    {
         return [
             new \App\Belich\Metrics\UsersPerMonth($request),
             new \App\Belich\Metrics\UsersPerDay($request),

@@ -2,9 +2,9 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Autocomplete;
-use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
 class _FieldAutocompleteAction extends Resources {
@@ -42,7 +42,8 @@ class _FieldAutocompleteAction extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public function fields(Request $request) {
+    public function fields(Request $request): array
+    {
         return [
             //Testing autocomplete with data store as value
             Autocomplete::make('Testing from ajax', 'test_name')
@@ -73,8 +74,9 @@ class _FieldAutocompleteAction extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function metrics(Request $request) {
-        return;
+    public static function metrics(Request $request): array
+    {
+        return [];
     }
 
     /**
@@ -83,7 +85,8 @@ class _FieldAutocompleteAction extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function cards(Request $request) {
-        return;
+    public static function cards(Request $request): array
+    {
+        return [];
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Boolean;
-use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
 class _FieldBoolean extends Resources {
@@ -39,7 +39,8 @@ class _FieldBoolean extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public function fields(Request $request) {
+    public function fields(Request $request): array
+    {
         return [
             // Testing for visibility
             Boolean::make('Hide from index', 'test_name')
@@ -84,6 +85,10 @@ class _FieldBoolean extends Resources {
                 ->canSee(function($request) {
                     return false;
                 }),
+            Boolean::make('Testing authorization', 'test_boolean')
+                ->id('testing_custom_labels')
+                ->trueValue('yes')
+                ->falseValue('no'),
             Boolean::make('Test boolean red', 'test_name')
                 ->id('boolean-color-red')
                 ->color('red'),
@@ -99,8 +104,9 @@ class _FieldBoolean extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function metrics(Request $request) {
-        return;
+    public static function metrics(Request $request): array
+    {
+        return [];
     }
 
     /**
@@ -109,7 +115,8 @@ class _FieldBoolean extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function cards(Request $request) {
-        return;
+    public static function cards(Request $request): array
+    {
+        return[];
     }
 }

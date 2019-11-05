@@ -2,9 +2,9 @@
 
 namespace App\Belich\Resources;
 
+use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Autocomplete;
-use Daguilarm\Belich\Resources;
 use Illuminate\Http\Request;
 
 class _FieldAutocomplete extends Resources {
@@ -42,7 +42,8 @@ class _FieldAutocomplete extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public function fields(Request $request) {
+    public function fields(Request $request): array
+    {
         return [
             // Testing for visibility
             Autocomplete::make('Hide from index', 'test_name')
@@ -118,8 +119,9 @@ class _FieldAutocomplete extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function metrics(Request $request) {
-        return;
+    public static function metrics(Request $request): array
+    {
+        return [];
     }
 
     /**
@@ -128,7 +130,8 @@ class _FieldAutocomplete extends Resources {
      * @param  \Illuminate\Http\Request  $request
      * @return Illuminate\Support\Collection
      */
-    public static function cards(Request $request) {
-        return;
+    public static function cards(Request $request): array
+    {
+        return [];
     }
 }
