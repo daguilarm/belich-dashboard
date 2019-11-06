@@ -12,9 +12,6 @@ class _FieldCoordenate extends Resources {
     /** @var string [Model path] */
     public static $model = '\App\Test';
 
-    /** @var array */
-    public static $relationships = ['user'];
-
     /** @var string */
     public static $group = 'Testing';
 
@@ -45,13 +42,79 @@ class _FieldCoordenate extends Resources {
     public function fields(Request $request): array
     {
         return [
+            // Testing for visibility
+            Coordenates::make('Hide from index', 'test_name')
+                ->hideFromIndex(),
+            Coordenates::make('Hide from show', 'test_name')
+                ->hideFromShow(),
+            Coordenates::make('Hide when creating', 'test_name')
+                ->hideWhenCreating(),
+            Coordenates::make('Hide when editing', 'test_name')
+                ->hideWhenEditing(),
+            Coordenates::make('Only on index', 'test_name')
+                ->onlyOnIndex(),
+            Coordenates::make('Only on show', 'test_name')
+                ->onlyOnShow(),
+            Coordenates::make('Only on forms', 'test_name')
+                ->onlyOnForms(),
+            Coordenates::make('Except on forms', 'test_name')
+                ->exceptOnForms(),
+            Coordenates::make('Visible-on index', 'test_name')
+                ->visibleOn('index'),
+            Coordenates::make('Hide-From index', 'test_name')
+                ->hideFrom('index'),
+            //Testing for html render
+            Coordenates::make('Testing attributes: html', 'test_html')
+                ->id('testing_asHtml')
+                ->asHtml(),
+            //Testing for attributes
+            Coordenates::make('Testing attributes', 'test_name')
+                ->addClass('testing-class')
+                ->id('testing_id')
+                ->name('testing-name')
+                ->data('test', 'testing-data')
+                ->disabled()
+                ->readonly()
+                ->dusk('testing-dusk')
+                ->defaultValue('testing-value')
+                ->help('testing help'),
+            //Testing prefix
+            Coordenates::make('Testing prefix', 'test_name')
+                ->id('testing_focus')
+                ->prefix('***')
+                ->suffix('***'),
+            //Testing model manipulation
+            Coordenates::make('Testing model manipulation', 'test_name')
+                ->resolveUsing(function($model) {
+                    return 'resolved ' . $model->test_email;
+                }),
+            //Testing result manipulation
+            Coordenates::make('Testing result manipulation', 'test_name')
+                ->displayUsing(function($value) {
+                    return strtoupper($value);
+                }),
+            //Testing authorization
+            Coordenates::make('Testing authorization', 'test_name')
+                ->id('testing_can_see')
+                ->addClass('class1', 'class2')
+                ->textAlign('center')
+                ->canSee(function($request) {
+                    return true;
+                }),
+            Coordenates::make('Testing authorization', 'test_name')
+                ->id('testing_cannot_see')
+                ->canSee(function($request) {
+                    return false;
+                }),
+            //Testing autofocus
+            Coordenates::make('Testing autofocus', 'test_autofocus')
+                ->id('test_autofocus')
+                ->autofocus(),
             //Testing for latitude
             Coordenates::make('Testing latitude', 'lat_test_coordenate')
-                ->addClass('testing-latitude')
                 ->toDegrees('lat'),
             //Testing for longitude
             Coordenates::make('Testing longitude', 'lng_test_coordenate')
-                ->addClass('testing-longitude')
                 ->toDegrees('lng'),
         ];
     }
