@@ -26,7 +26,6 @@ class AutocompleteTest extends DuskTestCase
         $this->test = factory(Test::class)->create();
         $this->field = '_fieldautocompletes';
         $this->asHtml = '<h1 class="text-red-500">Hello world</h1>';
-        $this->except = ['dusk'];
     }
 
     /**
