@@ -43,4 +43,13 @@ class BladeTest extends TestCase
         $actual = Helper::hideContainerForScreens(['xl']);
         $this->assertEquals($expected, $actual);
     }
+
+    /** Test */
+    // test --filter test_hide_container_for_multiple
+    public function test_hide_container_for_multiple()
+    {
+        $expected = 'hidden sm:flex md:flex lg:hidden xl:hidden';
+        $actual = Helper::hideContainerForScreens(['lg', 'xl']);
+        $this->assertEquals($expected, $actual);
+    }
 }
