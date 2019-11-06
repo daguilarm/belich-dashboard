@@ -16,6 +16,11 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(App\Test::class, function ($faker) {
+    // List of countries
+    $countries = collect(trans('belich::metrics.countriesOfTheWorldWithCodes'))->map(function($code, $name) {
+        return $code['code'];
+    })->toArray();
+
     return [
         'test_string' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'test_language' => Arr::random(['php', 'python', 'c++', 'cobol', 'js']),
@@ -24,6 +29,7 @@ $factory->define(App\Test::class, function ($faker) {
         'test_email' => $faker->safeEmail(),
         'test_telephone' => $faker->numberBetween($min = 100000000, $max = 999999999),
         'test_zip' => $faker->numberBetween($min = 100000000, $max = 999999999),
+        'test_country' => Arr::random($countries),
         'test_file' => $faker->imageUrl($width = 640, $height = 480),
         'test_mask' => $faker->tollFreePhoneNumber(),
         'test_html' => '<h1 class="text-red-500">Hello world</h1>',

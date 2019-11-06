@@ -22,6 +22,7 @@ class CreateTestsTable extends Migration
             $table->string('test_email');
             $table->string('test_telephone');
             $table->string('test_zip');
+            $table->string('test_country', 2);
             $table->string('test_file');
             $table->string('test_mask');
             $table->string('test_html');
