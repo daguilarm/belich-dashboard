@@ -14,4 +14,16 @@ trait Setup {
         'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
         'texts' => [],
     ];
+
+    /**
+     * Set field to be evaluated
+     *
+     * @param string $field
+     *
+     * @return string
+     */
+    protected static function setField(string $field): string
+    {
+        return '_field' . $field;
+    }
 }
