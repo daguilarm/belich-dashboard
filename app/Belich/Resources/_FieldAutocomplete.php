@@ -102,7 +102,7 @@ class _FieldAutocomplete extends Resources {
                 ->canSee(function($request) {
                     return true;
                 }),
-            Autocomplete::make('Testing authorization', 'test_name')
+            Autocomplete::make('Testing authorization', 'test_creditcard')
                 ->name('testing_cannot_see')
                 ->canSee(function($request) {
                     return false;
