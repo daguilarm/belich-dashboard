@@ -1,19 +1,19 @@
 <?php
 
-namespace Tests\Browser\Fields;
+namespace Tests\Browser\Fields\Custom;
 
 use App\Test;
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
+use Tests\Browser\Fields\Setup;
 use Tests\DuskTestCase;
 
-// dusk --filter CoodenatesTest
-class CoodenatesTest extends DuskTestCase
+// dusk --filter CoordenatesTest
+class CoordenatesTest extends DuskTestCase
 {
-    use DatabaseMigrations;
+    use DatabaseMigrations, Setup;
 
-    protected $asHtml;
     protected $field;
     protected $test;
     protected $user;
@@ -23,57 +23,18 @@ class CoodenatesTest extends DuskTestCase
         parent::setUp();
 
         $this->user = factory(User::class)->create();
+
         $this->test = factory(Test::class)->create();
-        $this->field = '_fieldcoordenates';
-        $this->asHtml = '<h1 class="text-red-500">Hello world</h1>';
-    }
-
-    /**
-     * Visibility test
-     *
-     * dusk --filter test_coordenates_visibility
-     * @return void
-     */
-    public function test_coordenates_visibility()
-    {
-        $this->browse(function (Browser $browser) {
-            // Index visibility
-            $browser
-                ->loginAs($this->user)
-                //App\Providers\DuskServiceProvider
-                ->assertVisibility($this->user, $this->field);
-        });
-    }
-
-    /**
-     * Attributes test
-     *
-     * dusk --filter test_coordenates_attributes
-     * @return void
-     */
-    public function test_coordenates_attributes()
-    {
-        $this->browse(function (Browser $browser) {
-            // Index visibility
-            $browser
-                ->loginAs($this->user)
-                //App\Providers\DuskServiceProvider
-                ->assertAttributes(
-                    $this->user,
-                    $this->test,
-                    $this->field,
-                    $this->asHtml
-                );
-        });
+        $this->field = $this->setField('coordenates');
     }
 
     /**
      * Custom attributes test
      *
-     * dusk --filter test_coordenates_custom_attributes
+     * dusk --filter test_coordenates_attributes
      * @return void
      */
-    public function test_coordenates_custom_attributes()
+    public function test_coordenates_attributes()
     {
         $this->browse(function (Browser $browser) {
             // Create -> toDegrees
