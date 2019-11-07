@@ -75,12 +75,12 @@ class _FieldBoolean extends Resources {
                 ->defaultValue('testing-value')
                 ->help('testing help'),
             //Testing authorization
-            Boolean::make('Testing authorization', 'test_name')
+            Boolean::make('Testing authorization see', 'test_name')
                 ->id('testing_can_see')
                 ->canSee(function($request) {
                     return true;
                 }),
-            Boolean::make('Testing authorization', 'test_name')
+            Boolean::make('Testing authorization not see', 'test_name')
                 ->id('testing_cannot_see')
                 ->canSee(function($request) {
                     return false;
