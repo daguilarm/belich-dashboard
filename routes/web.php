@@ -16,5 +16,5 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard/test', function () {
-    return view('belich::test');
+    return view('belich::pages.test');
 })->middleware('auth');
