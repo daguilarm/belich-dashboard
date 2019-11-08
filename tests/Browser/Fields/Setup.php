@@ -8,13 +8,14 @@ trait Setup {
      * @var array
      */
     protected $fields = [
-        'autocompletes' => ['dusk', 'autofocus'],
-        'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
-        'coordenates' => [],
-        'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
-        'dates' => ['asHtml', 'display', 'prefix', 'resolve'],
-        'decimals' => ['display'],
-        'texts' => [],
+        'files' => ['prefix', 'autofocus', 'display', 'resolve'],
+        // 'autocompletes' => ['dusk', 'autofocus'],
+        // 'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
+        // 'coordenates' => [],
+        // 'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
+        // 'dates' => ['asHtml', 'display', 'prefix', 'resolve'],
+        // 'decimals' => ['display'],
+        // 'texts' => [],
     ];
 
     /**
