@@ -5,8 +5,6 @@ namespace App\Belich\Resources;
 use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\File;
 use Daguilarm\Belich\Fields\Types\ID;
-use Daguilarm\Belich\Fields\Types\Image;
-use Daguilarm\Belich\Fields\Types\Text;
 use Illuminate\Http\Request;
 
 class _FieldFileAction extends Resources {
@@ -49,11 +47,28 @@ class _FieldFileAction extends Resources {
         return [
             Id::make('ID', 'id')
                 ->sortable(),
-            Text::make('Name', 'test_name'),
             File::make('File url', 'test_file')
                 ->storeName('test_file_name')
                 ->storeMime('test_file_mime')
                 ->storeSize('test_file_size'),
+            File::make('Testing disk', 'test_name')
+                ->id('store_disk')
+                ->disabled(),
+            File::make('Testing disk and store name', 'test_name')
+                ->id('store_name')
+                ->disabled()
+                ->storeName('test_store_name'),
+            File::make('Testing disk, store name and mime', 'test_name')
+                ->id('store_name_mime')
+                ->disabled()
+                ->storeMime('test_file_mime')
+                ->storeName('test_store_name_and_mime'),
+            File::make('Testing disk, store name, mime and size', 'test_name')
+                ->id('store_name_mime_size')
+                ->disabled()
+                ->storeMime('test_file_mime')
+                ->storeSize('test_file_size')
+                ->storeName('test_store_name_and_mime_and_size'),
         ];
     }
 
