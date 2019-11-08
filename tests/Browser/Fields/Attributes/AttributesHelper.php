@@ -103,9 +103,10 @@ trait AttributesHelper
     private function assertAttributesCreate(Browser $browser, string $html, array $except): Browser
     {
         $this->assertConstructor($browser, 'help', 'assertSourceHas', '<div class="font-normal lowercase italic mt-2 uppercase-first-letter">testing help</div>', $except);
-        $this->assertConstructor($browser, 'defaultValue', 'assertVisible', '[value="testing-value"]', $except);
         $this->assertConstructor($browser, 'asHtml', 'assertSourceMissing', $html, $except);
-
+        if(!in_array('defaultValue', $except)) {
+            $this->assertConstructor($browser, 'defaultValue', 'assertVisible', '[value="testing-value"]', $except);
+        }
         return $browser;
     }
 
