@@ -82,7 +82,6 @@ class _FieldFile extends Resources {
                 ->disabled()
                 ->readonly()
                 ->dusk('testing-dusk')
-                ->defaultValue('testing-value')
                 ->help('testing help'),
             //Testing authorization
             File::make('Testing authorization', 'test_file')

@@ -8,7 +8,7 @@ trait Setup {
      * @var array
      */
     protected $fields = [
-        'files' => ['prefix', 'autofocus', 'display', 'resolve'],
+        'files' => ['asHtml', 'autofocus', 'defaultValue', 'display', 'prefix', 'resolve'],
         // 'autocompletes' => ['dusk', 'autofocus'],
         // 'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
         // 'coordenates' => [],
