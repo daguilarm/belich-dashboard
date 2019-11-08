@@ -6,6 +6,7 @@ use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\File;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Image;
+use Daguilarm\Belich\Fields\Types\Text;
 use Illuminate\Http\Request;
 
 class _FieldFileAction extends Resources {
@@ -46,16 +47,13 @@ class _FieldFileAction extends Resources {
     public function fields(Request $request): array
     {
         return [
+            Id::make('ID', 'id')
+                ->sortable(),
+            Text::make('Name', 'test_name'),
             File::make('File url', 'test_file')
-                ->dusk('file-url'),
-            File::make('File downloable', 'test_file')
-                ->dusk('file-downloable')
-                ->downloadable(),
-            Image::make('Image url', 'test_file')
-                ->dusk('image-url'),
-            Image::make('Image render', 'test_file')
-                ->dusk('image-render')
-                ->render(),
+                ->storeName('test_file_name')
+                ->storeMime('test_file_mime')
+                ->storeSize('test_file_size'),
         ];
     }
 

@@ -24,7 +24,7 @@ class FileTest extends DuskTestCase
 
         $this->user = factory(User::class)->create();
         $this->test = factory(Test::class)->create();
-        $this->field = $this->setField('files');
+        $this->field = $this->setField('fileactions');
     }
 
     /**
@@ -39,7 +39,9 @@ class FileTest extends DuskTestCase
             // Testing forms
             $browser
                 ->loginAs($this->user)
-                ->visit('dashboard/' . $this->field . '/create');
+                ->visit('dashboard/' . $this->field . '/create')
+                ->attach('#test_file', storage_path('app/tests/image.jpeg'))
+                ->click('@button-action-create');
         });
     }
 }
