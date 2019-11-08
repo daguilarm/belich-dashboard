@@ -47,7 +47,7 @@ class AttributesTest extends DuskTestCase
                     $browser,
                     $this->user,
                     $this->test,
-                    $this->setField($field),
+                    $field,
                     $this->asHtml,
                     $except
                 );

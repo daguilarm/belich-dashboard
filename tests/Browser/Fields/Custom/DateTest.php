@@ -29,21 +29,25 @@ class DateTest extends DuskTestCase
     }
 
     /**
-     * Date color test
+     * Date numeric test
      *
-     * dusk --filter test_boolean_colors
+     * dusk --filter test_date_numeric
      * @return void
      */
-    public function test_boolean_colors()
+    public function test_date_numeric()
     {
         $this->browse(function (Browser $browser) {
             // Testing on forms
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertPresent('input.itoggle.red')
-                ->assertPresent('input#boolean_color_red.itoggle.red')
-                ->assertPresent('input#boolean_color_blue.itoggle.blue');
+                ->assertInputValue('@dusk-test_autofocus', '')
+                ->type('@dusk-test_autofocus', '10/10/2010')
+                ->assertInputValue('@dusk-test_autofocus', '2010-10-10')
+                ->clear('@dusk-test_autofocus')
+                ->type('@dusk-test_autofocus', 'aa')
+                ->assertInputValueIsNot('@dusk-test_autofocus', 'aa')
+                ->assertInputValue('@dusk-test_autofocus', '');
         });
     }
 }

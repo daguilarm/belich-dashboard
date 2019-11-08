@@ -25,7 +25,7 @@ class CoordenatesTest extends DuskTestCase
         $this->user = factory(User::class)->create();
 
         $this->test = factory(Test::class)->create();
-        $this->field = $this->setField('coordenates');
+        $this->field = $this->setField('coordenateactions');
     }
 
     /**

@@ -115,6 +115,7 @@ class _FieldText extends Resources {
             //Testing autofocus
             Text::make('Testing autofocus', 'test_autofocus')
                 ->id('test_autofocus')
+                ->dusk('dusk-test_autofocus')
                 ->autofocus(),
         ];
     }

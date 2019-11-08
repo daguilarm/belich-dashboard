@@ -14,17 +14,20 @@ trait AttributesHelper
      * @param Laravel\Dusk\Browser $browser
      * @param App\User $user
      * @param App\Test $test
-     * @param string $page
+     * @param string $field
      * @param string $html
      * @param array $except
      *
      * @return Browser
      */
-    public function assertAttributes(Browser $browser, User $user, Test $test, string $page, string $html, array $except) : Browser
+    public function assertAttributes(Browser $browser, User $user, Test $test, string $field, string $html, array $except) : Browser
     {
+        $page = $this->setField($field);
+        $tableField = $this->tableName[$field] ?? 'test_name';
+
         //INDEX attributes
         $browser->visit('dashboard/' . $page);
-            $this->assertAttributesIndex($browser, $test, $except);
+            $this->assertAttributesIndex($browser, $tableField, $test, $except);
 
         // EDIT attributes
         $browser->visit('dashboard/' . $page . '/' . $user->id . '/edit');
@@ -41,14 +44,15 @@ trait AttributesHelper
      * Attributes assertion in INDEX action
      *
      * @param Laravel\Dusk\Browser $browser
+     * @param string $tableField
      * @param App\Test $test
      * @param array $except
      *
      * @return Browser
      */
-    private function assertAttributesIndex(Browser $browser, Test $test, array $except): Browser
+    private function assertAttributesIndex(Browser $browser, string $tableField, Test $test, array $except): Browser
     {
-        $this->assertConstructor($browser, 'prefix', 'assertSee', '***' . $test->test_name . '***', $except);
+        $this->assertConstructor($browser, 'prefix', 'assertSee', '***' . $test->{$tableField} . '***', $except);
         $this->assertConstructor($browser, 'resolve', 'assertSee', 'resolved ' . $test->test_email, $except);
         $this->assertConstructor($browser, 'display', 'assertSee', strtoupper($test->test_name), $except);
 

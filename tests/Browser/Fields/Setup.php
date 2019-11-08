@@ -8,13 +8,22 @@ trait Setup {
      * @var array
      */
     protected $fields = [
+        'autocompletes' => ['dusk', 'autofocus'],
+        'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
+        'coordenates' => [],
+        'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
         'dates' => ['asHtml', 'display', 'prefix', 'resolve'],
-        // 'autocompletes' => ['dusk', 'autofocus'],
-        // 'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
-        // 'coordenates' => [],
-        // 'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
-        // 'dates' => [],
-        // 'texts' => [],
+        'decimals' => ['display'],
+        'texts' => [],
+    ];
+
+    /**
+     * The table name used by each field
+     * @var array
+     */
+    protected $tableName = [
+        'decimals' => 'test_decimal',
+        'coordenates' => 'lat_test_coordenate',
     ];
 
     /**

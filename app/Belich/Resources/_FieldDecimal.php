@@ -4,13 +4,16 @@ namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\ID;
-use Daguilarm\Belich\Fields\Types\Coordenates;
+use Daguilarm\Belich\Fields\Types\Text;
 use Illuminate\Http\Request;
 
-class _FieldCoordenate extends Resources {
+class _FieldDecimal extends Resources {
 
     /** @var string [Model path] */
     public static $model = '\App\Test';
+
+    /** @var array */
+    public static $relationships = ['user'];
 
     /** @var string */
     public static $group = 'Testing';
@@ -19,10 +22,10 @@ class _FieldCoordenate extends Resources {
     public static $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Coordenates';
+    public static $label = 'Field Decimal';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Coordenates';
+    public static $pluralLabel = 'Fields Decimal';
 
     /**
      * Build the query for the given resource.
@@ -43,32 +46,32 @@ class _FieldCoordenate extends Resources {
     {
         return [
             // Testing for visibility
-            Coordenates::make('Hide from index', 'test_name')
+            Text::make('Hide from index', 'test_decimal')
                 ->hideFromIndex(),
-            Coordenates::make('Hide from show', 'test_name')
+            Text::make('Hide from show', 'test_decimal')
                 ->hideFromShow(),
-            Coordenates::make('Hide when creating', 'test_name')
+            Text::make('Hide when creating', 'test_decimal')
                 ->hideWhenCreating(),
-            Coordenates::make('Hide when editing', 'test_name')
+            Text::make('Hide when editing', 'test_decimal')
                 ->hideWhenEditing(),
-            Coordenates::make('Only on index', 'test_name')
+            Text::make('Only on index', 'test_decimal')
                 ->onlyOnIndex(),
-            Coordenates::make('Only on show', 'test_name')
+            Text::make('Only on show', 'test_decimal')
                 ->onlyOnShow(),
-            Coordenates::make('Only on forms', 'test_name')
+            Text::make('Only on forms', 'test_decimal')
                 ->onlyOnForms(),
-            Coordenates::make('Except on forms', 'test_name')
+            Text::make('Except on forms', 'test_decimal')
                 ->exceptOnForms(),
-            Coordenates::make('Visible-on index', 'test_name')
+            Text::make('Visible-on index', 'test_decimal')
                 ->visibleOn('index'),
-            Coordenates::make('Hide-From index', 'test_name')
+            Text::make('Hide-From index', 'test_decimal')
                 ->hideFrom('index'),
             //Testing for html render
-            Coordenates::make('Testing attributes: html', 'test_html')
+            Text::make('Testing attributes: html', 'test_html')
                 ->id('testing_asHtml')
                 ->asHtml(),
             //Testing for attributes
-            Coordenates::make('Testing attributes', 'test_name')
+            Text::make('Testing attributes', 'test_decimal')
                 ->addClass('testing-class')
                 ->id('testing_id')
                 ->name('testing-name')
@@ -79,36 +82,31 @@ class _FieldCoordenate extends Resources {
                 ->defaultValue('testing-value')
                 ->help('testing help'),
             //Testing prefix
-            Coordenates::make('Testing prefix', 'lat_test_coordenate')
+            Text::make('Testing prefix', 'test_decimal')
                 ->id('testing_focus')
                 ->prefix('***')
                 ->suffix('***'),
             //Testing model manipulation
-            Coordenates::make('Testing model manipulation', 'test_name')
+            Text::make('Testing model manipulation', 'test_decimal')
                 ->resolveUsing(function($model) {
                     return 'resolved ' . $model->test_email;
                 }),
-            //Testing result manipulation
-            Coordenates::make('Testing result manipulation', 'test_name')
-                ->displayUsing(function($value) {
-                    return strtoupper($value);
-                }),
             //Testing authorization
-            Coordenates::make('Testing authorization', 'test_name')
+            Text::make('Testing authorization', 'test_decimal')
                 ->id('testing_can_see')
                 ->addClass('class1', 'class2')
                 ->textAlign('center')
                 ->canSee(function($request) {
                     return true;
                 }),
-            Coordenates::make('Testing authorization', 'test_name')
+            Text::make('Testing authorization', 'test_decimal')
                 ->id('testing_cannot_see')
                 ->canSee(function($request) {
                     return false;
                 }),
             //Testing autofocus
-            Coordenates::make('Testing autofocus', 'test_autofocus')
-                ->id('test_autofocus')
+            Text::make('Testing autofocus', 'test_decimal')
+                ->dusk('dusk-test_autofocus')
                 ->autofocus(),
         ];
     }
