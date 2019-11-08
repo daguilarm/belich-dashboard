@@ -9,13 +9,13 @@ trait Setup {
      */
     protected $fields = [
         'files' => ['asHtml', 'autofocus', 'defaultValue', 'display', 'prefix', 'resolve'],
-        // 'autocompletes' => ['dusk', 'autofocus'],
-        // 'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
-        // 'coordenates' => [],
-        // 'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
-        // 'dates' => ['asHtml', 'display', 'prefix', 'resolve'],
-        // 'decimals' => ['display'],
-        // 'texts' => [],
+        'autocompletes' => ['dusk', 'autofocus'],
+        'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
+        'coordenates' => [],
+        'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
+        'dates' => ['asHtml', 'display', 'prefix', 'resolve'],
+        'decimals' => ['display'],
+        'texts' => [],
     ];
 
     /**
