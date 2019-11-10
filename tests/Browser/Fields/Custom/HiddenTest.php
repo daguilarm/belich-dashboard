@@ -41,13 +41,13 @@ class HiddenTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field)
-                    ->assertMissing('@hidden-field')
+                    ->assertMissing('@testing-dusk')
                 ->visit('dashboard/' . $this->field . '/1')
-                    ->assertMissing('@hidden-field')
+                    ->assertMissing('@testing-dusk')
                 ->visit('dashboard/' . $this->field .'/create')
-                    ->assertPresent('@hidden-field')
+                    ->assertPresent('@testing-dusk')
                 ->visit('dashboard/' . $this->field . '/1/edit')
-                    ->assertInputValue('@hidden-field', $this->test->test_email);
+                    ->assertInputValue('@testing-dusk', $this->test->test_email);
         });
     }
 
@@ -69,14 +69,6 @@ class HiddenTest extends DuskTestCase
                 ->assertPresent('[name="testing-name"]')
                 ->assertPresent('[data-test="testing-data"]')
                 ->assertPresent('[disabled]');
-            // $this->assertAttributes(
-            //     $browser,
-            //     $this->user,
-            //     $this->test,
-            //     $this->field,
-            //     $this->asHtml ?? '',
-            //     $except ?? ['asHtml', 'autofocus', 'disabled', 'display', 'prefix', 'readonly', 'resolve']
-            // );
         });
     }
 }
