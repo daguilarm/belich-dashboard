@@ -15,6 +15,7 @@ trait Setup {
         'dates' => ['asHtml', 'display', 'prefix', 'resolve'],
         'decimals' => ['display'],
         'files' => ['asHtml', 'autofocus', 'defaultValue', 'display', 'prefix', 'resolve'],
+        'numbers' => [],
         'texts' => [],
     ];
 
@@ -23,6 +24,7 @@ trait Setup {
      * @var array
      */
     protected $tableName = [
+        'numbers' => 'test_number',
         'decimals' => 'test_decimal',
         'coordenates' => 'lat_test_coordenate',
     ];
