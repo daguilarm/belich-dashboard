@@ -71,7 +71,8 @@ class User extends Resources {
     public function fields(Request $request): array
     {
         return [
-            ID::make('Id'),
+            ID::make('Id')
+                ->sortable(),
             Text::make('Name', 'name')
                 ->sortable()
                 ->rules('required'),
