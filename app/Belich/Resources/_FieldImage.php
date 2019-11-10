@@ -52,9 +52,6 @@ class _FieldImage extends Resources {
                 ->downloadable(),
             Image::make('File url', 'test_file')
                 ->asHtml(),
-            Image::make('File url', 'test_file')
-                ->addClass('block h-10')
-                ->asHtml(),
         ];
     }
 

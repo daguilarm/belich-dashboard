@@ -42,9 +42,7 @@ class ImageTest extends DuskTestCase
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field)
                 // Render image
-                ->assertSourceHas('<img class="block h-10 rounded-full shadow-md" src="' . $this->test->test_file . '">')
-                // Custom css
-                ->assertSourceHas('<img class="block h-10" src="' . $this->test->test_file . '">')
+                ->assertSourceHas('<img src="' . $this->test->test_file . '" class="block h-10 rounded-full shadow-md">')
                 // Download image
                 ->assertSourceHas('<a href="' . $this->test->test_file . '" target="_blank" dusk="downloadable-file"><i class="fas fa-download icon"></i></a>')
                 // No render, just url link
