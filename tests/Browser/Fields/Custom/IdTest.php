@@ -40,10 +40,22 @@ class IdTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser
                 ->loginAs($this->user)
+                // See on index
                 ->visit('dashboard/' . $this->field)
                     ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(2)', 1)
+                    ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(3)', 1)
+                    ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(4)', 1)
+                // See on show
                 ->visit('dashboard/' . $this->field . '/1')
-                    ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(4)', 1);
+                    ->assertSeeIn('#app > div > div.form-container > div:nth-child(1) > div.w-2\/3.my-auto', 1)
+                    ->assertSeeIn('#app > div > div.form-container > div:nth-child(2) > div.w-2\/3.my-auto', 1)
+                    ->assertSeeIn('#app > div > div.form-container > div:nth-child(3) > div.w-2\/3.my-auto', 1)
+                // Not see on create
+                ->visit('dashboard/' . $this->field . '/create')
+                    ->assertSourceMissing('<div class="form-container ">')
+                // Not see on edit
+                ->visit('dashboard/' . $this->field . '/1/edit')
+                    ->assertSourceMissing('<div class="form-container ">');
         });
     }
 
