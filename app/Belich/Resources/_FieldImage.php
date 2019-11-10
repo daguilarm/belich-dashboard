@@ -47,8 +47,13 @@ class _FieldImage extends Resources {
         return [
             Id::make('ID', 'id')
                 ->sortable(),
+            Image::make('File url', 'test_file'),
             Image::make('File url', 'test_file')
-                ->addClass('block h-10 rounded-full shadow-md')
+                ->downloadable(),
+            Image::make('File url', 'test_file')
+                ->asHtml(),
+            Image::make('File url', 'test_file')
+                ->addClass('block h-10')
                 ->asHtml(),
         ];
     }
