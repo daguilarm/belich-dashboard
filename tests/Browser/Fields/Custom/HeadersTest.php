@@ -57,4 +57,22 @@ class HeadersTest extends DuskTestCase
                     ->assertSee('Header 3');
         });
     }
+
+    /**
+     * Testing customization
+     *
+     * dusk --filter test_headers_customization
+     * @return void
+     */
+    public function test_headers_customization()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->loginAs($this->user)
+                ->visit('dashboard/' . $this->field .'/create')
+                    ->assertSourceHas('<div class="w-full items-center py-5 px-6 font-bold text-gray-600 bg-gray-200"> Header 1 </div>')
+                    ->assertSourceHas('<h1 class="bg-gray-200 text-gray-700 p-5"><i class="fas fa-envelope-open-text icon"></i> Header 2</h1>')
+                    ->assertSourceHas('<div class="w-full items-center py-5 px-6 font-bold text-white bg-green-500"> Header 3 </div>');
+        });
+    }
 }
