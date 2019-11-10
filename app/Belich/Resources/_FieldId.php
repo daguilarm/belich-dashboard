@@ -7,9 +7,10 @@ use Daguilarm\Belich\Facades\Helper;
 use Daguilarm\Belich\Fields\Types\Hidden;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Text;
+use Daguilarm\Belich\Fields\Types\TextArea;
 use Illuminate\Http\Request;
 
-class _FieldHidden extends Resources {
+class _FieldId extends Resources {
 
     /** @var string [Model path] */
     public static $model = '\App\Test';
@@ -24,10 +25,10 @@ class _FieldHidden extends Resources {
     public static $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Hidden';
+    public static $label = 'Field ID';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Hidden';
+    public static $pluralLabel = 'Fields ID';
 
     /**
      * Build the query for the given resource.
@@ -49,14 +50,16 @@ class _FieldHidden extends Resources {
         return [
             // Testing for visibility
             Id::make('Id', 'id'),
-            Text::make('Name', 'test_name'),
-            Hidden::make('Hidden item', 'test_email')
-                ->id('testing_id')
-                ->name('testing-name')
-                ->data('test', 'testing-data')
-                ->dusk('testing-dusk')
-                ->defaultValue('testing-value')
-                ->disabled(),
+            //Testing model manipulation
+            Id::make('Testing model manipulation', 'id')
+                ->resolveUsing(function($model) {
+                    return 'resolved ' . $model->test_email;
+                }),
+            //Testing result manipulation
+            Id::make('Testing result manipulation', 'id')
+                ->displayUsing(function($value) {
+                    return strtoupper($value);
+                }),
         ];
     }
 

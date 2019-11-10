@@ -10,7 +10,7 @@ trait Setup {
     protected $fields = [
         'autocompletes' => ['dusk', 'autofocus'],
         'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
-        'coordenates' => [],
+        'coordenates' => ['prefix', 'resolve', 'display'],
         'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
         'dates' => ['asHtml', 'display', 'prefix', 'resolve'],
         'decimals' => ['display'],
