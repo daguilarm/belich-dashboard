@@ -26,16 +26,22 @@ trait AttributesHelper
         $tableField = $this->tableName[$field] ?? 'test_name';
 
         //INDEX attributes
-        $browser->visit('dashboard/' . $page);
-            $this->assertAttributesIndex($browser, $tableField, $test, $except);
+        $browser
+            ->visit('dashboard/' . $page)
+            ->assertPathIs('/dashboard/' . $page);
+        $this->assertAttributesIndex($browser, $tableField, $test, $except);
 
         // EDIT attributes
-        $browser->visit('dashboard/' . $page . '/' . $user->id . '/edit');
-            $this->assertAttributesEdit($browser, $html, $except);
+        $browser
+            ->visit('dashboard/' . $page . '/' . $user->id . '/edit')
+            ->assertPathIs('/dashboard/' . $page . '/' . $user->id . '/edit');
+        $this->assertAttributesEdit($browser, $html, $except);
 
         // CREATE attributes
-        $browser->visit('dashboard/' . $page . '/create');
-            $this->assertAttributesCreate($browser, $html, $except);
+        $browser
+            ->visit('dashboard/' . $page . '/create')
+            ->assertPathIs('/dashboard/' . $page . '/create');
+        $this->assertAttributesCreate($browser, $html, $except);
 
         return $browser;
     }
