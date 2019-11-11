@@ -56,11 +56,12 @@ class _FieldHeader extends Resources {
             Select::make('Age', 'test_name')
                 ->options([]),
             Text::make('Last name', 'test_lastname'),
-            Header::make('<h1 class="bg-gray-200 text-gray-700 p-5">' . Helper::icon('envelope-open-text') . ' Header 2</h1>')
+            Header::make('<h1 class="bg-gray-800 text-white p-5">' . Helper::icon('envelope-open-text') . ' Header 2</h1>')
                 ->asHtml(),
             Text::make('Email', 'test_email'),
             Header::make('Header 3')
-                ->color('green'),
+                ->background('green-200')
+                ->color('green-500'),
             TextArea::make('Address', 'test_address'),
         ];
     }
