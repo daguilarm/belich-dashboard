@@ -8,15 +8,16 @@ trait Setup {
      * @var array
      */
     protected $fields = [
-        'autocompletes' => ['dusk', 'autofocus'],
-        'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
-        'coordenates' => ['prefix', 'resolve', 'display'],
-        'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
-        'dates' => ['asHtml', 'display', 'prefix', 'resolve'],
-        'decimals' => ['display'],
-        'files' => ['asHtml', 'autofocus', 'defaultValue', 'display', 'prefix', 'resolve'],
-        'numbers' => [],
-        'texts' => [],
+        'patterns' => [],
+        // 'autocompletes' => ['dusk', 'autofocus'],
+        // 'booleans' => ['addClass', 'autofocus', 'prefix', 'resolve', 'display'],
+        // 'coordenates' => ['prefix', 'resolve', 'display'],
+        // 'countries' => ['dusk', 'autofocus', 'prefix', 'display'],
+        // 'dates' => ['asHtml', 'display', 'prefix', 'resolve'],
+        // 'decimals' => ['display'],
+        // 'files' => ['asHtml', 'autofocus', 'defaultValue', 'display', 'prefix', 'resolve'],
+        // 'numbers' => [],
+        // 'texts' => [],
     ];
 
     /**
