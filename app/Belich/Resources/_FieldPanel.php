@@ -60,7 +60,7 @@ class _FieldPanel extends Resources {
                         ->sortable()
                         ->rules('required'),
                 ];
-            }),
+            }, 'red-500', 'white'),
             Panels::create('Panel 2', function() {
                 return [
                     TextArea::make('Address', 'test_address'),
