@@ -72,7 +72,7 @@ class _FieldFile extends Resources {
                 ->dusk('file-url'),
             File::make('File downloable', 'test_file')
                 ->dusk('file-downloable')
-                ->downloadable(),
+                ->link(),
             //Testing for attributes
             File::make('Testing attributes', 'test_name')
                 ->addClass('testing-class')

@@ -49,7 +49,7 @@ class _FieldImage extends Resources {
                 ->sortable(),
             Image::make('File url', 'test_file'),
             Image::make('File url', 'test_file')
-                ->downloadable(),
+                ->link(),
             Image::make('File url', 'test_file')
                 ->asHtml(),
         ];
