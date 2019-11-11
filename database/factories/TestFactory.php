@@ -22,6 +22,7 @@ $factory->define(App\Test::class, function ($faker) {
     })->toArray();
 
     return [
+        'test_password' => bcrypt('admin'),
         'test_string' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'test_language' => Arr::random(['php', 'python', 'c++', 'cobol', 'js']),
         'test_name' => $faker->firstName(),
