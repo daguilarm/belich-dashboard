@@ -3,8 +3,7 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
-use Daguilarm\Belich\Fields\Types\ID;
-use Daguilarm\Belich\Fields\Types\Text;
+use Daguilarm\Belich\Fields\Types\Decimal;
 use Illuminate\Http\Request;
 
 class _FieldDecimal extends Resources {
@@ -46,32 +45,32 @@ class _FieldDecimal extends Resources {
     {
         return [
             // Testing for visibility
-            Text::make('Hide from index', 'test_decimal')
+            Decimal::make('Hide from index', 'test_decimal')
                 ->hideFromIndex(),
-            Text::make('Hide from show', 'test_decimal')
+            Decimal::make('Hide from show', 'test_decimal')
                 ->hideFromShow(),
-            Text::make('Hide when creating', 'test_decimal')
+            Decimal::make('Hide when creating', 'test_decimal')
                 ->hideWhenCreating(),
-            Text::make('Hide when editing', 'test_decimal')
+            Decimal::make('Hide when editing', 'test_decimal')
                 ->hideWhenEditing(),
-            Text::make('Only on index', 'test_decimal')
+            Decimal::make('Only on index', 'test_decimal')
                 ->onlyOnIndex(),
-            Text::make('Only on show', 'test_decimal')
+            Decimal::make('Only on show', 'test_decimal')
                 ->onlyOnShow(),
-            Text::make('Only on forms', 'test_decimal')
+            Decimal::make('Only on forms', 'test_decimal')
                 ->onlyOnForms(),
-            Text::make('Except on forms', 'test_decimal')
+            Decimal::make('Except on forms', 'test_decimal')
                 ->exceptOnForms(),
-            Text::make('Visible-on index', 'test_decimal')
+            Decimal::make('Visible-on index', 'test_decimal')
                 ->visibleOn('index'),
-            Text::make('Hide-From index', 'test_decimal')
+            Decimal::make('Hide-From index', 'test_decimal')
                 ->hideFrom('index'),
             //Testing for html render
-            Text::make('Testing attributes: html', 'test_html')
+            Decimal::make('Testing attributes: html', 'test_html')
                 ->id('testing_asHtml')
                 ->asHtml(),
             //Testing for attributes
-            Text::make('Testing attributes', 'test_decimal')
+            Decimal::make('Testing attributes', 'test_decimal')
                 ->addClass('testing-class')
                 ->id('testing_id')
                 ->name('testing-name')
@@ -82,30 +81,30 @@ class _FieldDecimal extends Resources {
                 ->defaultValue('testing-value')
                 ->help('testing help'),
             //Testing prefix
-            Text::make('Testing prefix', 'test_decimal')
+            Decimal::make('Testing prefix', 'test_decimal')
                 ->id('testing_focus')
                 ->prefix('***')
                 ->suffix('***'),
             //Testing model manipulation
-            Text::make('Testing model manipulation', 'test_decimal')
+            Decimal::make('Testing model manipulation', 'test_decimal')
                 ->resolveUsing(function($model) {
                     return 'resolved ' . $model->test_email;
                 }),
             //Testing authorization
-            Text::make('Testing authorization', 'test_decimal')
+            Decimal::make('Testing authorization', 'test_decimal')
                 ->id('testing_can_see')
                 ->addClass('class1', 'class2')
                 ->textAlign('center')
                 ->canSee(function($request) {
                     return true;
                 }),
-            Text::make('Testing authorization', 'test_decimal')
+            Decimal::make('Testing authorization', 'test_decimal')
                 ->id('testing_cannot_see')
                 ->canSee(function($request) {
                     return false;
                 }),
             //Testing autofocus
-            Text::make('Testing autofocus', 'test_decimal')
+            Decimal::make('Testing autofocus', 'test_decimal')
                 ->dusk('dusk-test_autofocus')
                 ->autofocus(),
         ];

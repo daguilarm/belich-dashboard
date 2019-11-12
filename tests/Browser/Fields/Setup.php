@@ -19,6 +19,7 @@ trait Setup {
         'patterns' => [],
         'selects' => ['defaultValue'],
         'texts' => [],
+        'textareas' => ['defaultValue', 'prefix', 'resolve', 'display'],
     ];
 
     /**

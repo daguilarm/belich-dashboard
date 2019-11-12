@@ -3,7 +3,6 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
-use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Autocomplete;
 use Illuminate\Http\Request;
 

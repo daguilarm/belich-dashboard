@@ -4,10 +4,7 @@ namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Facades\Helper;
-use Daguilarm\Belich\Fields\Types\Hidden;
 use Daguilarm\Belich\Fields\Types\ID;
-use Daguilarm\Belich\Fields\Types\Text;
-use Daguilarm\Belich\Fields\Types\TextArea;
 use Illuminate\Http\Request;
 
 class _FieldId extends Resources {
