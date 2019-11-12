@@ -19,10 +19,10 @@ class _FieldCountryAction extends Resources {
     public static $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Country Action';
+    public static $label = 'Field Country: action';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Countries Action';
+    public static $pluralLabel = 'Fields Country: actions';
 
     /**
      * Build the query for the given resource.

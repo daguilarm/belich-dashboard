@@ -21,10 +21,10 @@ class _FieldPatternAction extends Resources {
     public static $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Pattern action';
+    public static $label = 'Field Pattern: action';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Pattern action';
+    public static $pluralLabel = 'Fields Pattern: actions';
 
     /**
      * Build the query for the given resource.
