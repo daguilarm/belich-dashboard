@@ -29,6 +29,9 @@ class _FieldText extends Resources {
     /** @var string */
     public static $tableTextAlign = 'center';
 
+    /** @var array */
+    public static  $search = ['test_name'];
+
     /**
      * Build the query for the given resource.
      *
