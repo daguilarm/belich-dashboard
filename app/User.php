@@ -32,11 +32,9 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-    /*
-    |--------------------------------------------------------------------------
-    | Relationships
-    |--------------------------------------------------------------------------
-    */
+    /**
+     * User relationship
+     */
     public function profile()
     {
         return $this->hasOne(\App\Profile::class);
