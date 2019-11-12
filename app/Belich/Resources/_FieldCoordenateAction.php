@@ -19,10 +19,10 @@ class _FieldCoordenateAction extends Resources {
     public static $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Coordenate action';
+    public static $label = 'Field Coordenate: action';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Coordenate action';
+    public static $pluralLabel = 'Fields Coordenate: actions';
 
     /**
      * Build the query for the given resource.
