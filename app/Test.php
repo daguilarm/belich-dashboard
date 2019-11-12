@@ -7,6 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     /**
+     * The table columns that will be downloaded.
+     *
+     * @var array
+     */
+    public $download = ['id', 'test_name'];
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -51,6 +58,7 @@ class Test extends Model
         'updated_at',
         'deleted_at',
     ];
+
 
     /*
     |--------------------------------------------------------------------------

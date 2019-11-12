@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Browser;
+namespace Tests\Browser\IndexTable;
 
 use App\Test;
 use App\User;
@@ -41,10 +41,9 @@ class LiveSearchTest extends DuskTestCase
     public function test_liveSearch()
     {
         $this->browse(function (Browser $browser) {
-            //Test navigation
+            //Test live search
             $browser
                 ->loginAs($this->user)
-                ->assertAuthenticatedAs($this->user)
                 ->visit('/dashboard/' . $this->field)
                 ->type('#_search', 'damian antonio')
                 ->pause(400)
@@ -53,6 +52,12 @@ class LiveSearchTest extends DuskTestCase
             // Assert there is only one result
             $tableRows = count($browser->driver->findElements(WebDriverBy::cssSelector('#belich-index-table > tbody > tr')));
             $this->assertEquals($tableRows, 1);
-        });
+
+            // Reset search
+            $browser
+                ->assertSourceHas('<span class="" id="icon-search-reset"> <i class="fas fa-times-circle text-gray-500 cursor-pointer" onclick="resetSearch()"></i> </span>')
+                ->click('#icon-search-reset')
+                ->assertSourceMissing('<span class="" id="icon-search-reset"> <i class="fas fa-times-circle text-gray-500 cursor-pointer" onclick="resetSearch()"></i> </span>');
+            });
     }
 }

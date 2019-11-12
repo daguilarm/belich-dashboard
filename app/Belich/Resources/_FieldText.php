@@ -32,6 +32,9 @@ class _FieldText extends Resources {
     /** @var array */
     public static  $search = ['test_name'];
 
+    /** @var string */
+    public static  $downloable = true;
+
     /**
      * Build the query for the given resource.
      *

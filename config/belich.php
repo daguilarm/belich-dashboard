@@ -59,8 +59,6 @@ return [
     | @value: 'fast-excel'
     |
     | @Driver: Laravel Maatwebsite excel (comming soon...)
-    | @Github: https://laravel-excel.maatwebsite.nl/
-    | @value: 'maatwebsite'
     |
     */
     'export' => [
