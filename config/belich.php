@@ -137,4 +137,15 @@ return [
         'enable' => true,
         'minChars' => 2,
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Field textArea
+    |--------------------------------------------------------------------------
+    |
+    | Define the minimum number of characters for the textArea value
+    | For example, if the textArea value is: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    | IF the textAreaChars value is 20, will show: "Lorem ipsum dolor si..."
+    */
+    'textAreaChars' => 25,
 ];
