@@ -7,13 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Test extends Model
 {
     /**
-     * The table columns that will be downloaded.
-     *
-     * @var array
-     */
-    public $download = ['id', 'test_name'];
-
-    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -59,14 +52,24 @@ class Test extends Model
         'deleted_at',
     ];
 
-
-    /*
-    |--------------------------------------------------------------------------
-    | Relationships
-    |--------------------------------------------------------------------------
-    */
+    /**
+     * User relationship
+     */
     public function user()
     {
         return $this->BelongsTo(\App\User::class);
+    }
+
+    /**
+     * The table columns that will be exported to the file.
+     *
+     * @var array
+     */
+    public function download(): array
+    {
+        return [
+            'id',
+            'test_name',
+        ];
     }
 }
