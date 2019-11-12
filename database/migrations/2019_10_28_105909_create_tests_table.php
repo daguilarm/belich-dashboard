@@ -44,11 +44,11 @@ class CreateTestsTable extends Migration
             $table->integer('test_integer')->nullable();
             $table->integer('test_number')->nullable();
             $table->ipAddress('test_ip')->nullable();
-            $table->boolean('test_boolean')->nullable(true);
+            $table->boolean('test_boolean')->default(true);
             $table->date('test_date')->nullable();
             $table->year('test_year')->nullable();
-            $table->point('test_point')->nullable()->nullable();
-            $table->polygon('test_polygon')->nullable()->nullable();
+            $table->point('test_point')->nullable();
+            $table->polygon('test_polygon')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
