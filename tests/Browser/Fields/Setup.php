@@ -20,6 +20,7 @@ trait Setup {
         'selects' => ['defaultValue'],
         'texts' => [],
         'textareas' => ['defaultValue', 'prefix', 'resolve', 'display'],
+        'years' => [],
     ];
 
     /**
