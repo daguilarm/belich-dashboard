@@ -113,14 +113,6 @@ class _FieldPattern extends Resources {
                 ->id('test_autofocus')
                 ->dusk('dusk-test_autofocus')
                 ->autofocus(),
-            //Testing Pattern: date
-            Pattern::make('Testing pattern: date', 'test_mask')
-                ->id('test_mask_date')
-                ->mask('99/99/9999'),
-            //Testing Pattern: telephone
-            Pattern::make('Testing pattern: telephone', 'test_mask')
-                ->id('test_mask_telephone')
-                ->mask('(99) 9999-9999'),
         ];
     }
 
