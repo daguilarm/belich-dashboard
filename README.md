@@ -29,6 +29,7 @@ Create a sql db for testing (mac os):
 ```php
 'testing_mysql' => [
     'driver' => 'mysql',
+    'host' => env('DB_HOST', '127.0.0.1'),
     'port' => env('DB_PORT', '3306'),
     'database' => env('DB_DATABASE_TESTING', 'testing'),
     'username' => env('DB_USERNAME_TESTING', 'root'),
@@ -40,4 +41,14 @@ Create a sql db for testing (mac os):
     'strict' => true,
     'engine' => null,
 ],
+```
+Add to your `phpunit.xml` file:
+
+```xml
+<env name="DB_CONNECTION" value="testing_mysql"/>
+```
+And migrate your testing DB:
+
+```shell
+php artisan migrate --database=testing_mysql
 ```
