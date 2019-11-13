@@ -42,8 +42,8 @@ return [
 
         'testing_mysql' => [
             'driver' => 'mysql',
-            'host' => env('DB_HOST', '127.0.0.1'),
-            'port' => env('DB_PORT', '3306'),
+            'host' => env('DB_HOST_TESTING', '127.0.0.1'),
+            'port' => env('DB_PORT_TESTING', '3306'),
             'database' => env('DB_DATABASE_TESTING', 'testing_mysql'),
             'username' => env('DB_USERNAME_TESTING', 'root'),
             'password' => env('DB_PASSWORD_TESTING', '12345678'),
