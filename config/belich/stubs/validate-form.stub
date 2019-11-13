@@ -52,7 +52,9 @@
     //Show tab error when validate fails
     function tabAlert(item) {
         var container = document.getElementById('tab-link-' + item.dataset.tab);
-        container.firstElementChild.classList.add('tab-error');
+        if(item.dataset.tab) {
+            container.firstElementChild.classList.add('tab-error');
+        }
     }
 
     //The validation event
