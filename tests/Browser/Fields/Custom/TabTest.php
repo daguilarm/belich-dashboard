@@ -28,22 +28,46 @@ class TabTest extends DuskTestCase
     }
 
     /**
-     * Test Year
+     * Test Tabs visibility
      *
-     * dusk --filter test_field_year
+     * dusk --filter test_tabs_visibility
      */
-    public function test_field_year()
+    public function test_tabs_visibility()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->loginAs($this->user)
+                ->visit('dashboard/' . $this->field)
+                ->assertMissing('.tabs')
+                ->visit('dashboard/' . $this->field . '/create')
+                ->assertVisible('.tabs')
+                ->visit('dashboard/' . $this->field . '/1')
+                ->assertVisible('.tabs')
+                ->visit('dashboard/' . $this->field . '/1/edit')
+                ->assertVisible('.tabs');
+        });
+    }
+
+    /**
+     * Test Tabs validation errors
+     *
+     * dusk --filter test_tabs_validation_errors
+     */
+    public function test_tabs_validation_errors()
     {
         $this->browse(function (Browser $browser) {
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                // Only numerics: error
-                ->type('#test_autofocus', 'lorem')
-                ->assertInputValue('#test_autofocus', '')
-                // Only numerics: success
-                ->type('#test_autofocus', '1999')
-                ->assertInputValue('#test_autofocus', '1999');
+                ->assertMissing('.tab-error')
+                ->press('@button-action-create')
+                ->waitFor('a#menu_panel1.tab-error')
+                ->assertVisible('a#menu_panel2.tab-error')
+                ->type('#test_name', 'Damián')
+                ->type('#test_email', 'damian.aguilarm@gmail.com')
+                ->press('@button-action-create')
+                ->waitFor('a#menu_panel2.tab-error')
+                ->assertMissing('a#menu_panel1.tab-error');
         });
     }
 }
