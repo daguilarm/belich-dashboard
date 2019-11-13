@@ -5,7 +5,7 @@ namespace App\Belich\Resources;
 use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\Boolean;
 use Daguilarm\Belich\Fields\Types\ID;
-use Daguilarm\Belich\Fields\Types\Panels;
+use Daguilarm\Belich\Fields\Types\Tabs;
 use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Fields\Types\TextArea;
 use Illuminate\Http\Request;
@@ -51,7 +51,7 @@ class _FieldTab extends Resources {
     public function fields(Request $request): array
     {
         return [
-            Panels::create('Panel 1', function() {
+            Tabs::create('Panel 1', function() {
                 return [
                     ID::make('Id'),
                     Text::make('Name', 'test_name')
@@ -63,8 +63,8 @@ class _FieldTab extends Resources {
                         ->sortable()
                         ->rules('required'),
                 ];
-            }, 'red-500', 'white'),
-            Panels::create('Panel 2', function() {
+            }),
+            Tabs::create('Panel 2', function() {
                 return [
                     TextArea::make('Address', 'test_address'),
                     Text::make('Zip', 'test_zip')
