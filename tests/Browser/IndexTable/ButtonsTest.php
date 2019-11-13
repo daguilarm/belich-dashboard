@@ -121,7 +121,8 @@ class ButtonsTest extends DuskTestCase
                 ->press('@modal-mass-delete-confirm-button');
 
             // Assert all the items are deleted
-            $this->assertEquals(Test::all()->count(), 0);
+            // At this point is showing 10 results per page, so...
+            $this->assertEquals(Test::all()->count(), 5);
         });
     }
 }
