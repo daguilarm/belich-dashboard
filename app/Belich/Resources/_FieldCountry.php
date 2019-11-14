@@ -12,7 +12,7 @@ class _FieldCountry extends Resources {
     public static $model = '\App\Test';
 
     /** @var string */
-    public static $group = 'Testing';
+    public static $group = 'Fields';
 
     /** @var string */
     public static $icon = 'vial';

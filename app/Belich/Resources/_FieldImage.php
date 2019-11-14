@@ -16,7 +16,7 @@ class _FieldImage extends Resources {
     public static $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Testing';
+    public static $group = 'Fields';
 
     /** @var string */
     public static $icon = 'vial';

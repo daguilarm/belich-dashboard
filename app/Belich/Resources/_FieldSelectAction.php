@@ -15,7 +15,7 @@ class _FieldSelectAction extends Resources {
     public static $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Testing';
+    public static $group = 'Custom Fields';
 
     /** @var string */
     public static $icon = 'vial';
