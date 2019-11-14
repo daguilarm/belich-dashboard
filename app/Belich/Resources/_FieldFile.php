@@ -79,6 +79,7 @@ class _FieldFile extends Resources {
                 ->data('test', 'testing-data')
                 ->disabled()
                 ->readonly()
+                ->multiple()
                 ->dusk('testing-dusk')
                 ->help('testing help'),
             //Testing authorization

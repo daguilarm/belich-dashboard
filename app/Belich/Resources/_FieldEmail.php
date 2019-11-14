@@ -3,11 +3,10 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
-use Daguilarm\Belich\Fields\Types\Image;
-use Daguilarm\Belich\Fields\Types\ID;
+use Daguilarm\Belich\Fields\Types\Email;
 use Illuminate\Http\Request;
 
-class _FieldImage extends Resources {
+class _FieldEmail extends Resources {
 
     /** @var string [Model path] */
     public static $model = '\App\Test';
@@ -22,10 +21,16 @@ class _FieldImage extends Resources {
     public static $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Image';
+    public static $label = 'Field Email';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Image';
+    public static $pluralLabel = 'Fields Email';
+
+    /** @var string */
+    public static $tableTextAlign = 'center';
+
+    /** @var array */
+    public static  $search = ['test_name'];
 
     /**
      * Build the query for the given resource.
@@ -45,14 +50,15 @@ class _FieldImage extends Resources {
     public function fields(Request $request): array
     {
         return [
-            Id::make('ID', 'id')
-                ->sortable(),
-            Image::make('File url', 'test_file')
+            //Testing email
+            Email::make('Testing email', 'test_email')
+                ->id('test_email')
+                ->dusk('dusk-test_email'),
+            //Testing multiple
+            Email::make('Testing email multiple', 'test_email')
+                ->id('test_email_multiple')
+                ->dusk('dusk-test_email_multiple')
                 ->multiple(),
-            Image::make('File url', 'test_file')
-                ->link(),
-            Image::make('File url', 'test_file')
-                ->asHtml(),
         ];
     }
 
