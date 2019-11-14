@@ -9,8 +9,8 @@ use Laravel\Dusk\Browser;
 use Tests\Browser\Fields\Setup;
 use Tests\DuskTestCase;
 
-// dusk --filter ColorTest
-class ColorTest extends DuskTestCase
+// dusk --filter UrlTest
+class UrlTest extends DuskTestCase
 {
     use DatabaseMigrations, Setup;
 
@@ -23,27 +23,25 @@ class ColorTest extends DuskTestCase
         parent::setUp();
 
         $this->user = factory(User::class)->create();
-        $this->test = factory(Test::class)->create([
-            'test_color' => '#e66465',
-        ]);
-        $this->field = $this->setField('colors');
+        $this->test = factory(Test::class, 30)->create();
+        $this->field = $this->setField('urls');
     }
 
     /**
-     * Testing email multiple
+     * Testing url
      *
-     * dusk --filter test_color_field
+     * dusk --filter test_url_field
      * @return void
      */
-    public function test_color_field()
+    public function test_url_field()
     {
         $this->browse(function (Browser $browser) {
             // Testing forms
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<input class="mr-3" type="color" value="" dusk="dusk-test_color" id="test_color" name="test_color">')
-                ->assertSourceHas('<input class="mr-3" type="color" value="#e66465" dusk="dusk-test_color_multiple" id="test_color_multiple" name="test_name">');
+                ->assertSourceHas('<input class="mr-3" type="url" value="" dusk="dusk-test_url" id="test_url" name="test_url">')
+                ->assertSourceHas('<input class="mr-3" type="url" value="http://www.laravel.com" dusk="dusk-test_url_options" id="test_url_options" name="test_url">');
         });
     }
 }

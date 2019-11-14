@@ -9,8 +9,8 @@ use Laravel\Dusk\Browser;
 use Tests\Browser\Fields\Setup;
 use Tests\DuskTestCase;
 
-// dusk --filter ColorTest
-class ColorTest extends DuskTestCase
+// dusk --filter TimeTest
+class TimeTest extends DuskTestCase
 {
     use DatabaseMigrations, Setup;
 
@@ -23,27 +23,24 @@ class ColorTest extends DuskTestCase
         parent::setUp();
 
         $this->user = factory(User::class)->create();
-        $this->test = factory(Test::class)->create([
-            'test_color' => '#e66465',
-        ]);
-        $this->field = $this->setField('colors');
+        $this->test = factory(Test::class, 30)->create();
+        $this->field = $this->setField('times');
     }
 
     /**
-     * Testing email multiple
+     * Testing time
      *
-     * dusk --filter test_color_field
+     * dusk --filter test_time_field
      * @return void
      */
-    public function test_color_field()
+    public function test_time_field()
     {
         $this->browse(function (Browser $browser) {
             // Testing forms
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<input class="mr-3" type="color" value="" dusk="dusk-test_color" id="test_color" name="test_color">')
-                ->assertSourceHas('<input class="mr-3" type="color" value="#e66465" dusk="dusk-test_color_multiple" id="test_color_multiple" name="test_name">');
+                ->assertSourceHas('<input class="mr-3" type="time" value="" dusk="dusk-test_time" id="test_time" name="test_name" max="22:00" min="09:00" step="1">');
         });
     }
 }
