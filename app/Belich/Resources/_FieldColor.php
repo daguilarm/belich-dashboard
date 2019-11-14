@@ -11,9 +11,6 @@ class _FieldColor extends Resources {
     /** @var string [Model path] */
     public static $model = '\App\Test';
 
-    /** @var array */
-    public static $relationships = ['user'];
-
     /** @var string */
     public static $group = 'Testing';
 
@@ -25,9 +22,6 @@ class _FieldColor extends Resources {
 
     /** @var string */
     public static $pluralLabel = 'Fields Color';
-
-    /** @var string */
-    public static $tableTextAlign = 'center';
 
     /**
      * Build the query for the given resource.
