@@ -18,6 +18,7 @@ class CreateTestsTable extends Migration
             $table->string('test_password')->nullable();
             $table->string('test_string')->nullable();
             $table->string('test_language')->nullable();
+            $table->string('test_color', 7)->nullable();
             $table->string('test_name')->nullable();
             $table->string('test_lastname')->nullable();
             $table->string('test_email')->nullable();

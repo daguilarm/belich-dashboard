@@ -16,6 +16,7 @@ class Test extends Model
         'test_password',
         'test_string',
         'test_language',
+        'test_color',
         'test_name',
         'test_lastname',
         'test_email',

@@ -25,6 +25,7 @@ $factory->define(App\Test::class, function ($faker) {
         'test_password' => bcrypt('admin'),
         'test_string' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'test_language' => Arr::random(['php', 'python', 'c++', 'cobol', 'js']),
+        'test_color' => $faker->hexcolor,
         'test_name' => $faker->firstName(),
         'test_lastname' => $faker->lastName(),
         'test_email' => $faker->safeEmail(),
