@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class UserCard extends Card {
 
     /**
+     * @var string
+     */
+    public $width = 'w-full';
+
+    /**
      * Initialize the card
      *
      * @return string

@@ -1,4 +1,4 @@
-<belich::card width="w-full">
+<belich::card :card="$card">
     <slot name="content">
         <h1 class="mb-6">List of users</h1>
         <div class="flex flex-wrap justify-center">
