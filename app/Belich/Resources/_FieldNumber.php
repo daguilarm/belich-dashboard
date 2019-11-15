@@ -21,10 +21,10 @@ class _FieldNumber extends Resources {
     public static $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field number';
+    public static $label = 'Field Number';
 
     /** @var string */
-    public static $pluralLabel = 'Fields number';
+    public static $pluralLabel = 'Fields Number';
 
     /**
      * Build the query for the given resource.
@@ -75,6 +75,9 @@ class _FieldNumber extends Resources {
                 ->id('testing_id')
                 ->name('testing-name')
                 ->data('test', 'testing-data')
+                ->min(10)
+                ->max(20)
+                ->step(1)
                 ->disabled()
                 ->readonly()
                 ->dusk('testing-dusk')
