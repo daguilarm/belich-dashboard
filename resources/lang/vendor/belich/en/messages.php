@@ -24,6 +24,9 @@ return [
             'confirm'  => 'Are you sure you want to delete all the selected fields?',
         ],
     ],
+    'fields' => [
+        'empty' => 'The fields: :value, cannot be empty',
+    ],
     'options' => [
         'success' => 'Your setting configuration has been stored!',
         'fail' => [
