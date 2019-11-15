@@ -100,7 +100,7 @@ class User extends Resources {
     public static function cards(Request $request): array
     {
         return [
-            (new \App\Belich\Cards\UserCard($request))->width('w-1/3'),
+            (new \App\Belich\Cards\UserCard($request)),
         ];
     }
 
