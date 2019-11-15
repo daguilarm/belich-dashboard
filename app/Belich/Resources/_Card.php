@@ -72,7 +72,9 @@ class _Card extends Resources {
     public static function cards(Request $request): array
     {
         return [
-            new \App\Belich\Cards\UserCard($request),
+            (new \App\Belich\Cards\Card1Card($request))->width('w-1/3'),
+            (new \App\Belich\Cards\Card2Card($request))->width('w-2/3'),
+            (new \App\Belich\Cards\Card3Card($request))->width('w-full'),
         ];
     }
 
