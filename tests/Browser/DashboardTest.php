@@ -28,25 +28,25 @@ class DashboardTest extends DuskTestCase
         $this->user = factory(User::class, 50)->create();
         $this->test = factory(Test::class, 15)->create();
 
-        $this->card[1] = '<div id="cards-user-card1" class="w-1/3 p-8 overflow-hidden shadow bg-white border border-gray-200"> <h1 class="mb-6">Card 1</h1> <div class="flex flex-wrap justify-center"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div></div>';
-        $this->card[2] = '<div id="cards-user-card2" class="w-2/3 p-8 overflow-hidden shadow bg-white border border-gray-200"> <h1 class="mb-6">Card 2</h1> <div class="flex flex-wrap justify-center"> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div></div>';
-        $this->card[3] = '<div id="cards-user-card3" class="w-full p-8 overflow-hidden shadow bg-white border border-gray-200"> <h1 class="mb-6">Card 3</h1> <div class="flex flex-wrap justify-center"> %s </div></div>';
+        $this->card[1] = '<div id="tool-calendar" dusk="tool-calendar" class="w-1/3 p-4"> <div class="flex-none text-center"> <div class="block overflow-hidden shadow-md rounded-t"> <div class="bg-blue-500 text-white text-xl py-2"> November </div> <div class="pt-1"> <span class="text-5xl font-bold leading-tight"> 15 </span> </div> <div class="text-center border-white py-2 mb-1"> <span class="text-sm"> Friday </span> </div> </div> </div></div>';
     }
 
     /**
-     * Testing cards
+     * Testing dashboard
      *
-     * dusk --filter test_cards_position
+     * dusk --filter test_dashboard_page
      * @return void
      */
-    public function test_cards_position()
+    public function test_dashboard_page()
     {
         $this->browse(function (Browser $browser) {
-            // Create buttons
+            // Dashboard
             $browser
                 ->loginAs($this->user->find(1))
                 ->visit('/dashboard/')
-                ->assertPathIs('/dashboard/');
+                ->assertPresent('#tool-calendar')
+                ->assertSourceHas($this->card[1])
+                ->assertPresent('#tool-model');
         });
     }
 }
