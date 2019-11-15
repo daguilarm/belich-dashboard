@@ -14,7 +14,3 @@
 Route::get('/', function () {
     return redirect()->route('login');
 });
-
-Route::get('/dashboard/test', function () {
-    return view('belich::pages.test');
-})->middleware('auth');
