@@ -5,6 +5,7 @@ namespace Tests\Browser\Fields\Custom;
 use App\Test;
 use App\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Laravel\Dusk\Browser;
@@ -14,8 +15,9 @@ use Tests\DuskTestCase;
 // dusk --filter PasswordTest
 class PasswordTest extends DuskTestCase
 {
-    use DatabaseMigrations, Setup;
+    use DatabaseMigrations, Setup, WithFaker;
 
+    protected $email;
     protected $field;
     protected $test;
     protected $user;
@@ -27,6 +29,7 @@ class PasswordTest extends DuskTestCase
         $this->user = factory(User::class)->create();
         $this->test = factory(Test::class)->create();
         $this->field = $this->setField('passwords');
+        $this->email = $this->faker->safeEmail;
     }
 
     /**
@@ -71,7 +74,7 @@ class PasswordTest extends DuskTestCase
                 ->visit('dashboard/' . $this->field . '/create')
                 ->assertPathIs('/dashboard/' . $this->field . '/create')
                 ->type('#test_name', 'My name')
-                ->type('#test_email', 'email@email.com')
+                ->type('#test_email', $this->email)
                 ->type('#test_password', '12345678')
                 ->press('#button-form-create')
                 ->waitFor('#belich-index-table')
@@ -83,7 +86,7 @@ class PasswordTest extends DuskTestCase
             // Assert all the fields has been stored
             $this->assertDatabaseHas('tests', [
                 'test_name' => 'My name',
-                'test_email' => 'email@email.com',
+                'test_email' => $this->email,
             ]);
         });
     }
