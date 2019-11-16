@@ -28,7 +28,7 @@ class DashboardTest extends DuskTestCase
         $this->user = factory(User::class, 50)->create();
         $this->test = factory(Test::class, 15)->create();
 
-        $this->card[1] = '<div id="tool-calendar" dusk="tool-calendar" class="w-1/3 p-4"> <div class="flex-none text-center"> <div class="block overflow-hidden shadow-md rounded-t"> <div class="bg-blue-500 text-white text-xl py-2"> November </div> <div class="pt-1"> <span class="text-5xl font-bold leading-tight"> 15 </span> </div> <div class="text-center border-white py-2 mb-1"> <span class="text-sm"> Friday </span> </div> </div> </div></div>';
+        $this->card[1] = '<div id="tool-calendar" dusk="tool-calendar" class="w-1/3 p-4"> <div class="flex-none text-center"> <div class="block overflow-hidden shadow-md rounded-t"> <div class="bg-blue-500 text-white text-xl py-2"> November </div> <div class="pt-1"> <span class="text-5xl font-bold leading-tight"> 16 </span> </div> <div class="text-center border-white py-2 mb-1"> <span class="text-sm"> Saturday </span> </div> </div> </div></div>';
     }
 
     /**
