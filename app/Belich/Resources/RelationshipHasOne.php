@@ -28,6 +28,9 @@ class RelationshipHasOne extends Resources {
     /** @var string */
     public static $pluralLabel = 'HasOne (plural)';
 
+    // /** @var string */
+    // public static $table = 'profile_address';
+
     /**
      * Build the query for the given resource.
      *
@@ -52,6 +55,7 @@ class RelationshipHasOne extends Resources {
             Text::make('User', 'name'),
             Text::make('Email', 'email'),
             HasOne::make('Profiles', 'Profile', '\App\Profile')
+                ->table('profile_address'),
         ];
     }
 
