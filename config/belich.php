@@ -17,6 +17,9 @@ return [
     //Application url
     'url'  => env('APP_URL', '/'),
 
+    //This is the path for the models. Ex: '\App\Models'
+    'models' => '\App',
+
     /*
     Application with profile as resource
     ------------------------------------
