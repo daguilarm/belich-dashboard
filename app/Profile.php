@@ -18,6 +18,7 @@ class Profile extends Model
         'user_id',
         'profile_nick',
         'profile_avatar',
+        'profile_address',
         'profile_age',
         'profile_locale'
     ];

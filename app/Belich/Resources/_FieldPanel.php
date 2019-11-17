@@ -19,16 +19,13 @@ class _FieldPanel extends Resources {
     public static $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Fields';
-
-    /** @var string */
     public static $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Panel';
+    public static $label = 'Panel';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Panel';
+    public static $pluralLabel = 'Panels';
 
     /**
      * Build the query for the given resource.
