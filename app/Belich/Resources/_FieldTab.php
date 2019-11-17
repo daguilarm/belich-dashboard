@@ -19,16 +19,13 @@ class _FieldTab extends Resources {
     public static $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Fields';
-
-    /** @var string */
     public static $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Tabs';
+    public static $label = 'Tab';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Tabs';
+    public static $pluralLabel = 'Tabs';
 
     /** @var bool */
     public static $tabs = true;
