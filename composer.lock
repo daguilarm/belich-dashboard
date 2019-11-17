@@ -80,7 +80,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../../../../../../../.././Users/daguilarm/Sites/Packages/belich",
-                "reference": "60575bc246917790c8a4e9e5d7dc6dcbafa4c642"
+                "reference": "b850560dfa354318116316f52dc86528ac14f75d"
             },
             "require": {
                 "matthiasmullie/minify": "dev-master",
