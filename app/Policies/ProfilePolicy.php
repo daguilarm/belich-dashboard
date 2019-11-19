@@ -42,7 +42,7 @@ class ProfilePolicy
     */
     public function forceDelete(User $user, Profile $profile)
     {
-        return true;
+        return false;
     }
 
     /**
@@ -54,7 +54,7 @@ class ProfilePolicy
     */
     public function restore(User $user, Profile $profile)
     {
-        return true;
+        return false;
     }
 
     /**
@@ -66,7 +66,7 @@ class ProfilePolicy
     */
     public function update(User $user, Profile $profile)
     {
-        return true;
+        return $user->id === $profile->user_id;
     }
 
     /**
@@ -76,9 +76,9 @@ class ProfilePolicy
     * @param  \App\User  $user
     * @return mixed
     */
-    public function view(User $user)
+    public function view(User $user, Profile $profile)
     {
-       return true;
+       return $user->id === $profile->user_id;
     }
 
     /**
