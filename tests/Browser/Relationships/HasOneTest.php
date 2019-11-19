@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Browser\Fields\Custom;
+namespace Tests\Browser\Fields\Relationship;
 
 use App\Test;
 use App\User;
@@ -38,33 +38,6 @@ class HasOneTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field);
-        });
-    }
-
-    /**
-     * Test select option values
-     *
-     * dusk --filter test_select_values
-     */
-    public function test_select_values()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser
-                ->loginAs($this->user);
-            // Create
-            $browser
-                ->loginAs($this->user)
-                ->visit('dashboard/' . $this->field . '/create')
-                // Testing DB values
-                ->assertSelectHasOptions('#testing_db', User::pluck('id')->toArray())
-                // Testing default value
-                ->assertSelected('#testing_default', 2)
-                ->assertNotSelected('#testing_default', 1);
-            // Edit
-            $browser
-                ->visit('dashboard/' . $this->field . '/1/edit')
-                ->assertSelected('#testing_db', 1)
-                ->assertSelected('#testing_labels', 1);
         });
     }
 }
