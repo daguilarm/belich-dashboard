@@ -44,4 +44,16 @@ trait Setup {
     {
         return '_field' . $field;
     }
+
+    /**
+     * Set relationship to be evaluated
+     *
+     * @param string $relationship
+     *
+     * @return string
+     */
+    protected static function setRelationship(string $relationship): string
+    {
+        return 'relationship' . strtolower($relationship) . 's';
+    }
 }
