@@ -73,7 +73,7 @@ class _FieldSelectAction extends Resources {
                 ])
                 ->defaultValue(2),
             //Testing from DB
-            Select::make('Testing DB', 'test_string')
+            Select::make('Testing DB', 'id')
                 ->id('testing_db')
                 ->options($this->selectNames),
             //Testing display using labels
