@@ -40,7 +40,7 @@ class TimeTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<input class="mr-3" type="time" value="" dusk="dusk-test_time" id="test_time" name="test_name" max="22:00" min="09:00" step="1">');
+                ->assertSourceHas('<input class="mr-3" type="time" dusk="dusk-test_time" id="test_time" name="test_name" max="22:00" min="09:00" step="1">');
         });
     }
 }

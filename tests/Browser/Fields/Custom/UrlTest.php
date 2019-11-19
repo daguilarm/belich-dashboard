@@ -40,7 +40,7 @@ class UrlTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<input class="mr-3" type="url" value="" dusk="dusk-test_url" id="test_url" name="test_url">')
+                ->assertSourceHas('<input class="mr-3" type="url" dusk="dusk-test_url" id="test_url" name="test_url">')
                 ->assertSourceHas('<input class="mr-3" type="url" value="http://www.laravel.com" dusk="dusk-test_url_options" id="test_url_options" name="test_url">');
         });
     }

@@ -40,9 +40,9 @@ class EmailTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<input class="mr-3" type="email" value="" dusk="dusk-test_email" id="test_email" name="test_email">')
-                ->assertSourceMissing('<input class="mr-3" type="email" value="" dusk="dusk-test_email" id="test_email" name="test_email" multiple="">')
-                ->assertSourceHas('<input class="mr-3" type="email" value="" dusk="dusk-test_email_multiple" id="test_email_multiple" name="test_email" multiple="">');
+                ->assertSourceHas('<input class="mr-3" type="email" dusk="dusk-test_email" id="test_email" name="test_email">')
+                ->assertSourceMissing('<input class="mr-3" type="email" dusk="dusk-test_email" id="test_email" name="test_email" multiple="">')
+                ->assertSourceHas('<input class="mr-3" type="email" dusk="dusk-test_email_multiple" id="test_email_multiple" name="test_email" multiple="">');
         });
     }
 }

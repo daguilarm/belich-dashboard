@@ -42,7 +42,7 @@ class ColorTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<input class="mr-3" type="color" value="" dusk="dusk-test_color" id="test_color" name="test_color">')
+                ->assertSourceHas('<input class="mr-3" type="color" dusk="dusk-test_color" id="test_color" name="test_color">')
                 ->assertSourceHas('<input class="mr-3" type="color" value="#e66465" dusk="dusk-test_color_multiple" id="test_color_multiple" name="test_name">');
         });
     }
