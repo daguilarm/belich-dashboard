@@ -15,6 +15,7 @@ use Faker\Generator as Faker;
 
 $factory->define(\App\Profile::class, function (Faker $faker) {
     return [
-        'profile_avatar'           => $faker->imageUrl(200, 200, 'people') ,
+        'profile_address' => $faker->streetAddress,
+        'profile_avatar' => $faker->imageUrl(200, 200, 'people') ,
     ];
 });
