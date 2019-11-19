@@ -3,7 +3,7 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
-use Daguilarm\Belich\Fields\Relationships\HasOne;
+use Daguilarm\Belich\Fields\Types\Relationships\HasOne;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Text;
 use Illuminate\Http\Request;
@@ -29,7 +29,7 @@ class RelationshipHasOne extends Resources {
     public static $pluralLabel = 'HasOne (plural)';
 
     // /** @var string */
-    // public static $table = 'profile_address';
+    public static $table = 'profile_address';
 
     /**
      * Build the query for the given resource.
@@ -37,8 +37,7 @@ class RelationshipHasOne extends Resources {
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function indexQuery() {
-        return $this->model()
-            ->whereId(request()->user()->id);
+        return $this->model();
     }
 
     /**
@@ -54,8 +53,7 @@ class RelationshipHasOne extends Resources {
             ID::make('Id'),
             Text::make('User', 'name'),
             Text::make('Email', 'email'),
-            HasOne::make('Profiles', 'Profile', '\App\Profile')
-                ->table('profile_address'),
+            HasOne::make('Profiles', 'Profile', '\App\Profile'),
         ];
     }
 
