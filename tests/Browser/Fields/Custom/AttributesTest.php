@@ -40,9 +40,9 @@ class AttributesTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<input class="mr-3" type="text" value="" dusk="testing-text" id="test_string" name="test_string" placeholder="testing placeholder in text" pattern="[a-z]{1,15}">')
-                ->assertSourceHas('<input class="mr-3" type="email" value="" dusk="testing-email" id="test_email" name="test_email" placeholder="testing placeholder in email" pattern="[a-z]{1,15}">')
-                ->assertSourceHas('<select class="block px-4 py-2 pr-8" dusk="testing-select" id="test_string" name="test_string" placeholder="testing placeholder in select" pattern="[a-z]{1,15}"> <option value=""></option> </select>');
+                ->assertSourceHas('<input class="mr-3" type="text" dusk="testing-text" id="test_string" name="test_string" placeholder="testing placeholder in text" pattern="[a-z]{1,15}">')
+                ->assertSourceHas('<input class="mr-3" type="email" dusk="testing-email" id="test_email" name="test_email" placeholder="testing placeholder in email" pattern="[a-z]{1,15}">')
+                ->assertSourceHas('<select class="block px-4 py-2 pr-8" dusk="testing-select" id="test_string" name="test_string" placeholder="testing placeholder in select" pattern="[a-z]{1,15}"> <option value=""> </option> </select>');
         });
     }
 }
