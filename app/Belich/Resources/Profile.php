@@ -35,9 +35,8 @@ class Profile extends Resources {
      * @return Illuminate\Database\Eloquent\Collection
      */
     public function indexQuery() {
-        return $this->model();
-        // return $this->model()
-        //     ->whereId(request()->user()->id);
+        return $this->model()
+            ->whereId(request()->user()->id);
     }
 
     /**

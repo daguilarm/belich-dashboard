@@ -56,10 +56,7 @@ class SelectTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser
-                ->loginAs($this->user);
-
-            // Create
-            $browser
+                ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
                 // Testing DB values
                 ->assertSelectHasOptions('#testing_db', User::pluck('id')->toArray())
@@ -69,11 +66,6 @@ class SelectTest extends DuskTestCase
                 // Testing default value
                 ->assertSelected('#testing_default', 2)
                 ->assertNotSelected('#testing_default', 1);
-            // Edit
-            $browser
-                ->visit('dashboard/' . $this->field . '/1/edit')
-                ->assertSelected('#testing_db', 1)
-                ->assertSelected('#testing_labels', 1);
         });
     }
 }
