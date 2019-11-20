@@ -25,7 +25,7 @@ class PanelsTest extends DuskTestCase
         $this->user = factory(User::class)->create();
 
         $this->test = factory(Test::class)->create();
-        $this->field = $this->setField('panels');
+        $this->field = '_panels';
     }
 
     /**

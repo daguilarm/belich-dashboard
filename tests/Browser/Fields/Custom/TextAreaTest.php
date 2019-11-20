@@ -49,10 +49,10 @@ class TextAreaTest extends DuskTestCase
                 ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(5)', $this->test->test_description)
                 // Show
                 ->visit('dashboard/' . $this->field . '/1')
-                ->assertSeeIn('#app > div > div.form-container > div:nth-child(1) > div.w-2\/3.my-auto', $this->text)
-                ->assertSeeIn('#app > div > div.form-container > div:nth-child(2) > div.w-2\/3.my-auto', $this->test->test_description)
-                ->assertSeeIn('#app > div > div.form-container > div:nth-child(3) > div.w-2\/3.my-auto', $this->test->test_description)
-                ->assertSeeIn('#app > div > div.form-container > div:nth-child(4) > div.w-2\/3.my-auto', $this->text);
+                ->assertSeeIn('#form-container-group > div.form-container > div:nth-child(1) > div.w-2\/3.my-auto', $this->text)
+                ->assertSeeIn('#form-container-group > div.form-container > div:nth-child(2) > div.w-2\/3.my-auto', $this->test->test_description)
+                ->assertSeeIn('#form-container-group > div.form-container > div:nth-child(3) > div.w-2\/3.my-auto', $this->test->test_description)
+                ->assertSeeIn('#form-container-group > div.form-container > div:nth-child(4) > div.w-2\/3.my-auto', $this->text);
         });
     }
 

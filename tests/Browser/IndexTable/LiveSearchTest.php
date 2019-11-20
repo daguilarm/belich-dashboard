@@ -55,9 +55,9 @@ class LiveSearchTest extends DuskTestCase
 
             // Reset search
             $browser
-                ->assertSourceHas('<span class="" id="icon-search-reset"> <i class="fas fa-times-circle text-gray-500 cursor-pointer" onclick="resetSearch()"></i> </span>')
+                ->assertSourceHas('<span class="" id="icon-search-reset"> <i class="fas fa-times-circle cursor-pointer text-gray-500" onclick="resetSearch()"></i> </span>')
                 ->click('#icon-search-reset')
-                ->assertSourceMissing('<span class="" id="icon-search-reset"> <i class="fas fa-times-circle text-gray-500 cursor-pointer" onclick="resetSearch()"></i> </span>');
+                ->assertSourceMissing('<span class="" id="icon-search-reset"> <i class="fas fa-times-circle cursor-pointer text-gray-500" onclick="resetSearch()"></i> </span>');
             });
     }
 }
