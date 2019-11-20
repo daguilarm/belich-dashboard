@@ -22,7 +22,7 @@ class _Card extends Resources {
     public static $displayInNavigation = true;
 
     /** @var string */
-    public static $group = 'Cards';
+    public static $group = 'Components';
 
     /** @var string */
     public static $icon = 'user-friends';

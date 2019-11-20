@@ -19,6 +19,9 @@ class _FieldTab extends Resources {
     public static $relationships = ['user'];
 
     /** @var string */
+    public static $group = 'Components';
+
+    /** @var string */
     public static $icon = 'vial';
 
     /** @var string */
