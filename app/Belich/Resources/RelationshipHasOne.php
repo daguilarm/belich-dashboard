@@ -53,9 +53,13 @@ class RelationshipHasOne extends Resources {
         // ddd(HasOne::make('Profiles', 'Profile', '\App\Profile'));
         return [
             ID::make('Id'),
-            Text::make('User', 'name'),
-            Text::make('Email', 'email'),
+            Text::make('User', 'name')
+                ->rules('required'),
+            Text::make('Email', 'email')
+                ->rules('required', 'email'),
             HasOne::make('Profiles', 'Profile', '\App\Profile'),
+            HasOne::make('Profiles', 'Profile', '\App\Profile')
+                ->searchable(),
         ];
     }
 
