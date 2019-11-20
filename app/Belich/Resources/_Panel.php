@@ -10,7 +10,7 @@ use Daguilarm\Belich\Fields\Types\Text;
 use Daguilarm\Belich\Fields\Types\TextArea;
 use Illuminate\Http\Request;
 
-class _FieldPanel extends Resources {
+class _Panel extends Resources {
 
     /** @var string [Model path] */
     public static $model = '\App\Test';

@@ -272,6 +272,11 @@ textarea:focus {
   cursor: not-allowed;
 }
 
+.form-container .form-item-field:first-child {
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
 .form-container .form-item-field:last-child {
   border: 0;
 }
@@ -409,11 +414,13 @@ nav#navbar ul ul ul li {
 
 .pagination li.page-item {
   display: block;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  margin: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
   font-size: 1.125rem;
+  font-weight: 700;
   color: var(--pagination-disabled);
 }
 
