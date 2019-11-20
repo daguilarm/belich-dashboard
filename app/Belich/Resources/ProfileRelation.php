@@ -3,18 +3,19 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
-use Daguilarm\Belich\Fields\Types\Relationships\HasOne;
 use Daguilarm\Belich\Fields\Types\ID;
+use Daguilarm\Belich\Fields\Types\Image;
+use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
 use Illuminate\Http\Request;
 
-class RelationshipHasOne extends Resources {
+class ProfileRelation extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\User';
+    public static $model = '\App\Profile';
 
     /** @var array */
-    public static $relationships = ['profile'];
+    public static $relationships = ['user'];
 
     /** @var string */
     public static $group = 'Relationships';
@@ -23,13 +24,13 @@ class RelationshipHasOne extends Resources {
     public static $icon = 'cogs';
 
     /** @var string */
-    public static $label = 'HasOne';
+    public static $label = 'Profile for relationship';
 
     /** @var string */
-    public static $pluralLabel = 'HasOne (plural)';
+    public static $pluralLabel = 'Profiles for relationship';
 
-    // /** @var string */
-    public static $table = 'profile_address';
+    /** @var bool */
+    public static $displayInNavigation = false;
 
     /**
      * Build the query for the given resource.
@@ -38,8 +39,7 @@ class RelationshipHasOne extends Resources {
      */
     public function indexQuery() {
         return $this->model();
-        // return $this->model()
-        //     ->whereId(request()->user()->id);
+            // ->whereId(request()->user()->id);
     }
 
     /**
@@ -50,16 +50,16 @@ class RelationshipHasOne extends Resources {
      */
     public function fields(Request $request): array
     {
-        // ddd(HasOne::make('Profiles', 'Profile', '\App\Profile'));
         return [
             ID::make('Id'),
             Text::make('User', 'name')
-                ->rules('required'),
+                ->withRelationship('user'),
             Text::make('Email', 'email')
-                ->rules('required', 'email'),
-            HasOne::make('Profiles', 'ProfileRelation', '\App\Profile'),
-            HasOne::make('Profiles', 'ProfileRelation', '\App\Profile')
-                ->searchable(),
+                ->withRelationship('user'),
+            Text::make('Address', 'profile_address')
+                ->rules('required'),
+            Image::make('Avatar', 'profile_avatar')
+                ->alt('Testing alt'),
         ];
     }
 
