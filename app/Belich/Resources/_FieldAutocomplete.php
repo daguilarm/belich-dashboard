@@ -18,9 +18,6 @@ class _FieldAutocomplete extends Resources {
     public static $group = 'Fields';
 
     /** @var string */
-    public static $icon = 'vial';
-
-    /** @var string */
     public static $label = 'Field Autocomplete';
 
     /** @var string */
