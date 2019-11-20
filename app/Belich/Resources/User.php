@@ -36,6 +36,9 @@ class User extends Resources {
     /** @var string */
     public static $pluralLabel = 'Users';
 
+    /** @var bool */
+    public static $downloable = true;
+
     /** @var array */
     public static  $search = ['id', 'name', 'email'];
 
