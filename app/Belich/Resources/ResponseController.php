@@ -3,33 +3,33 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
-use Daguilarm\Belich\Fields\Types\Relationships\HasOne;
 use Daguilarm\Belich\Fields\Types\ID;
+use Daguilarm\Belich\Fields\Types\Image;
+use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
 use Illuminate\Http\Request;
 
-class RelationshipHasOne extends Resources {
+class responseController extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\User';
-
-    /** @var array */
-    public static $relationships = ['profile'];
+    public static $model = '\App\Test';
 
     /** @var string */
-    public static $group = 'Relationships';
+    public static $group = 'System';
 
     /** @var string */
     public static $icon = 'cogs';
 
     /** @var string */
-    public static $label = 'HasOne';
+    public static $label = 'Response Controller';
 
     /** @var string */
-    public static $pluralLabel = 'HasOne (plural)';
+    public static $pluralLabel = 'Response Controllers';
 
-    // /** @var string */
-    public static $table = 'profile_address';
+    /**
+     * @var string
+     */
+    public static $controllerAction = '\App\Http\Controllers\TestController';
 
     /**
      * Build the query for the given resource.
@@ -38,8 +38,6 @@ class RelationshipHasOne extends Resources {
      */
     public function indexQuery() {
         return $this->model();
-        // return $this->model()
-        //     ->whereId(request()->user()->id);
     }
 
     /**
@@ -53,13 +51,13 @@ class RelationshipHasOne extends Resources {
         return [
             ID::make('Id'),
             Text::make('User', 'name')
-                ->rules('required'),
+                ->withRelationship('user'),
             Text::make('Email', 'email')
-                ->rules('required', 'email'),
-            HasOne::make('Profiles', 'Profile', '\App\Profile', 'profile_avatar'),
-            HasOne::make('Profiles', 'Profile', '\App\Profile')
-                ->rules('required')
-                ->searchable(),
+                ->withRelationship('user'),
+            Text::make('Address', 'profile_address')
+                ->rules('required'),
+            Image::make('Avatar', 'profile_avatar')
+                ->alt('Testing alt'),
         ];
     }
 

@@ -22,7 +22,7 @@ class _Graph extends Resources {
     public static $displayInNavigation = true;
 
     /** @var string */
-    public static $group = 'Components';
+    public static $group = 'Metrics';
 
     /** @var string */
     public static $icon = 'user-friends';
@@ -88,7 +88,11 @@ class _Graph extends Resources {
     public static function metrics(Request $request): array
     {
         return [
-            new \App\Belich\Metrics\UsersPerMonth($request),
+            new \App\Belich\Metrics\Testing\TestDefault($request),
+            new \App\Belich\Metrics\Testing\TestLegend($request),
+            new \App\Belich\Metrics\Testing\TestBarLegend($request),
+            new \App\Belich\Metrics\Testing\TestPie($request),
+            (new \App\Belich\Metrics\Testing\TestLine($request))->width('w-full'),
         ];
     }
 }

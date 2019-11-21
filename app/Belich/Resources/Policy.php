@@ -15,7 +15,7 @@ class Policy extends Resources {
     public static $model = '\App\Profile';
 
     /** @var string */
-    public static $group = 'Policies';
+    public static $group = 'System';
 
     /** @var string */
     public static $icon = 'cogs';

@@ -16,3 +16,6 @@ Route::get(Belich::path() . '/ajax/test/name', '\App\Http\Controllers\AjaxTestNa
     ->name('ajax.test.name');
 Route::get(Belich::path() . '/ajax/test/string', '\App\Http\Controllers\AjaxTestStringController')
     ->name('ajax.test.string');
+
+// Testing custom route
+Route::resource(Belich::path() . '/testing/', '\App\Http\Controllers\TestController');
