@@ -78,7 +78,7 @@ trait AttributesHelper
     {
         $this->assertConstructor($browser, 'id', 'assertPresent', '#testing_id', $except);
         $this->assertConstructor($browser, 'dusk', 'assertPresent', '[dusk="testing-dusk"]', $except);
-        $this->assertConstructor($browser, 'name', 'assertVisible', '[name="testing-name"]', $except);
+        $this->assertConstructor($browser, 'name', 'assertPresent', '[name="testing-name"]', $except);
         $this->assertConstructor($browser, 'data-test', 'assertVisible', '[data-test="testing-data"]', $except);
         $this->assertConstructor($browser, 'disabled', 'assertVisible', '[disabled]', $except);
         $this->assertConstructor($browser, 'readonly', 'assertVisible', '[readonly]', $except);
