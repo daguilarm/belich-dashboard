@@ -33,6 +33,9 @@ return [
             'class' => 'The Class :value does not exist',
         ],
     ],
+    'relationships' => [
+        'new_field' => 'Notice!!! This will create a new row in the database: :value'
+    ],
     'resources' => [
         'no_results' => 'No results found for the resource' . ': ' . ':resource.',
     ],
