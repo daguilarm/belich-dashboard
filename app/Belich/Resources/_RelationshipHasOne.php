@@ -57,9 +57,11 @@ class _RelationshipHasOne extends Resources {
             Text::make('Email', 'email')
                 ->rules('required', 'email'),
             HasOne::make('Profile avatar', 'Profile', '\App\Profile', 'profile_avatar')
+                ->editable()
                 ->rules('required'),
             HasOne::make('Profile address', 'Profile', '\App\Profile')
                 ->rules('required')
+                ->editable()
                 ->searchable(),
         ];
     }
