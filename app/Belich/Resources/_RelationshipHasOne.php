@@ -62,7 +62,13 @@ class _RelationshipHasOne extends Resources {
             HasOne::make('Profile address', 'Profile', '\App\Profile')
                 ->rules('required')
                 ->editable()
-                ->searchable(),
+                ->searchable()
+                ->query(function($query) {
+                    return $query
+                        ->where('user_id', '>', 10)
+                        ->pluck(static::$column, static::$column)
+                        ->toArray();
+                }),
         ];
     }
 
