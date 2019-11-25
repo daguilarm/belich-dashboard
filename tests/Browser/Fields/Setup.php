@@ -54,6 +54,6 @@ trait Setup {
      */
     protected static function setRelationship(string $relationship): string
     {
-        return 'relationship' . strtolower($relationship) . 's';
+        return '_relationship' . strtolower($relationship) . 's';
     }
 }
