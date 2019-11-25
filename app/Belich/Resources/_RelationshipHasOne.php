@@ -3,8 +3,9 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
-use Daguilarm\Belich\Fields\Types\Relationships\HasOne;
 use Daguilarm\Belich\Fields\Types\ID;
+use Daguilarm\Belich\Fields\Types\Password;
+use Daguilarm\Belich\Fields\Types\Relationships\HasOne;
 use Daguilarm\Belich\Fields\Types\Text;
 use Illuminate\Http\Request;
 
@@ -56,8 +57,11 @@ class _RelationshipHasOne extends Resources {
                 ->rules('required'),
             Text::make('Email', 'email')
                 ->rules('required', 'email'),
+            Password::make('Password', 'password')
+                ->rules('required'),
             HasOne::make('Profile avatar', 'Profile', '\App\Profile', 'profile_avatar')
                 ->editable()
+                ->help('Helper test')
                 ->rules('required'),
             HasOne::make('Profile address', 'Profile', '\App\Profile')
                 ->rules('required')
@@ -69,6 +73,10 @@ class _RelationshipHasOne extends Resources {
                         ->pluck(static::$column, static::$column)
                         ->toArray();
                 }),
+            HasOne::make('Profile no editable', 'Profile', '\App\Profile', 'profile_avatar')
+                ->id('profile-no-editable')
+                ->help('Helper test')
+                ->rules('required'),
         ];
     }
 
