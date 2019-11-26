@@ -151,12 +151,10 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Field textArea
+    | Loading status
     |--------------------------------------------------------------------------
     |
-    | Define the minimum number of characters for the textArea value
-    | For example, if the textArea value is: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    | IF the textAreaChars value is 20, will show: "Lorem ipsum dolor si..."
+    | Show the loading icon for ajax queries
     */
     'loading' => '<i class="fas fa-spinner fa-spin fa-10x text-blue-200"></i>',
 ];
