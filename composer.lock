@@ -80,9 +80,10 @@
             "dist": {
                 "type": "path",
                 "url": "../../../../../../../../../.././Users/daguilarm/Sites/Packages/belich",
-                "reference": "7988896fe087d4631f7798c33dda0f6dd54642f8"
+                "reference": "7ca6e53c39e1878b942f56d4ce8704d602733b6d"
             },
             "require": {
+                "livewire/livewire": "^0.4.0",
                 "matthiasmullie/minify": "dev-master",
                 "php": "^7.2",
                 "rap2hpoutre/fast-excel": "dev-master",
@@ -884,6 +885,59 @@
                 "storage"
             ],
             "time": "2019-10-16T21:01:05+00:00"
+        },
+        {
+            "name": "livewire/livewire",
+            "version": "v0.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/livewire/livewire.git",
+                "reference": "c7d052198efbcf41bc0b8c6e0230b11196b4c69d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/livewire/livewire/zipball/c7d052198efbcf41bc0b8c6e0230b11196b4c69d",
+                "reference": "c7d052198efbcf41bc0b8c6e0230b11196b4c69d",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^5.6|^6.0",
+                "illuminate/validation": "^5.6|^6.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^5.6|^6.0",
+                "orchestra/testbench": "~4.0",
+                "phpunit/phpunit": "^8.3",
+                "psy/psysh": "@stable"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Livewire\\LivewireServiceProvider"
+                    ],
+                    "aliases": {
+                        "Livewire": "Livewire\\Livewire"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Livewire\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Caleb Porzio",
+                    "email": "calebporzio@gmail.com"
+                }
+            ],
+            "description": "Build and test rich client-side functionality: with only backend code.",
+            "time": "2019-11-13T01:07:34+00:00"
         },
         {
             "name": "matthiasmullie/minify",
@@ -3516,16 +3570,16 @@
         },
         {
             "name": "facade/ignition",
-            "version": "1.12.0",
+            "version": "1.12.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/facade/ignition.git",
-                "reference": "67736a01597b9e08f00a1fc8966b92b918dba5ea"
+                "reference": "6a1d324e8362b8818b0ec65994a9d71a7bd94964"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/facade/ignition/zipball/67736a01597b9e08f00a1fc8966b92b918dba5ea",
-                "reference": "67736a01597b9e08f00a1fc8966b92b918dba5ea",
+                "url": "https://api.github.com/repos/facade/ignition/zipball/6a1d324e8362b8818b0ec65994a9d71a7bd94964",
+                "reference": "6a1d324e8362b8818b0ec65994a9d71a7bd94964",
                 "shasum": ""
             },
             "require": {
@@ -3583,7 +3637,7 @@
                 "laravel",
                 "page"
             ],
-            "time": "2019-11-14T10:51:35+00:00"
+            "time": "2019-11-25T15:24:39+00:00"
         },
         {
             "name": "facade/ignition-contracts",
