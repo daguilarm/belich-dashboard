@@ -25,7 +25,8 @@ class _FieldCustom extends Resources {
      *
      * @return Illuminate\Database\Eloquent\Collection
      */
-    public function indexQuery() {
+    public function indexQuery()
+    {
         return $this->model();
     }
 
@@ -40,6 +41,31 @@ class _FieldCustom extends Resources {
         return [
             //Testing attributes in text
             MyField::make('My custom class', 'test_name', MyField::class),
+            // Testing for visibility
+            MyField::make('Hide from index', 'test_name', MyField::class)
+                ->hideFromIndex(),
+            MyField::make('Hide from show', 'test_name', MyField::class)
+                ->hideFromShow(),
+            MyField::make('Hide when creating', 'test_name', MyField::class)
+                ->hideWhenCreating(),
+            MyField::make('Hide when editing', 'test_name', MyField::class)
+                ->hideWhenEditing(),
+            MyField::make('Only on index', 'test_name', MyField::class)
+                ->onlyOnIndex(),
+            MyField::make('Only on show', 'test_name', MyField::class)
+                ->onlyOnShow(),
+            MyField::make('Only on forms', 'test_name', MyField::class)
+                ->onlyOnForms(),
+            MyField::make('Except on forms', 'test_name', MyField::class)
+                ->exceptOnForms(),
+            MyField::make('Visible-on index', 'test_name', MyField::class)
+                ->visibleOn('index'),
+            MyField::make('Hide-From index', 'test_name', MyField::class)
+                ->hideFrom('index'),
+            MyField::make('Attributes', 'test_name', MyField::class)
+                ->id('testing-id')
+                ->dusk('testing-dusk')
+                ->help('testing-help'),
         ];
     }
 
