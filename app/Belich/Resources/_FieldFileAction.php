@@ -16,7 +16,7 @@ class _FieldFileAction extends Resources {
     public static $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Custom Fields';
+    public static $group = 'Action Fields';
 
     /** @var string */
     public static $icon = 'vial';

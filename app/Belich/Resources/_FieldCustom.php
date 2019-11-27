@@ -12,9 +12,6 @@ class _FieldCustom extends Resources {
     public static $model = '\App\Test';
 
     /** @var string */
-    public static $group = 'Testing';
-
-    /** @var string */
     public static $icon = 'vial';
 
     /** @var string */
