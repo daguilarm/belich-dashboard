@@ -3,10 +3,9 @@
 namespace App\Belich\Components\MyField;
 
 use Daguilarm\Belich\Contracts\CrudContract;
-use Daguilarm\Belich\Contracts\FieldContract;
 use Daguilarm\Belich\Fields\Types\CustomField;
 
-class MyField extends CustomField implements CrudContract, FieldContract
+class MyField extends CustomField implements CrudContract
 {
     /**
      * Resolve value for index
