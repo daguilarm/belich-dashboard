@@ -1,1 +1,1 @@
-hellow show  - {{ $field->label }}
+show[{{ $data->id }}][{{ $field->id }}]

@@ -1,1 +1,1 @@
-hellow index - {{ $data->id }}
+index[{{ $data->id }}][{{ $field->id }}]
