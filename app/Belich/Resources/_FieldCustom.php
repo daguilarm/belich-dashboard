@@ -42,7 +42,7 @@ class _FieldCustom extends Resources {
     {
         return [
             //Testing attributes in text
-            MyField::make('Custom field'),
+            MyField::make('My custom class', 'test_name', MyField::class),
         ];
     }
 

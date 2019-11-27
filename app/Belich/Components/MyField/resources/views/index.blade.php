@@ -1,0 +1,1 @@
+hellow index - {{ $data->id }}
