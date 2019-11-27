@@ -20,6 +20,9 @@ class _FieldCustom extends Resources {
     /** @var string */
     public static $pluralLabel = 'Custom fields';
 
+    /** @var string */
+    public static $search = ['id', 'test_name'];
+
     /**
      * Build the query for the given resource.
      *
