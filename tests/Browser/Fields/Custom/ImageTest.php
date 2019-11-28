@@ -46,7 +46,7 @@ class ImageTest extends DuskTestCase
                 // Download image
                 ->assertSourceHas('<a href="' . $this->test->test_file . '" target="_blank" dusk="downloable-file"><i class="fas fa-download icon"></i></a>')
                 // No render, just url link
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(3)', $this->test->test_file);
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(3)', $this->test->test_file);
         });
     }
 }

@@ -43,10 +43,10 @@ class TextAreaTest extends DuskTestCase
                 ->loginAs($this->user)
                 // Index
                 ->visit('dashboard/' . $this->field)
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(2)', $this->text)
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(3)', $this->test->test_description)
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(4)', $this->text)
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(5)', $this->test->test_description)
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(2)', $this->text)
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(3)', $this->test->test_description)
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(4)', $this->text)
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(5)', $this->test->test_description)
                 // Show
                 ->visit('dashboard/' . $this->field . '/1')
                 ->assertSeeIn('#form-container-group > div.form-container > div:nth-child(1) > div.w-2\/3.my-auto', $this->text)

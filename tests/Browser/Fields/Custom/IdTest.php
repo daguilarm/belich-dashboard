@@ -42,9 +42,9 @@ class IdTest extends DuskTestCase
                 ->loginAs($this->user)
                 // See on index
                 ->visit('dashboard/' . $this->field)
-                    ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(2)', 1)
-                    ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(3)', 1)
-                    ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(4)', 1)
+                    ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(2)', 1)
+                    ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(3)', 1)
+                    ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(4)', 1)
                 // See on show
                 ->visit('dashboard/' . $this->field . '/1')
                     ->assertSeeIn('#form-container-group > div.form-container > div:nth-child(1) > div.w-2\/3.my-auto', 1)
@@ -72,9 +72,9 @@ class IdTest extends DuskTestCase
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field)
                     // Assert resolveUsing is not working
-                    ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(3)', '1')
+                    ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(3)', '1')
                     // Assert displayUsing is not working
-                    ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(4)', '1');
+                    ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(4)', '1');
         });
     }
 }

@@ -68,7 +68,7 @@ class BooleanTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field)
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(11)', $label);
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(11)', $label);
         });
     }
 

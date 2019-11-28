@@ -40,12 +40,12 @@ class HasOneTest extends DuskTestCase
                 // Index
                 ->visit('dashboard/' . $this->field)
                 ->assertSeeIn(
-                    '#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(5) > a',
+                    'table.index-table > tbody > tr:nth-child(1) > td:nth-child(5) > a',
                     $this->user->profile->profile_avatar
                 )
                 ->assertSourceHas('<a href="/dashboard/profiles/' . $this->user->profile->id . '" class="show-link"> ' . $this->user->profile->profile_avatar . '</a>')
                 ->assertSeeIn(
-                    '#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(6) > a',
+                    'table.index-table > tbody > tr:nth-child(1) > td:nth-child(6) > a',
                     $this->user->profile->profile_address
                 )
                 ->assertSourceHas('<a href="/dashboard/profiles/' . $this->user->profile->id . '" class="show-link"> ' . $this->user->profile->profile_address . '</a>')

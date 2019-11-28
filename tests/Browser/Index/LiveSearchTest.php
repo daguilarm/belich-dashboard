@@ -45,19 +45,19 @@ class LiveSearchTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('/dashboard/' . $this->field)
-                ->type('#_search', 'damian antonio')
+                ->type('#search-797a976bf15400073ad793315d544002', 'damian antonio')
                 ->pause(400)
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(2)', 'damian antonio');
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(2)', 'damian antonio');
 
             // Assert there is only one result
-            $tableRows = count($browser->driver->findElements(WebDriverBy::cssSelector('#belich-index-table > tbody > tr')));
+            $tableRows = count($browser->driver->findElements(WebDriverBy::cssSelector('table.index-table > tbody > tr')));
             $this->assertEquals($tableRows, 1);
 
             // Reset search
             $browser
-                ->assertSourceHas('<span class="" id="icon-search-reset"> <i class="fas fa-times-circle cursor-pointer text-gray-500" onclick="resetSearch()"></i> </span>')
-                ->click('#icon-search-reset')
-                ->assertSourceMissing('<span class="" id="icon-search-reset"> <i class="fas fa-times-circle cursor-pointer text-gray-500" onclick="resetSearch()"></i> </span>');
+                ->assertSourceHas('<span class="" id="icon-search-reset-797a976bf15400073ad793315d544002"> <i class="fas fa-times-circle cursor-pointer text-gray-500" onclick="resetSearch(\'797a976bf15400073ad793315d544002\')"></i> </span>')
+                ->click('#icon-search-reset-797a976bf15400073ad793315d544002')
+                ->assertSourceMissing('<span class="" id="icon-search-reset-797a976bf15400073ad793315d544002"> <i class="fas fa-times-circle cursor-pointer text-gray-500" onclick="resetSearch(\'797a976bf15400073ad793315d544002\')"></i> </span>');
             });
     }
 }

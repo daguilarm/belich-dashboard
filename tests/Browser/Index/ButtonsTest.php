@@ -69,7 +69,7 @@ class ButtonsTest extends DuskTestCase
                 ->assertPathIs('/dashboard/' . $this->field);
 
             // Assert there is only 10 result
-            $tableRows = count($browser->driver->findElements(WebDriverBy::cssSelector('#belich-index-table > tbody > tr')));
+            $tableRows = count($browser->driver->findElements(WebDriverBy::cssSelector('table.index-table > tbody > tr')));
             $this->assertEquals($tableRows, 10);
         });
     }

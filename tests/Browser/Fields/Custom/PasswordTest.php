@@ -77,7 +77,7 @@ class PasswordTest extends DuskTestCase
                 ->type('#test_email', $this->email)
                 ->type('#test_password', '12345678')
                 ->press('#button-form-create')
-                ->waitFor('#belich-index-table')
+                ->waitForText('The resource has been successfully created')
                 ->assertPathIs('/dashboard/' . $this->field);
 
             // Assert password

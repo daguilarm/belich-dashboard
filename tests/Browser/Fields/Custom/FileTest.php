@@ -42,7 +42,7 @@ class FileTest extends DuskTestCase
                 ->visit('dashboard/' . $this->field . '/create')
                 ->attach('#test_file', storage_path('app/tests/image.jpeg'))
                 ->press('@button-action-create')
-                ->waitFor('#belich-index-table')
+                ->waitForText('The resource has been successfully created')
                 ->assertPathIs('/dashboard/' . $this->field);
 
             //Get storage from DB

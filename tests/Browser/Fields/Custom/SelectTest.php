@@ -39,14 +39,14 @@ class SelectTest extends DuskTestCase
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field)
                 ->assertSourceHas('<td class="py-4 px-6 border-b border-solid border-gray-200 no-softdeleted"> Admin </td>')
-                ->assertDontSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(5)', '1')
+                ->assertDontSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(5)', '1')
                 ->assertSourceHas('<td class="py-4 px-6 border-b border-solid border-gray-200 no-softdeleted"> Manager </td>')
-                ->assertDontSeeIn('#belich-index-table > tbody > tr:nth-child(2) > td:nth-child(5)', '2')
+                ->assertDontSeeIn('table.index-table > tbody > tr:nth-child(2) > td:nth-child(5)', '2')
                 ->assertSourceHas('<td class="py-4 px-6 border-b border-solid border-gray-200 no-softdeleted"> User </td>')
-                ->assertDontSeeIn('#belich-index-table > tbody > tr:nth-child(3) > td:nth-child(5)', '3')
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(1) > td:nth-child(4)', '1')
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(2) > td:nth-child(4)', '2')
-                ->assertSeeIn('#belich-index-table > tbody > tr:nth-child(3) > td:nth-child(4)', '3');
+                ->assertDontSeeIn('table.index-table > tbody > tr:nth-child(3) > td:nth-child(5)', '3')
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(4)', '1')
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(2) > td:nth-child(4)', '2')
+                ->assertSeeIn('table.index-table > tbody > tr:nth-child(3) > td:nth-child(4)', '3');
         });
     }
 
