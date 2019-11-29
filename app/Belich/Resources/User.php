@@ -89,8 +89,10 @@ class User extends Resources {
                 ->withRelationship('profile'),
             Password::make('Password', 'password')
                 ->creationRules('required', 'required_with:password_confirmation', 'confirmed', 'min:6')
-                ->updateRules('nullable', 'required_with:password_confirmation', 'same:password_confirmation', 'min:6'),
-            PasswordConfirmation::make('Password confirmation'),
+                ->updateRules('nullable', 'required_with:password_confirmation', 'same:password_confirmation', 'min:6')
+                ->autocompleteOn(),
+            PasswordConfirmation::make('Password confirmation')
+                ->autocompleteOn(),
         ];
     }
 
