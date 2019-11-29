@@ -73,6 +73,7 @@ class PasswordTest extends DuskTestCase
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
                 ->assertPathIs('/dashboard/' . $this->field . '/create')
+                ->assertSourceHas('<input class="mr-3" type="password" dusk="dusk-test_password" id="test_password" name="test_password" autocomplete="on">')
                 ->type('#test_name', 'My name')
                 ->type('#test_email', $this->email)
                 ->type('#test_password', '12345678')
