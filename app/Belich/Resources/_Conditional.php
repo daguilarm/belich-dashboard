@@ -66,6 +66,13 @@ class _Conditional extends Resources {
                         ->rules('required'),
                 ];
             }),
+            Text::make('Status', 'test_house'),
+            Conditional::make('test_house', true, function() {
+                return [
+                    Text::make('Status test', 'test_address')
+                        ->rules('required'),
+                ];
+            }),
         ];
     }
 
