@@ -21,6 +21,8 @@ $factory->define(App\Test::class, function ($faker) {
         return $code['code'];
     })->toArray();
 
+    $boolean = Arr::random([true, false]);
+
     return [
         'test_password' => bcrypt('admin'),
         'test_string' => $faker->sentence($nbWords = 5, $variableNbWords = true),
@@ -53,7 +55,8 @@ $factory->define(App\Test::class, function ($faker) {
         'test_integer' => $faker->randomNumber($nbDigits = 3, $strict = false),
         'test_number' => $faker->randomNumber($nbDigits = NULL, $strict = false),
         'test_ip' => $faker->ipv4(),
-        'test_boolean' => Arr::random([true, false]),
+        'test_boolean' => $boolean,
+        'test_status' => ! $boolean,
         'test_date' => $faker->date($format = 'Y-m-d', $max = 'now'),
         'test_year' => $faker->year($max = 'now'),
         'test_point' => null,

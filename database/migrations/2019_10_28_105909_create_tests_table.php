@@ -47,6 +47,7 @@ class CreateTestsTable extends Migration
             $table->integer('test_number')->nullable();
             $table->ipAddress('test_ip')->nullable();
             $table->boolean('test_boolean')->default(true);
+            $table->boolean('test_status')->default(true);
             $table->date('test_date')->nullable();
             $table->year('test_year')->nullable();
             $table->point('test_point')->nullable();
