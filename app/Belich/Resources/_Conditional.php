@@ -61,7 +61,7 @@ class _Conditional extends Resources {
                 ->options(['0' => 'False', '1' => 'True']),
             Conditional::make('test_status', true, function() {
                 return [
-                    Text::make('Status test', 'test_email')
+                    Text::make('Status test', 'test_address')
                         ->sortable()
                         ->rules('required'),
                 ];
