@@ -41,8 +41,8 @@ class CoordenatesTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<div id="toDegrees-e23651f912a46d91d3da83a64cacd9ed" class="font-normal lowercase font-bold mt-2 capitalize">0° 0\' 0" N</div>')
-                ->assertSourceHas('<div id="toDegrees-012438880c433624e48b8b3452a435ee" class="font-normal lowercase font-bold mt-2 capitalize">0° 0\' 0" E</div>')
+                ->assertSourceHas('<div id="toDegrees-e23651f912a46d91d3da83a64cacd9ed" class="font-normal lowercase font-bold mt-2 capitalize"></div>')
+                ->assertSourceHas('<div id="toDegrees-012438880c433624e48b8b3452a435ee" class="font-normal lowercase font-bold mt-2 capitalize"></div>')
                 ->type('@dusk-lat_test_coordenate', '56.704356')
                 ->click('@dusk-lng_test_coordenate')
                 ->assertSourceHas('<div id="toDegrees-e23651f912a46d91d3da83a64cacd9ed" class="font-normal lowercase font-bold mt-2 capitalize">56° 42\' 15" N</div>')
