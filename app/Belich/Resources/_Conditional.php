@@ -49,30 +49,30 @@ class _Conditional extends Resources {
     {
         return [
             Boolean::make('Boolean', 'test_boolean'),
-            Conditional::make('test_boolean', true, function() {
+            Conditional::make(function() {
                 return [
                     Text::make('Boolean test', 'test_email')
                         ->sortable()
                         ->autocompleteOn()
                         ->rules('required'),
                 ];
-            }),
+            })->dependsOn('test_boolean', true),
             Select::make('Status', 'test_status')
                 ->options(['0' => 'False', '1' => 'True']),
-            Conditional::make('test_status', true, function() {
+            Conditional::make(function() {
                 return [
                     Text::make('Status test', 'test_address')
                         ->sortable()
                         ->rules('required'),
                 ];
-            }),
+            })->dependsOn('test_status', true),
             Text::make('Status', 'test_house'),
-            Conditional::make('test_house', true, function() {
+            Conditional::make(function() {
                 return [
                     Text::make('Status test', 'test_address')
                         ->rules('required'),
                 ];
-            }),
+            })->dependsOn('test_house', true),
         ];
     }
 
