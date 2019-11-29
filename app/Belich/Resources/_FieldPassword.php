@@ -50,7 +50,8 @@ class _FieldPassword extends Resources {
             //Testing email
             Text::make('email', 'test_email'),
             //Testing password
-            Password::make('Password', 'test_password'),
+            Password::make('Password', 'test_password')
+                ->autocompleteOn(),
         ];
     }
 
