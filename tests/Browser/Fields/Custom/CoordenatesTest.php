@@ -29,7 +29,7 @@ class CoordenatesTest extends DuskTestCase
     }
 
     /**
-     * Conditional visibility test
+     * Coordenate attribute test
      *
      * dusk --filter test_coordenates_attributes
      * @return void
