@@ -50,6 +50,11 @@ class _FieldColor extends Resources {
                 ->id('test_color_multiple')
                 ->dusk('dusk-test_color_multiple')
                 ->defaultValue('#e66465'),
+            //Testing as color
+            Color::make('Testing as color', 'test_color')
+                ->id('test_asColor')
+                ->dusk('dusk-test_asColor')
+                ->asColor(),
         ];
     }
 
