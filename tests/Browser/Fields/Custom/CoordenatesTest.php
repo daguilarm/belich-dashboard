@@ -29,7 +29,7 @@ class CoordenatesTest extends DuskTestCase
     }
 
     /**
-     * Custom attributes test
+     * Conditional visibility test
      *
      * dusk --filter test_coordenates_attributes
      * @return void
@@ -41,14 +41,14 @@ class CoordenatesTest extends DuskTestCase
             $browser
                 ->loginAs($this->user)
                 ->visit('dashboard/' . $this->field . '/create')
-                ->assertSourceHas('<div id="' . md5('lat_test_coordenate-to-degrees') . '" class="font-normal lowercase font-bold mt-2 capitalize">')
-                ->assertSourceHas('<div id="' . md5('lng_test_coordenate-to-degrees') . '" class="font-normal lowercase font-bold mt-2 capitalize">')
+                ->assertSourceHas('<div id="toDegrees-e23651f912a46d91d3da83a64cacd9ed" class="font-normal lowercase font-bold mt-2 capitalize">0° 0\' 0" N</div>')
+                ->assertSourceHas('<div id="toDegrees-012438880c433624e48b8b3452a435ee" class="font-normal lowercase font-bold mt-2 capitalize">0° 0\' 0" E</div>')
                 ->type('@dusk-lat_test_coordenate', '56.704356')
                 ->click('@dusk-lng_test_coordenate')
-                ->assertSourceHas('<div id="d1ea6ad484661637b2662f81251e6925" class="font-normal lowercase font-bold mt-2 capitalize">56° 42\' 15" N</div>')
+                ->assertSourceHas('<div id="toDegrees-e23651f912a46d91d3da83a64cacd9ed" class="font-normal lowercase font-bold mt-2 capitalize">56° 42\' 15" N</div>')
                 ->type('@dusk-lng_test_coordenate', '-120.704356')
                 ->click('@dusk-lat_test_coordenate')
-                ->assertSourceHas('<div id="faeac661e5e560e803c6ceee7b389fc0" class="font-normal lowercase font-bold mt-2 capitalize">120° 42\' 15" W</div>');
+                ->assertSourceHas('<div id="toDegrees-012438880c433624e48b8b3452a435ee" class="font-normal lowercase font-bold mt-2 capitalize">120° 42\' 15" W</div>');
         });
     }
 }
