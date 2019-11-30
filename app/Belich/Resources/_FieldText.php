@@ -57,7 +57,7 @@ class _FieldText extends Resources {
             Text::make('Hide from index', 'test_name')
                 ->hideFromIndex(),
             Text::make('Hide from show', 'test_name')
-                ->hideFromShow(),
+                ->hideFromDetail(),
             Text::make('Hide when creating', 'test_name')
                 ->hideWhenCreating(),
             Text::make('Hide when editing', 'test_name')
