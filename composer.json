@@ -20,6 +20,7 @@
     "require": {
         "php": "^7.2",
         "daguilarm/belich": "dev-master",
+        "davidbadura/faker-markdown-generator": "^1.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0"
