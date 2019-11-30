@@ -67,6 +67,10 @@ class _FieldTextAreaAction extends Resources {
                 ->maxlength(100)
                 ->count(100)
                 ->rows(10),
+            // Testing markdown
+            TextArea::make('Markdown', 'test_markdown')
+                ->markdown()
+                ->FullTextOnShow(),
         ];
     }
 

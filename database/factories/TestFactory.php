@@ -16,6 +16,9 @@ use Illuminate\Support\Str;
 */
 
 $factory->define(App\Test::class, function ($faker) {
+    // Markdown
+    $faker->addProvider(new \DavidBadura\FakerMarkdownGenerator\FakerProvider($faker));
+
     // List of countries
     $countries = collect(trans('belich::metrics.countriesOfTheWorldWithCodes'))->map(function($code, $name) {
         return $code['code'];
@@ -27,6 +30,7 @@ $factory->define(App\Test::class, function ($faker) {
         'test_password' => bcrypt('admin'),
         'test_string' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'test_language' => Arr::random(['php', 'python', 'c++', 'cobol', 'js']),
+        'test_markdown' => $faker->markdown(),
         'test_color' => $faker->hexcolor,
         'test_url' => $faker->url,
         'test_name' => $faker->firstName(),
