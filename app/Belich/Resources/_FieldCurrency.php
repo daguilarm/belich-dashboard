@@ -45,6 +45,8 @@ class _FieldCurrency extends Resources {
         return [
             ID::make('ID', 'id'),
             Currency::make('Currency', 'test_decimal')
+                ->setLocale('es_ES'),
+            Currency::make('Currency custom', 'test_decimal')
                 ->setLocale('es_ES')
                 ->format('%=*(#10.2n'),
         ];
