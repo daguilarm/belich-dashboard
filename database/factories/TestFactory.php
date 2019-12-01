@@ -27,7 +27,7 @@ $factory->define(App\Test::class, function ($faker) {
     $boolean = Arr::random([true, false]);
 
     return [
-        'test_password' => bcrypt('admin'),
+        'test_password' => bcrypt('12345678'),
         'test_string' => $faker->sentence($nbWords = 5, $variableNbWords = true),
         'test_language' => Arr::random(['php', 'python', 'c++', 'cobol', 'js']),
         'test_markdown' => $faker->markdown(),

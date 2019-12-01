@@ -84,7 +84,7 @@
             },
             "require": {
                 "matthiasmullie/minify": "dev-master",
-                "php": "^7.2",
+                "php": "^7.4",
                 "rap2hpoutre/fast-excel": "dev-master",
                 "spatie/laravel-blade-x": "^2.0.0"
             },
