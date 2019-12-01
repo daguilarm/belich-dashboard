@@ -14,6 +14,7 @@ class Test extends Model
     protected $fillable = [
         'id',
         'test_password',
+        'test_markdown',
         'test_string',
         'test_language',
         'test_color',
