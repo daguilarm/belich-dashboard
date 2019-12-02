@@ -5,6 +5,7 @@ namespace App\Belich\Resources;
 use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Markdown;
+use Daguilarm\Belich\Fields\Types\Text;
 use Illuminate\Http\Request;
 
 class _FieldMarkdownAction extends Resources {
@@ -46,10 +47,12 @@ class _FieldMarkdownAction extends Resources {
     public function fields(Request $request): array
     {
         return [
-            ID::make('ID'),
             // Testing markdown
             Markdown::make('Markdown text', 'test_markdown')
+                ->id('markdown-with-preview')
                 ->preview(),
+            // Testing markdown
+            Markdown::make('Markdown full-text', 'test_markdown'),
         ];
     }
 
