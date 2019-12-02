@@ -31,7 +31,8 @@ class _FieldMarkdown extends Resources {
      *
      * @return Illuminate\Database\Eloquent\Collection
      */
-    public function indexQuery() {
+    public function indexQuery()
+    {
         return $this->model();
     }
 
