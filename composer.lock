@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a619e19f5ddf94e626250d275a265e48",
+    "content-hash": "bb52adb59511af8feeece70d1a23d407",
     "packages": [
         {
             "name": "box/spout",
@@ -80,7 +80,7 @@
             "dist": {
                 "type": "path",
                 "url": "../../../../../../../../../.././Users/daguilarm/Sites/Packages/belich",
-                "reference": "631d1074bd58c5e3ba64b749c4171d0881a00ba3"
+                "reference": "7734ed8742455df8632c417aa6affc731c9e90f1"
             },
             "require": {
                 "matthiasmullie/minify": "dev-master",
