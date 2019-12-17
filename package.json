@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "browserslist": "^4.7.2",
-    "caniuse-lite": "^1.0.30001006"
+    "caniuse-lite": "^1.0.30001006",
+    "serialize-javascript": "^2.1.1"
   }
 }

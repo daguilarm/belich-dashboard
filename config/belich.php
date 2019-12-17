@@ -157,4 +157,16 @@ return [
     | Show the loading icon for ajax queries
     */
     'loading' => '<i class="fas fa-spinner fa-spin fa-10x text-blue-200"></i>',
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cards
+    |--------------------------------------------------------------------------
+    |
+    | Define the storage directory for cards. By default will create all the
+    | views for the Cards in the folder: /resources/views/vendor/belich/cards/
+    */
+    'cards' => [
+        'path' => resource_path('views/vendor/belich/cards'),
+    ],
 ];
