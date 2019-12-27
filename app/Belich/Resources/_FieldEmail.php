@@ -55,6 +55,7 @@ class _FieldEmail extends Resources {
             Email::make('Testing email multiple', 'test_email')
                 ->id('test_email_multiple')
                 ->dusk('dusk-test_email_multiple')
+                ->maxlength(100)
                 ->multiple(),
         ];
     }
