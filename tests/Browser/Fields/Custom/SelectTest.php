@@ -73,7 +73,11 @@ class SelectTest extends DuskTestCase
             $browser
                 ->visit('dashboard/' . $this->field . '/1/edit')
                 ->assertSelected('#testing_db', 1)
-                ->assertSelected('#testing_labels', 1);
+                ->assertSelected('#testing_labels', 1)
+                // FirstOptions
+                ->assertSelectHasOption('#testing_options', '')
+                ->assertSelectHasOption('#testing_default', 'No select')
+                ->assertSelectHasOption('#testing_db', 'default');
         });
     }
 }

@@ -58,6 +58,7 @@ class _FieldSelectAction extends Resources {
             //Testing options
             Select::make('Testing options', 'test_string')
                 ->id('testing_options')
+                ->firstOption()
                 ->options([
                     1 => 'Admin',
                     2 => 'Manager',
@@ -66,6 +67,7 @@ class _FieldSelectAction extends Resources {
             //Testing default value
             Select::make('Testing default value', 'test_string')
                 ->id('testing_default')
+                ->firstOption('No select')
                 ->options([
                     1 => 'Admin',
                     2 => 'Manager',
@@ -75,6 +77,7 @@ class _FieldSelectAction extends Resources {
             //Testing from DB
             Select::make('Testing DB', 'id')
                 ->id('testing_db')
+                ->firstOption('default', 0)
                 ->options($this->selectNames),
             //Testing display using labels
             Select::make('Role', 'id')
