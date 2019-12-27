@@ -41,8 +41,9 @@ class CurrencyTest extends DuskTestCase
                 ->loginAs($this->user)
                 // Index
                 ->visit('dashboard/' . $this->field)
-                ->assertSourceHas('20.655,74 EUR')
-                ->assertSourceHas('*******20.655,74 Eu');
+                ->assertSee('20.655,74 DKK')
+                ->assertSee('20.655,74 €')
+                ->assertSee('20.655,74 US$');
         });
     }
 }
