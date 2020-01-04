@@ -18,12 +18,14 @@ class LiveSearchTest extends DuskTestCase
 
     protected $field;
     protected $test;
+    protected $selector;
     protected $user;
 
     public function setUp(): void
     {
         parent::setUp();
 
+        $this->selector = 'table.index-table > tbody > tr:nth-child(1) > td:nth-child(2)';
         $this->user = factory(User::class)->create();
         $this->test = factory(Test::class)->create([
             'test_name' => 'damian antonio',
@@ -46,8 +48,8 @@ class LiveSearchTest extends DuskTestCase
                 ->loginAs($this->user)
                 ->visit('/dashboard/' . $this->field)
                 ->type('#search-797a976bf15400073ad793315d544002', 'damian antonio')
-                ->pause(400)
-                ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(2)', 'damian antonio');
+                ->pause(500)
+                ->assertSeeIn($this->selector, 'damian antonio');
 
             // Assert there is only one result
             $tableRows = count($browser->driver->findElements(WebDriverBy::cssSelector('table.index-table > tbody > tr')));

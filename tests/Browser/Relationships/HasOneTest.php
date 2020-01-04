@@ -58,8 +58,6 @@ class HasOneTest extends DuskTestCase
             ->assertSeeIn('@info-profile_avatar','Notice!!! This will create a new row in the database: profiles')
             // Edit
             ->visit('dashboard/' . $this->field . '/1/edit')
-            // Not see no editable field
-            ->assertMissing('#profile_no_editable')
             // Assert select populate
             ->assertSelectHasOptions('@profile_avatar', \App\Profile::pluck('profile_avatar')->all())
             // Assert custom populate
