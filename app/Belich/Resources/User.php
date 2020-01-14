@@ -42,20 +42,6 @@ class User extends Resources {
     /** @var array */
     public static  $search = ['id', 'name', 'email'];
 
-    /** @var array */
-    protected $selectNames;
-
-    /**
-     * Generate constructor for the resource
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //Getting data from storage to populate the field
-        $this->selectNames = \App\User::pluck('name', 'name')->toArray();
-    }
-
     /**
      * Build the query for the given resource.
      *
@@ -87,6 +73,9 @@ class User extends Resources {
                 ->sortable(),
             Text::make('Avatar', 'profile_avatar')
                 ->withRelationship('profile'),
+            Select::make('Role', 'role')
+                ->options(static::roles())
+                ->displayUsingLabels(),
             Password::make('Password', 'password')
                 ->creationRules('required', 'required_with:password_confirmation', 'confirmed', 'min:6')
                 ->updateRules('nullable', 'required_with:password_confirmation', 'same:password_confirmation', 'min:6')
@@ -121,6 +110,42 @@ class User extends Resources {
             new \App\Belich\Metrics\UsersPerMonth($request),
             new \App\Belich\Metrics\UsersPerDay($request),
             new \App\Belich\Metrics\UsersPerHour($request),
+        ];
+    }
+
+    /**
+     * Set the custom metrics cards
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return Illuminate\Support\Collection
+     */
+    public static function filters(Request $request): array
+    {
+        return [
+            Select::make('By Role', 'role')
+                ->options(static::roles()),
+            Select::make('By ID', 'id')
+                ->filter('operations')
+                ->options([
+                    '0-10' => '0-10',
+                    '11-30' => '11-30',
+                    '31-50' => '31-50',
+                    '>50' => '>50',
+                ]),
+        ];
+    }
+
+    /**
+     * Set the roles
+     *
+     * @return array
+     */
+    private static function roles(): array
+    {
+        return [
+            'user' => 'user',
+            'manager' => 'manager',
+            'admin' => 'admin'
         ];
     }
 }

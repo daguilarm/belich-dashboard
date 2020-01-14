@@ -4,18 +4,19 @@ namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
 use Daguilarm\Belich\Fields\Types\ID;
-use Daguilarm\Belich\Fields\Types\Password;
-use Daguilarm\Belich\Fields\Types\Relationships\HasOne;
+use Daguilarm\Belich\Fields\Types\Image;
+use Daguilarm\Belich\Fields\Types\Relationships\BelongsTo;
+use Daguilarm\Belich\Fields\Types\Select;
 use Daguilarm\Belich\Fields\Types\Text;
 use Illuminate\Http\Request;
 
-class _RelationshipHasOne extends Resources {
+class _RelationshipBelongsTo extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\User';
+    public static $model = '\App\Profile';
 
     /** @var array */
-    public static $relationships = ['profile'];
+    public static $relationships = ['user'];
 
     /** @var string */
     public static $group = 'Relationships';
@@ -24,13 +25,10 @@ class _RelationshipHasOne extends Resources {
     public static $icon = 'cogs';
 
     /** @var string */
-    public static $label = 'HasOne';
+    public static $label = 'BelongsTo';
 
     /** @var string */
-    public static $pluralLabel = 'HasOne (plural)';
-
-    // /** @var string */
-    public static $column = 'profile_address';
+    public static $pluralLabel = 'BelongsTo (plural)';
 
     /**
      * Build the query for the given resource.
@@ -39,8 +37,7 @@ class _RelationshipHasOne extends Resources {
      */
     public function indexQuery() {
         return $this->model();
-        // return $this->model()
-        //     ->whereId(request()->user()->id);
+            // ->whereId(request()->user()->id);
     }
 
     /**
@@ -53,28 +50,11 @@ class _RelationshipHasOne extends Resources {
     {
         return [
             ID::make('Id'),
-            Text::make('User', 'name')
+            Text::make('Address', 'profile_address')
                 ->rules('required'),
-            Text::make('Email', 'email')
-                ->rules('required', 'email'),
-            Password::make('Password', 'password')
-                ->rules('required'),
-            HasOne::make('Profile avatar', 'Profile', 'profile_avatar')
-                ->help('Helper test')
-                ->rules('required'),
-            HasOne::make('Profile address', 'Profile')
-                ->rules('required')
-                ->searchable()
-                ->query(function($query) {
-                    return $query
-                        ->where('user_id', '>', 10)
-                        ->pluck(static::$column, static::$column)
-                        ->toArray();
-                }),
-            HasOne::make('Profile no editable', 'Profile', 'profile_avatar')
-                ->id('profile-no-editable')
-                ->help('Helper test')
-                ->rules('required'),
+            BelongsTo::make('User', 'User', 'name'),
+            // BelongsTo::make('User', 'User', 'name')
+            //     ->searchable(),
         ];
     }
 

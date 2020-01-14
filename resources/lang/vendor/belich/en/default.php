@@ -3,6 +3,7 @@
 return [
     'all' => 'All',
     'format' => 'File format',
+    'filter' => 'Filter results',
     'items' => 'Select items',
     'none' => 'None',
     'perPage' => 'Results per page',

@@ -12,6 +12,7 @@ return [
     'base' => [
         'configure' => 'Configure',
         'download'  => 'Download',
+        'filter' => 'Filter',
         'logout'    => 'Logout',
     ],
     'crud' => [
