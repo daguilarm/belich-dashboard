@@ -3,6 +3,7 @@
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
+use Daguilarm\Belich\Fields\Types\Filter;
 use Daguilarm\Belich\Fields\Types\Hidden;
 use Daguilarm\Belich\Fields\Types\ID;
 use Daguilarm\Belich\Fields\Types\Password;
@@ -71,6 +72,7 @@ class User extends Resources {
                 ->autofocus()
                 ->rules('required', 'email', Rule::unique('users')->ignore($request->user()->id))
                 ->sortable(),
+            Text::make('Created', 'created_at'),
             Text::make('Avatar', 'profile_avatar')
                 ->withRelationship('profile'),
             Select::make('Role', 'role')
@@ -122,16 +124,28 @@ class User extends Resources {
     public static function filters(Request $request): array
     {
         return [
-            Select::make('By Role', 'role')
+            Filter::make('By Role', 'role')
+                ->filterAs('equal')
                 ->options(static::roles()),
-            Select::make('By ID', 'id')
-                ->filter('operations')
+            Filter::make('By ID', 'id')
+                ->filterAs('operations')
                 ->options([
-                    '0-10' => '0-10',
-                    '11-30' => '11-30',
-                    '31-50' => '31-50',
-                    '>50' => '>50',
+                    '0-10' => 'Between 0-10',
+                    '11-30' => 'Between 11-30',
+                    '31-50' => 'Between 31-50',
+                    '>50' => 'Greater than 50',
+                    '<15' => 'Minor than 15',
                 ]),
+            Filter::make('By Name', 'name')
+                ->filterAs('like')
+                ->options([
+                    'a%' => 'Start with a',
+                    'd%' => 'Start with d',
+                    'm%' => 'Start with m',
+                ]),
+            Filter::make('By Creation date', 'created_at')
+                ->filterAs('date')
+                ->format('m-d-Y'),
         ];
     }
 
@@ -143,9 +157,9 @@ class User extends Resources {
     private static function roles(): array
     {
         return [
-            'user' => 'user',
-            'manager' => 'manager',
-            'admin' => 'admin'
+            'user' => 'User',
+            'manager' => 'Manager',
+            'admin' => 'Admin'
         ];
     }
 }
