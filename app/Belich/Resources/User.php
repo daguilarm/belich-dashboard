@@ -145,7 +145,8 @@ class User extends Resources {
                 ]),
             Filter::make('By Creation date', 'created_at')
                 ->filterAs('date')
-                ->format('m-d-Y'),
+                ->format('d/m/Y')
+                ->mask('99/99/9999'),
         ];
     }
 
