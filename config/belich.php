@@ -33,7 +33,7 @@ return [
     */
     'navbar' => [
         'display' => 'top',
-        // 'defaultIcon' => 'caret-right',
+        // 'defaultIcon' => 'b-right',
     ],
 
     /*
