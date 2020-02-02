@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c19368d90d46fd5ea58a069799c9b54e",
+    "content-hash": "c52baeca4c41f1b463d38f856408dd72",
     "packages": [
         {
             "name": "box/spout",
@@ -77,15 +77,10 @@
         {
             "name": "daguilarm/belich",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/daguilarm/belich.git",
-                "reference": "71d7b26e4da00d4431585deda4ebc61176f93de6"
-            },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daguilarm/belich/zipball/71d7b26e4da00d4431585deda4ebc61176f93de6",
-                "reference": "71d7b26e4da00d4431585deda4ebc61176f93de6",
+                "url": "https://api.github.com/repos/daguilarm/belich/zipball/973af2ad16488c222087974ba4a0e41063a0af04",
+                "reference": "973af2ad16488c222087974ba4a0e41063a0af04",
                 "shasum": ""
             },
             "require": {
@@ -120,7 +115,9 @@
             "authors": [
                 {
                     "name": "daguilarm",
-                    "email": "damian.aguilarm@gmail.com"
+                    "email": "damian.aguilarm@gmail.com",
+                    "homepage": "https://daguilar.dev",
+                    "role": "Developer"
                 }
             ],
             "description": "Laravel admin dashboard",
@@ -131,7 +128,10 @@
                 "laravel",
                 "vuejs"
             ],
-            "time": "2020-02-02T14:55:50+00:00"
+            "transport-options": {
+                "symlink": true
+            },
+            "time": "2020-02-02T19:19:52+00:00"
         },
         {
             "name": "daguilarm/bicons",
@@ -186,6 +186,56 @@
                 "laravel"
             ],
             "time": "2020-02-02T14:33:00+00:00"
+        },
+        {
+            "name": "daguilarm/visual",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../../../../../../../../../.././Users/daguilarm/Sites/Packages/belich-visual",
+                "reference": "8a4194be0f4aa26aeae20e7843287717d5fd6447"
+            },
+            "require": {
+                "daguilarm/bicons": "v1.x-dev",
+                "php": "^7.4",
+                "spatie/laravel-blade-x": "^2.5"
+            },
+            "require-dev": {
+                "nunomaduro/phpinsights": "dev-master"
+            },
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Daguilarm\\Visual\\ServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Daguilarm\\Visual\\": "src/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Daguilarm\\Visual\\Tests\\": "tests/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "daguilarm",
+                    "email": "damian.aguilarm@gmail.com",
+                    "homepage": "https://daguilar.dev",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A visual interface for Belich Dashboard",
+            "transport-options": {
+                "symlink": true
+            }
         },
         {
             "name": "davidbadura/faker-markdown-generator",
@@ -6115,7 +6165,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "daguilarm/belich": 20
+        "daguilarm/belich": 20,
+        "daguilarm/visual": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

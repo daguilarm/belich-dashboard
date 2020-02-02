@@ -15,9 +15,7 @@
             "options": {
                 "symlink": true
             }
-        }
-    ],
-    "repositories": [
+        },
         {
             "name": "daguilarm/visual",
             "type": "path",
