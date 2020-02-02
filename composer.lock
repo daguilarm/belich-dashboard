@@ -78,10 +78,9 @@
             "name": "daguilarm/belich",
             "version": "dev-master",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/daguilarm/belich/zipball/973af2ad16488c222087974ba4a0e41063a0af04",
-                "reference": "973af2ad16488c222087974ba4a0e41063a0af04",
-                "shasum": ""
+                "type": "path",
+                "url": "../../../../../../../../../.././Users/daguilarm/Sites/Packages/belich",
+                "reference": "adb8808be78aee5ea98e385bd66ab739d59576ad"
             },
             "require": {
                 "daguilarm/bicons": "v1.x-dev",
@@ -108,7 +107,11 @@
                     "Daguilarm\\Belich\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Daguilarm\\Belich\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -130,8 +133,7 @@
             ],
             "transport-options": {
                 "symlink": true
-            },
-            "time": "2020-02-02T19:19:52+00:00"
+            }
         },
         {
             "name": "daguilarm/bicons",
