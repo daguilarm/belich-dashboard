@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -9,31 +11,31 @@ use Illuminate\Http\Request;
 class _FieldText extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var array */
-    public static $relationships = ['user'];
+    public static array $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Fields';
+    public static string $group = 'Fields';
 
     /** @var string */
-    public static $icon = 'vial';
+    public static string $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Text';
+    public static string $label = 'Field Text';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Text';
+    public static string $pluralLabel = 'Fields Text';
 
     /** @var string */
-    public static $tableTextAlign = 'center';
+    public static string $tableTextAlign = 'center';
 
     /** @var array */
-    public static  $search = ['test_name'];
+    public static array $search = ['test_name'];
 
     /** @var string */
-    public static  $downloable = true;
+    public static bool $downloable = true;
 
     /**
      * Build the query for the given resource.

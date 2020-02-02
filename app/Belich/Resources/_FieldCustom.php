@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -9,19 +11,19 @@ use \App\Belich\Components\MyField\MyField;
 class _FieldCustom extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var string */
-    public static $icon = 'vial';
+    public static string $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Custom field';
+    public static string $label = 'Custom field';
 
     /** @var string */
-    public static $pluralLabel = 'Custom fields';
+    public static string $pluralLabel = 'Custom fields';
 
     /** @var string */
-    public static $search = ['id', 'test_name'];
+    public static array $search = ['id', 'test_name'];
 
     /**
      * Build the query for the given resource.

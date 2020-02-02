@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -10,19 +12,19 @@ use Illuminate\Http\Request;
 class _FieldCurrency extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var string */
-    public static $group = 'Fields';
+    public static string $group = 'Fields';
 
     /** @var string */
-    public static $icon = 'vial';
+    public static string $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Currency';
+    public static string $label = 'Field Currency';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Currency';
+    public static string $pluralLabel = 'Fields Currency';
 
     /**
      * Build the query for the given resource.

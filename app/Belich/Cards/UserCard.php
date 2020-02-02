@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Cards;
 
 use Daguilarm\Belich\Components\Cards\Card;
@@ -7,16 +9,8 @@ use Illuminate\Http\Request;
 
 class UserCard extends Card {
 
-    /**
-     * @var string
-     */
-    public $width = 'w-full';
+    public string $width = 'w-full';
 
-    /**
-     * Initialize the card
-     *
-     * @return string
-     */
     public function __construct(Request $request)
     {
         parent::__construct();
@@ -24,8 +18,6 @@ class UserCard extends Card {
 
     /**
      * Return the view
-     *
-     * @return string
      */
     public function view() : string
     {
@@ -34,8 +26,6 @@ class UserCard extends Card {
 
     /**
      * Return the view data
-     *
-     * @return string
      */
     public function withMeta() : array
     {
@@ -46,8 +36,6 @@ class UserCard extends Card {
 
     /**
      * Get the URI key for the card
-     *
-     * @return string
      */
     public function uriKey() : string
     {

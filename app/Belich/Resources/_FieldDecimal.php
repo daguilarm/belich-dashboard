@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -9,22 +11,22 @@ use Illuminate\Http\Request;
 class _FieldDecimal extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var array */
-    public static $relationships = ['user'];
+    public static array $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Fields';
+    public static string $group = 'Fields';
 
     /** @var string */
-    public static $icon = 'vial';
+    public static string $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Decimal';
+    public static string $label = 'Field Decimal';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Decimal';
+    public static string $pluralLabel = 'Fields Decimal';
 
     /**
      * Build the query for the given resource.

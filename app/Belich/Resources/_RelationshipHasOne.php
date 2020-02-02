@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -12,25 +14,25 @@ use Illuminate\Http\Request;
 class _RelationshipHasOne extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\User';
+    public static string $model = '\App\User';
 
     /** @var array */
-    public static $relationships = ['profile'];
+    public static array $relationships = ['profile'];
 
     /** @var string */
-    public static $group = 'Relationships';
+    public static string $group = 'Relationships';
 
     /** @var string */
-    public static $icon = 'cogs';
+    public static string $icon = 'cogs';
 
     /** @var string */
-    public static $label = 'HasOne';
+    public static string $label = 'HasOne';
 
     /** @var string */
-    public static $pluralLabel = 'HasOne (plural)';
+    public static string $pluralLabel = 'HasOne (plural)';
 
     // /** @var string */
-    public static $column = 'profile_address';
+    public static string $column = 'profile_address';
 
     /**
      * Build the query for the given resource.
@@ -71,10 +73,6 @@ class _RelationshipHasOne extends Resources {
                         ->pluck(static::$column, static::$column)
                         ->toArray();
                 }),
-            HasOne::make('Profile no editable', 'Profile', 'profile_avatar')
-                ->id('profile-no-editable')
-                ->help('Helper test')
-                ->rules('required'),
         ];
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Browser\IndexTable;
+namespace Tests\Browser;
 
 use App\Test;
 use App\User;

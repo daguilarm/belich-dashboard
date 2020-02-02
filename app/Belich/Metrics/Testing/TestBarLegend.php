@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Metrics\Testing;
 
 use App\User;
@@ -11,19 +13,19 @@ use Illuminate\Http\Request;
 class TestBarLegend extends Graph {
 
     /** @var string */
-    public $color  = 'blue';
+    public string $color  = 'blue';
 
     /** @var string */
-    public $legend_h = 'Legend x';
+    public string $legend_h = 'Legend x';
 
     /** @var string */
-    public $legend_v = 'legend y';
+    public string $legend_v = 'legend y';
 
     /** @var string */
-    public $type = 'bars';
+    public string $type = 'bars';
 
     /** @var string */
-    public $width = 'w-2/3';
+    public string $width = 'w-2/3';
 
     /**
      * Initialize the metric

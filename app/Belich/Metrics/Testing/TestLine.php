@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Metrics\Testing;
 
 use App\User;
@@ -11,25 +13,25 @@ use Illuminate\Http\Request;
 class TestLine extends Graph {
 
     /** @var string */
-    public $color  = 'red';
+    public string $color  = 'red';
 
     /** @var string */
-    public $legend_h = 'Legend x';
+    public string $legend_h = 'Legend x';
 
     /** @var string */
-    public $legend_v = 'legend y';
+    public string $legend_v = 'legend y';
 
     /** @var string */
-    public $type = 'line';
+    public string $type = 'line';
 
     /** @var string */
-    public $width = 'w-1/3';
+    public string $width = 'w-1/3';
 
     /** @var bool */
-    public $withArea = true;
+    public bool $withArea = true;
 
     /** @var string ['butt', 'square', 'round'] */
-    public $marker = 'round';
+    public string $marker = 'round';
 
     /**
      * Initialize the metric

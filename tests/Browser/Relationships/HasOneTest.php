@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Browser\Fields\Relationship;
+namespace Tests\Browser\Relationship;
 
 use App\Test;
 use App\User;
@@ -30,9 +30,9 @@ class HasOneTest extends DuskTestCase
     /**
      * Test relationship hasOne
      *
-     * dusk --filter test_relationship_hasOne
+     * dusk --filter test_relationship_hasOne_rel
      */
-    public function test_relationship_hasOne()
+    public function test_relationship_hasOne_rel()
     {
         $this->browse(function (Browser $browser) {
             $browser
@@ -51,15 +51,13 @@ class HasOneTest extends DuskTestCase
                 ->assertSourceHas('<a href="/dashboard/profiles/' . $this->user->profile->id . '" class="show-link"> ' . $this->user->profile->profile_address . '</a>')
             // Create
             ->visit('dashboard/' . $this->field . '/create')
-            // Not see no editable field
-            ->assertMissing('#profile_no_editable')
             // Assert see info
             ->assertSeeIn('@info-profile_address','Notice!!! This will create a new row in the database: profiles')
             ->assertSeeIn('@info-profile_avatar','Notice!!! This will create a new row in the database: profiles')
             // Edit
             ->visit('dashboard/' . $this->field . '/1/edit')
             // Assert select populate
-            ->assertSelectHasOptions('@profile_avatar', \App\Profile::pluck('profile_avatar')->all())
+            ->assertSelectHasOptions('@profile_avatar', \App\Profile::pluck('id')->all())
             // Assert custom populate
             ->assertSelectHasOptions('@datalist-info-profile_address', \App\Profile::where('user_id', '>', 10)->pluck('profile_address')->all());
         });
@@ -80,7 +78,7 @@ class HasOneTest extends DuskTestCase
                 ->type('@dusk-name', 'Damian Aguilar')
                 ->type('@dusk-email', 'damian.aguilarm@gmail.com')
                 ->type('@dusk-password', '12345678')
-                ->type('@profile_avatar', 'http://www.my-image.com/?1002')
+                ->type('@profile_avatar', 'https://www.my-image.com/?1002')
                 ->type('@profile_address', 'C/ Gran Via 42')
                 ->press('@button-action-create')
                 ->waitForText('The resource has been successfully created');
@@ -93,7 +91,7 @@ class HasOneTest extends DuskTestCase
 
             $this->assertDatabaseHas('profiles', [
                     'user_id' => 2,
-                    'profile_avatar' => 'http://www.my-image.com/?1002',
+                    'profile_avatar' => 'https://www.my-image.com/?1002',
                     'profile_address' => 'C/ Gran Via 42',
                 ]);
         });

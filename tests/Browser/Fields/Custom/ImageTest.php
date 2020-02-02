@@ -44,7 +44,7 @@ class ImageTest extends DuskTestCase
                 // Render image
                 ->assertSourceHas('<img src="' . $this->test->test_file . '" class="block h-10 rounded-full shadow-md">')
                 // Download image
-                ->assertSourceHas('<a href="' . $this->test->test_file . '" target="_blank" dusk="downloable-file"><i class="fas fa-download icon"></i></a>')
+                ->assertSourceHas('<a href="' . $this->test->test_file . '" target="_blank" dusk="downloable-file"><i class="fas fa-download "></i></a>')
                 // No render, just url link
                 ->assertSeeIn('table.index-table > tbody > tr:nth-child(1) > td:nth-child(3)', $this->test->test_file);
         });

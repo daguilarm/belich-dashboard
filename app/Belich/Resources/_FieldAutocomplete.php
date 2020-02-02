@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -9,34 +11,30 @@ use Illuminate\Http\Request;
 class _FieldAutocomplete extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var array */
-    public static $relationships = ['user'];
+    public static array $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Fields';
+    public static string $group = 'Fields';
 
     /** @var string */
-    public static $label = 'Field Autocomplete';
+    public static string $label = 'Field Autocomplete';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Autocomplete';
+    public static string $pluralLabel = 'Fields Autocomplete';
 
     /**
      * Build the query for the given resource.
-     *
-     * @return Illuminate\Database\Eloquent\Collection
      */
-    public function indexQuery() {
+    public function indexQuery()
+    {
         return $this->model();
     }
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public function fields(Request $request): array
     {
@@ -111,9 +109,6 @@ class _FieldAutocomplete extends Resources {
 
     /**
      * Set the custom metric cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function metrics(Request $request): array
     {
@@ -122,9 +117,6 @@ class _FieldAutocomplete extends Resources {
 
     /**
      * Set the custom cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function cards(Request $request): array
     {

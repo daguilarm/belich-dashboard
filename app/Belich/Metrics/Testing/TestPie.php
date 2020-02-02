@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Metrics\Testing;
 
 use App\User;
@@ -11,22 +13,22 @@ use Illuminate\Http\Request;
 class TestPie extends Graph {
 
     /** @var string */
-    public $color = 'orange';
+    public string $color = 'orange';
 
     /** @var bool */
-    public $type = 'pie';
+    public string $type = 'pie';
 
     /** @var string */
-    public $legend_h = 'Users';
+    public string $legend_h = 'Users';
 
     /** @var string */
-    public $legend_v = 'Days';
+    public string $legend_v = 'Days';
 
     /** @var string */
-    public $width = 'w-1/3';
+    public string $width = 'w-1/3';
 
     /** @var bool */
-    public $withArea = true;
+    public bool $withArea = true;
 
     /**
      * Initialize the metric

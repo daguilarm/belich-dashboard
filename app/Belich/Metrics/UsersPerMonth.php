@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Metrics;
 
 use App\User;
@@ -10,29 +12,13 @@ use Illuminate\Http\Request;
 
 class UsersPerMonth extends Graph {
 
-    /** @var string */
-    public $color = 'orange';
+    public string $color = 'orange';
+    public string $type = 'pie';
+    public string $legend_h = 'Users';
+    public string $legend_v = 'Days';
+    public string $width = 'w-1/3';
+    public bool $withArea = true;
 
-    /** @var bool */
-    public $type = 'pie';
-
-    /** @var string */
-    public $legend_h = 'Users';
-
-    /** @var string */
-    public $legend_v = 'Days';
-
-    /** @var string */
-    public $width = 'w-1/3';
-
-    /** @var bool */
-    public $withArea = true;
-
-    /**
-     * Initialize the metric
-     *
-     * @return string
-     */
     public function __construct(Request $request)
     {
         parent::__construct($request);
@@ -40,8 +26,6 @@ class UsersPerMonth extends Graph {
 
     /**
      * Set the displayable name of the metric.
-     *
-     * @return string
      */
     public function name(Request $request)
     {
@@ -50,8 +34,6 @@ class UsersPerMonth extends Graph {
 
     /**
      * Set the displayable labels
-     *
-     * @return string
      */
     public function labels(Request $request) : array
     {
@@ -60,8 +42,6 @@ class UsersPerMonth extends Graph {
 
     /**
      * Get the values from storage
-     *
-     * @return string
      */
     public function calculate(Request $request) : array
     {
@@ -73,8 +53,6 @@ class UsersPerMonth extends Graph {
 
     /**
      * Get the URI key for the metric.
-     *
-     * @return string
      */
     public function uriKey() : string
     {

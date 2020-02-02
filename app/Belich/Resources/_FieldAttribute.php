@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -11,43 +13,39 @@ use Illuminate\Http\Request;
 class _FieldAttribute extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var array */
-    public static $relationships = ['user'];
+    public static array $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Fields';
+    public static string $group = 'Fields';
 
     /** @var string */
-    public static $icon = 'vial';
+    public static string $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Attributes';
+    public static string $label = 'Field Attributes';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Attributes';
+    public static string $pluralLabel = 'Fields Attributes';
 
     /** @var string */
-    public static $tableTextAlign = 'center';
+    public static string $tableTextAlign = 'center';
 
     /** @var array */
-    public static  $search = ['test_name'];
+    public static  array $search = ['test_name'];
 
     /**
      * Build the query for the given resource.
-     *
-     * @return Illuminate\Database\Eloquent\Collection
      */
-    public function indexQuery() {
+    public function indexQuery()
+    {
         return $this->model();
     }
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public function fields(Request $request): array
     {
@@ -73,9 +71,6 @@ class _FieldAttribute extends Resources {
 
     /**
      * Set the custom metric cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function metrics(Request $request): array
     {
@@ -84,9 +79,6 @@ class _FieldAttribute extends Resources {
 
     /**
      * Set the custom cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function cards(Request $request): array
     {

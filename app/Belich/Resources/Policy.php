@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -12,34 +14,30 @@ use Illuminate\Http\Request;
 class Policy extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Profile';
+    public static string $model = '\App\Profile';
 
     /** @var string */
-    public static $group = 'System';
+    public static string $group = 'System';
 
     /** @var string */
-    public static $icon = 'cogs';
+    public static string $icon = 'cogs';
 
     /** @var string */
-    public static $label = 'Policy';
+    public static string $label = 'Policy';
 
     /** @var string */
-    public static $pluralLabel = 'Policies';
+    public static string $pluralLabel = 'Policies';
 
     /**
      * Build the query for the given resource.
-     *
-     * @return Illuminate\Database\Eloquent\Collection
      */
-    public function indexQuery() {
+    public function indexQuery()
+    {
         return $this->model();
     }
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public function fields(Request $request): array
     {
@@ -58,9 +56,6 @@ class Policy extends Resources {
 
     /**
      * Set the custom metric cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function metrics(Request $request): array
     {
@@ -69,9 +64,6 @@ class Policy extends Resources {
 
     /**
      * Set the custom cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function cards(Request $request): array
     {

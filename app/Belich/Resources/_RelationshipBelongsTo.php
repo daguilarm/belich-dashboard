@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -13,22 +15,22 @@ use Illuminate\Http\Request;
 class _RelationshipBelongsTo extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Profile';
+    public static string $model = '\App\Profile';
 
     /** @var array */
-    public static $relationships = ['user'];
+    public static array $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Relationships';
+    public static string $group = 'Relationships';
 
     /** @var string */
-    public static $icon = 'cogs';
+    public static string $icon = 'cogs';
 
     /** @var string */
-    public static $label = 'BelongsTo';
+    public static string $label = 'BelongsTo';
 
     /** @var string */
-    public static $pluralLabel = 'BelongsTo (plural)';
+    public static string $pluralLabel = 'BelongsTo (plural)';
 
     /**
      * Build the query for the given resource.

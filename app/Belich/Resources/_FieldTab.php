@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -13,25 +15,25 @@ use Illuminate\Http\Request;
 class _FieldTab extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var array */
-    public static $relationships = ['user'];
+    public static array $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Components';
+    public static string $group = 'Components';
 
     /** @var string */
-    public static $icon = 'vial';
+    public static string $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Tab';
+    public static string $label = 'Tab';
 
     /** @var string */
-    public static $pluralLabel = 'Tabs';
+    public static string $pluralLabel = 'Tabs';
 
     /** @var bool */
-    public static $tabs = true;
+    public static bool $tabs = true;
 
     /**
      * Build the query for the given resource.

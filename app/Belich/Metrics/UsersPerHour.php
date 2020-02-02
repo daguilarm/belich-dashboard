@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Metrics;
 
 use App\User;
@@ -10,31 +12,16 @@ use Illuminate\Http\Request;
 
 class UsersPerHour extends Graph {
 
-    /** @var string */
-    public $color  = 'red';
-
-    /** @var string */
-    public $grid  = false;
-
-    /** @var string */
-    public $legend_h = 'Users';
-
-    /** @var string */
-    public $legend_v = 'Hours';
-
-    /** @var string */
-    public $type = 'bars';
-
-    /** @var string */
-    public $width = 'w-1/3';
-
-    /** @var bool */
-    public $withArea = true;
+    public string $color  = 'red';
+    public bool $grid  = false;
+    public string $legend_h = 'Users';
+    public string $legend_v = 'Hours';
+    public string $type = 'bars';
+    public string $width = 'w-1/3';
+    public bool $withArea = true;
 
     /**
      * Initialize the metric
-     *
-     * @return string
      */
     public function __construct(Request $request)
     {
@@ -43,8 +30,6 @@ class UsersPerHour extends Graph {
 
     /**
      * Set the displayable name of the metric.
-     *
-     * @return string
      */
     public function name(Request $request)
     {
@@ -53,8 +38,6 @@ class UsersPerHour extends Graph {
 
     /**
      * Set the displayable labels
-     *
-     * @return string
      */
     public function labels(Request $request) : array
     {
@@ -63,8 +46,6 @@ class UsersPerHour extends Graph {
 
     /**
      * Get the values from storage
-     *
-     * @return string
      */
     public function calculate(Request $request) : array
     {
@@ -76,8 +57,6 @@ class UsersPerHour extends Graph {
 
     /**
      * Get the URI key for the metric.
-     *
-     * @return string
      */
     public function uriKey() : string
     {

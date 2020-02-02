@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -17,46 +19,44 @@ use Illuminate\Validation\Rule;
 class User extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\User';
+    public static string $model = '\App\User';
 
     /** @var array */
-    public static $relationships = ['profile'];
+    public static array $relationships = ['profile'];
 
     /** @var bool */
-    public static $displayInNavigation = true;
+    public static bool $displayInNavigation = true;
 
     /** @var string */
-    public static $group = 'Personal';
+    public static string $group = 'Personal';
 
     /** @var string */
-    public static $icon = 'user-friends';
+    public static string $icon = 'user-friends';
 
     /** @var string */
-    public static $label = 'User';
+    public static string $label = 'User';
 
     /** @var string */
-    public static $pluralLabel = 'Users';
+    public static string $pluralLabel = 'Users';
 
     /** @var bool */
-    public static $downloable = true;
+    public static bool $downloable = true;
 
     /** @var array */
-    public static  $search = ['id', 'name', 'email'];
+    public static array $search = ['id', 'name', 'email'];
 
     /**
      * Build the query for the given resource.
      *
      * @return Illuminate\Database\Eloquent\Collection
      */
-    public function indexQuery() {
+    public function indexQuery()
+    {
         return $this->model();
     }
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public function fields(Request $request): array
     {
@@ -89,9 +89,6 @@ class User extends Resources {
 
     /**
      * Set the custom cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function cards(Request $request): array
     {
@@ -102,9 +99,6 @@ class User extends Resources {
 
     /**
      * Set the custom metrics cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function metrics(Request $request): array
     {
@@ -117,9 +111,6 @@ class User extends Resources {
 
     /**
      * Set the custom metrics cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function filters(Request $request): array
     {
@@ -152,8 +143,6 @@ class User extends Resources {
 
     /**
      * Set the roles
-     *
-     * @return array
      */
     private static function roles(): array
     {

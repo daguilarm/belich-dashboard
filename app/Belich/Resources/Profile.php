@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -11,39 +13,35 @@ use Illuminate\Http\Request;
 
 class Profile extends Resources {
 
-    /** @var string [Model path] */
-    public static $model = '\App\Profile';
+    /** @var string */
+    public static string $model = '\App\Profile';
 
     /** @var array */
-    public static $relationships = ['user'];
+    public static array $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Personal';
+    public static string $group = 'Personal';
 
     /** @var string */
-    public static $icon = 'cogs';
+    public static string $icon = 'cogs';
 
     /** @var string */
-    public static $label = 'Profile';
+    public static string $label = 'Profile';
 
     /** @var string */
-    public static $pluralLabel = 'Profiles';
+    public static string $pluralLabel = 'Profiles';
 
     /**
      * Build the query for the given resource.
-     *
-     * @return Illuminate\Database\Eloquent\Collection
      */
-    public function indexQuery() {
+    public function indexQuery()
+    {
         return $this->model();
             // ->whereId(request()->user()->id);
     }
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public function fields(Request $request): array
     {
@@ -62,9 +60,6 @@ class Profile extends Resources {
 
     /**
      * Set the custom metric cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function metrics(Request $request): array
     {
@@ -73,9 +68,6 @@ class Profile extends Resources {
 
     /**
      * Set the custom cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function cards(Request $request): array
     {

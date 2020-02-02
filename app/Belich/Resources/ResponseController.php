@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -12,39 +14,35 @@ use Illuminate\Http\Request;
 class responseController extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var string */
-    public static $group = 'System';
+    public static string $group = 'System';
 
     /** @var string */
-    public static $icon = 'cogs';
+    public static string $icon = 'cogs';
 
     /** @var string */
-    public static $label = 'Response Controller';
+    public static string $label = 'Response Controller';
 
     /** @var string */
-    public static $pluralLabel = 'Response Controllers';
+    public static string $pluralLabel = 'Response Controllers';
 
     /**
      * @var string
      */
-    public static $controllerAction = '\App\Http\Controllers\TestController';
+    public static string $controllerAction = '\App\Http\Controllers\TestController';
 
     /**
      * Build the query for the given resource.
-     *
-     * @return Illuminate\Database\Eloquent\Collection
      */
-    public function indexQuery() {
+    public function indexQuery()
+    {
         return $this->model();
     }
 
     /**
      * Get the fields displayed by the resource.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public function fields(Request $request): array
     {
@@ -63,9 +61,6 @@ class responseController extends Resources {
 
     /**
      * Set the custom metric cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function metrics(Request $request): array
     {
@@ -74,9 +69,6 @@ class responseController extends Resources {
 
     /**
      * Set the custom cards
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return Illuminate\Support\Collection
      */
     public static function cards(Request $request): array
     {

@@ -17,6 +17,16 @@
             }
         }
     ],
+    "repositories": [
+        {
+            "name": "daguilarm/visual",
+            "type": "path",
+            "url": "../../../../../../../../../.././Users/daguilarm/Sites/Packages/belich-visual",
+            "options": {
+                "symlink": true
+            }
+        }
+    ],
     "require": {
         "php": "^7.2",
         "daguilarm/belich": "dev-master",

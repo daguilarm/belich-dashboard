@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -9,19 +11,19 @@ use Illuminate\Http\Request;
 class _FieldCountryAction extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var string */
-    public static $group = 'Action Fields';
+    public static string $group = 'Action Fields';
 
     /** @var string */
-    public static $icon = 'vial';
+    public static string $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Country: action';
+    public static string $label = 'Field Country: action';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Country: actions';
+    public static string $pluralLabel = 'Fields Country: actions';
 
     /**
      * Build the query for the given resource.

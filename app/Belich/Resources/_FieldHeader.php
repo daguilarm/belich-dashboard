@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -14,22 +16,22 @@ use Illuminate\Http\Request;
 class _FieldHeader extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var array */
-    public static $relationships = ['user'];
+    public static array $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Fields';
+    public static string $group = 'Fields';
 
     /** @var string */
-    public static $icon = 'vial';
+    public static string $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Header';
+    public static string $label = 'Field Header';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Header';
+    public static string $pluralLabel = 'Fields Header';
 
     /**
      * Build the query for the given resource.
@@ -56,7 +58,7 @@ class _FieldHeader extends Resources {
             Select::make('Age', 'test_name')
                 ->options([]),
             Text::make('Last name', 'test_lastname'),
-            Header::make('<h1 class="bg-gray-800 text-white p-5">' . Helper::icon('envelope-open-text') . ' Header 2</h1>')
+            Header::make('<h1 class="bg-gray-800 text-white p-5">' . Helper::icon('envelope-open-text', '', 'icon') . ' Header 2</h1>')
                 ->asHtml(),
             Text::make('Email', 'test_email'),
             Header::make('Header 3')

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -9,22 +11,22 @@ use Illuminate\Http\Request;
 class _FieldTime extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\Test';
+    public static string $model = '\App\Test';
 
     /** @var array */
-    public static $relationships = ['user'];
+    public static array $relationships = ['user'];
 
     /** @var string */
-    public static $group = 'Fields';
+    public static string $group = 'Fields';
 
     /** @var string */
-    public static $icon = 'vial';
+    public static string $icon = 'vial';
 
     /** @var string */
-    public static $label = 'Field Time';
+    public static string $label = 'Field Time';
 
     /** @var string */
-    public static $pluralLabel = 'Fields Time';
+    public static string $pluralLabel = 'Fields Time';
 
     /**
      * Build the query for the given resource.

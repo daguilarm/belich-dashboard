@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Belich\Resources;
 
 use Daguilarm\Belich\Core\Resources;
@@ -16,25 +18,25 @@ use Illuminate\Validation\Rule;
 class _Graph extends Resources {
 
     /** @var string [Model path] */
-    public static $model = '\App\User';
+    public static string $model = '\App\User';
 
     /** @var bool */
-    public static $displayInNavigation = true;
+    public static bool $displayInNavigation = true;
 
     /** @var string */
-    public static $group = 'Metrics';
+    public static string $group = 'Metrics';
 
     /** @var string */
-    public static $icon = 'user-friends';
+    public static string $icon = 'user-friends';
 
     /** @var string */
-    public static $label = 'Graph';
+    public static string $label = 'Graph';
 
     /** @var string */
-    public static $pluralLabel = 'Graphs';
+    public static string $pluralLabel = 'Graphs';
 
     /** @var array */
-    public static  $search = ['id', 'name', 'email'];
+    public static array $search = ['id', 'name', 'email'];
 
     /**
      * Build the query for the given resource.
