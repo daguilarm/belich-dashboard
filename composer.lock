@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "53bea68eb210d9655a3f98142805a0d5",
+    "content-hash": "c19368d90d46fd5ea58a069799c9b54e",
     "packages": [
         {
             "name": "box/spout",
@@ -77,10 +77,16 @@
         {
             "name": "daguilarm/belich",
             "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/daguilarm/belich.git",
+                "reference": "71d7b26e4da00d4431585deda4ebc61176f93de6"
+            },
             "dist": {
-                "type": "path",
-                "url": "../../../../../../../../../.././Users/daguilarm/Sites/Packages/belich",
-                "reference": "766fc9fbd6a06fe1c740687ee50a75304363588d"
+                "type": "zip",
+                "url": "https://api.github.com/repos/daguilarm/belich/zipball/71d7b26e4da00d4431585deda4ebc61176f93de6",
+                "reference": "71d7b26e4da00d4431585deda4ebc61176f93de6",
+                "shasum": ""
             },
             "require": {
                 "daguilarm/bicons": "v1.x-dev",
@@ -107,11 +113,7 @@
                     "Daguilarm\\Belich\\": "src/"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Daguilarm\\Belich\\Tests\\": "tests/"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -129,9 +131,7 @@
                 "laravel",
                 "vuejs"
             ],
-            "transport-options": {
-                "symlink": true
-            }
+            "time": "2020-02-02T14:55:50+00:00"
         },
         {
             "name": "daguilarm/bicons",
@@ -139,12 +139,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/daguilarm/bicons.git",
-                "reference": "78a6781f63c6ce3b3223589dd871d5f254bc49a4"
+                "reference": "119326202597e9cf50a0c67dad2cc7251864403c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/daguilarm/bicons/zipball/78a6781f63c6ce3b3223589dd871d5f254bc49a4",
-                "reference": "78a6781f63c6ce3b3223589dd871d5f254bc49a4",
+                "url": "https://api.github.com/repos/daguilarm/bicons/zipball/119326202597e9cf50a0c67dad2cc7251864403c",
+                "reference": "119326202597e9cf50a0c67dad2cc7251864403c",
                 "shasum": ""
             },
             "require": {
@@ -185,7 +185,7 @@
                 "icons",
                 "laravel"
             ],
-            "time": "2020-02-01T17:16:03+00:00"
+            "time": "2020-02-02T14:33:00+00:00"
         },
         {
             "name": "davidbadura/faker-markdown-generator",
